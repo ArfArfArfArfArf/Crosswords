@@ -655,15 +655,46 @@ export default class Puzzle extends React.Component {
 	</div>
     );
   }
+
+  renderGridClues(acrossNumber, downNumber) {
+    const { acrossNumbers, acrossClues, downNumbers, downClues } = this.state;
+    let acrossIndex = 0, downIndex = 0;
+    let i;
+
+    for (i = 0; i < acrossNumbers.length; i++) {
+      if (acrossNumbers[i] === acrossNumber) {
+	acrossIndex = i;
+	break;
+      }
+    }
+
+    for (i = 0; i < downNumbers.length; i++) {
+      if (downNumbers[i] === downNumber) {
+	downIndex = i;
+	break;
+      }
+    }
+    
+    return(
+	<div className="GridClues">
+	<span className="GridClueNumber">{acrossNumber}A. </span><span className="GridClue">{acrossClues[acrossIndex]}</span><br />
+	<span className="GridClueNumber">{downNumber}D. </span><span className="GridClue">{downClues[downIndex]}</span>
+	</div>
+    );
+  }
   
   renderBody() {
     if (this.state.showPrefs) {
       console.log(this.state.preferences);
       return <Preferences setPreferences={this.setPreferences} {...this.state.preferences} />
     } else {
+      const acrossNumber = this.findSelectedClue(direction.ACROSS);
+      const downNumber = this.findSelectedClue(direction.DOWN);
+      
       return (
 	  <div className="PuzzleBody">
             <div className="Grid">
+	      {this.renderGridClues(acrossNumber, downNumber)}
               <PuzzleGrid
                 selectedX={this.state.selectedX}
                 selectedY={this.state.selectedY}
@@ -685,7 +716,7 @@ export default class Puzzle extends React.Component {
               clueDirection={direction.ACROSS}
               clueNumbers={this.state.acrossNumbers}
               clues={this.state.acrossClues}
-              selectedClue={this.findSelectedClue(direction.ACROSS)}
+              selectedClue={acrossNumber}
               primary={this.state.gridDirection === direction.ACROSS}
               onClueClicked={this.onClueClicked}
               gridHeight={this.state.gridHeight}
@@ -696,7 +727,7 @@ export default class Puzzle extends React.Component {
               clueDirection={direction.DOWN}
               clueNumbers={this.state.downNumbers}
               clues={this.state.downClues}
-              selectedClue={this.findSelectedClue(direction.DOWN)}
+              selectedClue={downNumber}
               primary={this.state.gridDirection === direction.DOWN}
               onClueClicked={this.onClueClicked}
               gridHeight={this.state.gridHeight}
