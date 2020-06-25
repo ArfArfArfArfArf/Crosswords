@@ -1,0 +1,6 @@
+{
+  puzzle: {
+    gridHeight: 15,
+    gridWidth: 15,
+    gridSolution: {
+      

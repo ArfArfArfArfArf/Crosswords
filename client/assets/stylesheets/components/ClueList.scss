@@ -1,0 +1,40 @@
+.ClueList {
+  margin: .5rem;
+  cursor: pointer;
+
+  .ClueListTitle {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .Clues {
+    border: 1px solid black;
+    padding: .5rem .5rem 1rem .5rem;
+    width: 15rem;
+  }
+  
+  .nobullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .primary {
+    background-color: lightblue;
+  }
+
+  .selected {
+    background-color: #add8e6;
+  }
+
+  .obscured {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+}

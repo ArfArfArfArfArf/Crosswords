@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.Puzzle {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.Header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 800px;
+  height: 130px;
+  border-bottom: 2px solid black;
+  margin: 10px;
+}
+
+.Clue {
+}
+
+.Actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  padding: 5px;
+}
+
+.Actions select {
+  margin: 5px;
+}
+
+.Actions button {
+  margin: 5px;
+}
+
+.CellOptions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  border-left: 1px solid black;
+}
+
+
+.Grid {
+  position: relative;
+  margin: 5px;
+}
+
+.GridRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.GridCell {
+  text-transform: uppercase;
+  border: 1px solid black;
+  font-size: 1.5rem;
+  text-shadow: 0px 0px 1px #fff;
+  width: 2rem;
+  height: 2rem;
+  display: inline-grid;
+  grid-template-columns: .5rem 1.5rem;
+  grid-template-rows: .4rem 1.6rem;
+}
+
+.circled {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.clueNumber {
+  position: relative;
+  font-size: .5rem;
+  text-align: left;
+  vertical-align: top;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.clueValue {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.nobullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ClueList {
+  margin: .5rem;
+}
+
+.ClueListTitle {
+  font-weight: bold;
+}
+
+.highlighted {
+  background-color: lightgrey;
+}
+
+.primary {
+  background-color: lightblue;
+}
+
+.selected {
+  background-color: #add8e6;
+}
+
+
+.black {
+  background: black;
+  color: black;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  margin-top: 1rem;
+  border-top: .625rem solid #58b647;
+  border-right: .625rem solid rgba(136, 136, 136, 0.2);
+  border-bottom: .625rem solid rgba(136, 136, 136, 0.2);
+  border-left: .625rem solid rgba(136, 136, 136, 0.2);
+  animation: spinner 0.9s linear infinite;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+}
+.loading-text {
+  margin-top: 1rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 130%;
+  color: #888;
+}

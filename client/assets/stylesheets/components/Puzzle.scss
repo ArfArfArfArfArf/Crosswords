@@ -1,0 +1,49 @@
+.Puzzle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .PuzzleHeader {
+    display: flex;
+    flex-direction: row;
+
+    .PreferencesIcon {
+
+    }
+  }
+
+  .PuzzleBody {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  margin-top: 1rem;
+  border-top: .625rem solid #58b647;
+  border-right: .625rem solid rgba(136, 136, 136, 0.2);
+  border-bottom: .625rem solid rgba(136, 136, 136, 0.2);
+  border-left: .625rem solid rgba(136, 136, 136, 0.2);
+  animation: spinner 0.9s linear infinite;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+}
+
+.loading-text {
+  margin-top: 1rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 130%;
+  color: #888;
+}

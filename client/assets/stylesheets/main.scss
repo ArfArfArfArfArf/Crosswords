@@ -1,0 +1,15 @@
+@import 'components/ClueList.scss';
+@import 'components/Puzzle.scss';
+@import 'components/PuzzleGrid.scss';
+@import 'components/PuzzleGridCell.scss';
+@import 'components/Preferences.scss';
+@import 'components/RadioButtonGroup.scss';
+
+.black {
+  background: black;
+  color: black;
+}
+
+.highlighted {
+  background-color: lightgrey;
+}
