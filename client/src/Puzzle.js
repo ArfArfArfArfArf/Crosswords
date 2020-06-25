@@ -180,7 +180,9 @@ export default class Puzzle extends React.Component {
     
     let puz = new PuzParser();
 
-    puz.setUrl("http://localhost:3000/data.json").then(data => {
+    const host = window.location.host;
+    
+    puz.setUrl(`http://${host}/data.json`).then(data => {
       this.buildGrid(data.solution);
 
       const entities = new AllHtmlEntities();
