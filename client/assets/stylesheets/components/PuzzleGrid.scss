@@ -1,6 +1,15 @@
 .Grid {
   position: relative;
   margin: 5px;
+
+  .GridClues {
+    margin-left: .5rem;
+    font-size: 1.2rem;
+
+    .GridClueNumber {
+      font-weight: bold;
+    }
+  }
 }
 
 .GridRow {

@@ -185,9 +185,10 @@ export default class Puzzle extends React.Component {
     puz.setUrl(`http://${host}/data.json`).then(data => {
       this.buildGrid(data.solution);
 
+      const defaultPrefs = { endOfWord: 'next', spaceBar: 'change', enterKey: 'next', skipExisting: false };
       const entities = new AllHtmlEntities();
-      const prefs = ls.get('preferences') || "null";
-      
+      const prefs = ls.get('preferences') || JSON.stringify(defaultPrefs);
+
       this.setState({
 	isLoading: false,
 	preferences: JSON.parse(prefs),
@@ -650,8 +651,10 @@ export default class Puzzle extends React.Component {
   
   renderHeader() {
     return(
-	<div className="PreferencesIcon">
-	  <GoGear style={{width: "2rem", height: "2rem"}} aria-label="Preferences" onClick={this.displayPrefs}/>
+        <div className="PuzzleHeader">
+	  <div className="PreferencesIcon">
+	    <GoGear style={{width: "2rem", height: "2rem"}} aria-label="Preferences" onClick={this.displayPrefs}/>
+	  </div>
 	</div>
     );
   }
@@ -677,8 +680,8 @@ export default class Puzzle extends React.Component {
     
     return(
 	<div className="GridClues">
-	<span className="GridClueNumber">{acrossNumber}A. </span><span className="GridClue">{acrossClues[acrossIndex]}</span><br />
-	<span className="GridClueNumber">{downNumber}D. </span><span className="GridClue">{downClues[downIndex]}</span>
+	  <span className="GridClueNumber">{acrossNumber}A. </span><span className="GridClue">{acrossClues[acrossIndex]}</span><br />
+	  <span className="GridClueNumber">{downNumber}D. </span><span className="GridClue">{downClues[downIndex]}</span>
 	</div>
     );
   }
@@ -736,7 +739,15 @@ export default class Puzzle extends React.Component {
       );
     }
   }
-  
+
+  renderFooter() {
+    return(
+	<div className="PuzzleFooter">
+	  <span className="Title">{this.state.meta.title}</span> <br />
+	  <span className="Published">{this.state.meta.publisher}</span> <br />
+        </div>
+    );
+  }
   render() {
     if (this.state.isLoading) {
       return <Loader />;
@@ -744,10 +755,9 @@ export default class Puzzle extends React.Component {
 
     return (
 	<div className="Puzzle">
-          <div className="PuzzleHeader">
-	    {this.renderHeader()}
-          </div>
+	  {this.renderHeader()}
           {this.renderBody()}
+	  {this.renderFooter()}
         </div>
     );
   }
