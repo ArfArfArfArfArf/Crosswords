@@ -73,8 +73,7 @@ export default class PuzzleGridCell extends React.Component {
 	    </div>
 	  }
   	  <span data-testid="clueNumber" className="clueNumber">{clueNumString}</span>
-	  <div data-testid="value" className={valueClassName}>{cellValue}
-          </div>
+	  <div contentEditable="true" tabIndex="-1" data-testid="value" className={valueClassName}>{cellValue}</div>
         </div>
     );
   }

@@ -326,7 +326,8 @@ export default class Puzzle extends React.Component {
       event.preventDefault();
       return;
     }
-    if (key === ' ' || (key >= 'a' && key <= 'z') || (key >= '0' && key <= '9'))
+
+    if (key.length === 1 && (key === ' ' || (key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z') || (key >= '0' && key <= '9')))
     {
       userInput[selectedY][selectedX] = key;
       
@@ -688,7 +689,6 @@ export default class Puzzle extends React.Component {
   
   renderBody() {
     if (this.state.showPrefs) {
-      console.log(this.state.preferences);
       return <Preferences setPreferences={this.setPreferences} {...this.state.preferences} />
     } else {
       const acrossNumber = this.findSelectedClue(direction.ACROSS);
@@ -741,6 +741,10 @@ export default class Puzzle extends React.Component {
   }
 
   renderFooter() {
+    if (this.state.showPrefs) {
+      return null;
+    }
+
     return(
 	<div className="PuzzleFooter">
 	  <span className="Title">{this.state.meta.title}</span> <br />
