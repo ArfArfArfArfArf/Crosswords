@@ -186,7 +186,7 @@ export default class Puzzle extends React.Component {
       this.buildGrid(data.solution);
 
       const entities = new AllHtmlEntities();
-      const prefs = ls.get('preferences') || {};
+      const prefs = ls.get('preferences') || "null";
       
       this.setState({
 	isLoading: false,
