@@ -283,19 +283,35 @@ export default class Puzzle extends React.Component {
     }
 
     if (key === 'ArrowLeft') {
-      this.focusLeft(selectedX, selectedY);
+      if (this.state.gridDirection === direction.ACROSS) {
+	this.focusLeft(selectedX, selectedY);
+      } else {
+	this.reverseDirection();
+      }
     }
 
     if (key === 'ArrowRight') {
-      this.focusRight(selectedX, selectedY);
+      if (this.state.gridDirection === direction.ACROSS) {
+	this.focusRight(selectedX, selectedY);
+      } else {
+	this.reverseDirection();
+      }
     }
     
     if (key === 'ArrowUp') {
-      this.focusUp(selectedX, selectedY);
+      if (this.state.gridDirection === direction.DOWN) {
+	this.focusUp(selectedX, selectedY);
+      } else {
+	this.reverseDirection();
+      }
     }
     
     if (key === 'ArrowDown') {
-      this.focusDown(selectedX, selectedY);
+      if (this.state.gridDirection === direction.DOWN) {
+	this.focusDown(selectedX, selectedY);
+      } else {
+	this.reverseDirection();
+      }
     }
     
     if (key === 'Backspace' || key === 'Delete') {
