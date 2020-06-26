@@ -8,6 +8,8 @@
   display: inline-grid;
   grid-template-columns: .5rem 1.5rem;
   grid-template-rows: .4rem 1.6rem;
+  color: transparent;
+  text-shadow: 0 0 0 black;
 
   .circled {
     grid-column-start: 1;

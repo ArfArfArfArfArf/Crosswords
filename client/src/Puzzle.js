@@ -92,6 +92,7 @@ export default class Puzzle extends React.Component {
     let downNumbers = [];
     let acrossNumbers = [];
     let incrementClueNumber = true;
+    let incorrectAnswers = 0;
     
     for (i = 0; i < solution.length; i++) {
       for (j = 0; j < solution[i].length; j++) {
@@ -129,6 +130,10 @@ export default class Puzzle extends React.Component {
 	  }
 	}
 
+	if (solution[i][j] !== '.') {
+	  ++incorrectAnswers;
+	}
+
 	if (incrementClueNumber === false) {
 	  clueNumbers[i][j] = clueNumber;
 	} else {
@@ -149,7 +154,8 @@ export default class Puzzle extends React.Component {
       clueNumbers: clueNumbers,
       userInput: userInput,
       selectedX: x,
-      slectedY: y
+      slectedY: y,
+      incorrectAnswers: incorrectAnswers,
     });
   }
 
@@ -317,10 +323,10 @@ export default class Puzzle extends React.Component {
     
     if (key === 'Backspace' || key === 'Delete') {
       userInput[selectedY][selectedX] = ' ';
-      this.setState({ userInput });
+      this.setState((curState) => { return { userInput, currectAnswers: curState.incorrectAnswers++ } });
       this.focusPreviousInput(selectedX, selectedY);
     }
-    
+
     if (key === ' ' && this.state.preferences.spaceBar === "change") {
       this.reverseDirection();
       event.preventDefault();
@@ -329,9 +335,25 @@ export default class Puzzle extends React.Component {
 
     if (key.length === 1 && (key === ' ' || (key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z') || (key >= '0' && key <= '9')))
     {
+      let { incorrectAnswers, gridSolution } = this.state;
+
+      /* answer was correct - now it might not be ... */
+      if (userInput[selectedY][selectedX] ===  gridSolution[selectedY][selectedX]) {
+	++incorrectAnswers;
+      }
+
       userInput[selectedY][selectedX] = key;
-      
-      this.setState({ userInput: userInput });
+
+      if (key.toUpperCase() === this.state.gridSolution[selectedY][selectedX].toUpperCase()) {
+	console.log("-----");
+	--incorrectAnswers;
+      }
+
+      this.setState({ userInput, incorrectAnswers });
+
+      if (incorrectAnswers === 0) {
+	alert("Puzzle done!");
+      }
       
       this.focusNextInput(selectedX, selectedY);
     }
