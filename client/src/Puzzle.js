@@ -702,6 +702,8 @@ export default class Puzzle extends React.Component {
   }
 
   displayPrefs() {
+    const timerOn = this.state.timer.isOn;
+
     this.setState((curState) => {
       return {
 	showPrefs: !curState.showPrefs,
@@ -712,7 +714,12 @@ export default class Puzzle extends React.Component {
 	}
       }
     });
-    clearInterval(this.timer)
+
+    if (timerOn) {
+      clearInterval(this.timer)
+    } else {
+      this.timer = setInterval(this.updateTimer, 1);
+    }
   }
   
   setPreferences(prefs) {
