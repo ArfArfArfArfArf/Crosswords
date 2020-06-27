@@ -9,11 +9,11 @@ export default class PuzzleGridCell extends React.Component {
     focusCallback: PropTypes.func.isRequired,
     clickCallback: PropTypes.func.isRequired,
     userValue: PropTypes.string.isRequired,
-    correctValue: PropTypes.string.isRequired,
     clueNumber: PropTypes.string.isRequired,
     inCurrentWord: PropTypes.bool.isRequired,
     isSelectedInput: PropTypes.bool.isRequired,
     circled: PropTypes.bool.isRequired,
+    isIncorrect: PropTypes.bool.isRequired,
   };
   
   constructor(props) {
@@ -53,6 +53,10 @@ export default class PuzzleGridCell extends React.Component {
       cellValue = '';
     }
 
+    if (this.props.isIncorrect) {
+      valueClassName += " incorrect";
+    }
+    
     if (this.props.isSelectedInput) {
       className += " selected";
     }

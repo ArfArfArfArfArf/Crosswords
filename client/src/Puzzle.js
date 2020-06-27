@@ -7,9 +7,11 @@ import { GoGear } from 'react-icons/go';
 import { merge } from 'lodash';
 import ls from 'local-storage';
 import { direction } from './Constants';
-
 import { AllHtmlEntities } from 'html-entities';
- 
+import ms from 'pretty-ms';
+import classnames from 'classnames';
+import ReactModal from 'react-modal';
+
 const Loader = ({ message }) => {
   return (
     <div className="loader-container">
@@ -20,6 +22,8 @@ const Loader = ({ message }) => {
     </div>
   )
 }
+
+ReactModal.setAppElement("#root");
 
 export default class Puzzle extends React.Component {
   constructor(props) {
@@ -37,6 +41,12 @@ export default class Puzzle extends React.Component {
     }
 
     this.state = {
+      timer: {
+	time: 0,
+	isOn: false,
+	start: 0
+      },
+      showModal: false,
       preferences: {},
       showPrefs: false,
       isLoading: false,
@@ -63,8 +73,38 @@ export default class Puzzle extends React.Component {
     this.onClueClicked = this.onClueClicked.bind(this);
     this.displayPrefs = this.displayPrefs.bind(this);
     this.setPreferences = this.setPreferences.bind(this);
+    this.startTimer = this.startTimer.bind(this)
+    this.pauseTimer = this.pauseTimer.bind(this)
+    this.updateTimer = this.updateTimer.bind(this);
+    this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     
     document.addEventListener('keydown', this.gridInput);
+
+    if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+      this.hidden = "hidden";
+      this.visibilityChange = "visibilitychange";
+    } else if (typeof document.msHidden !== "undefined") {
+      this.hidden = "msHidden";
+      this.visibilityChange = "msvisibilitychange";
+    } else if (typeof document.webkitHidden !== "undefined") {
+      this.hidden = "webkitHidden";
+      this.visibilityChange = "webkitvisibilitychange";
+    }
+
+    
+    // Warn if the browser doesn't support addEventListener or the Page Visibility API
+    if (typeof document.addEventListener === "undefined" || this.hidden === undefined) {
+      console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
+    } else {
+      // Handle page visibility change   
+      document.addEventListener(this.visibilityChange, this.handleVisibilityChange, false);
+    }
+  }
+
+  handleVisibilityChange() {
+    if (this.state.preferences.timePuzzle && document[this.hidden]) {
+      this.pauseTimer();
+    }
   }
   
   onClueClicked(d, clueNumber) {
@@ -335,8 +375,12 @@ export default class Puzzle extends React.Component {
 
     if (key.length === 1 && (key === ' ' || (key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z') || (key >= '0' && key <= '9')))
     {
-      let { incorrectAnswers, gridSolution } = this.state;
+      let { timer, incorrectAnswers, gridSolution } = this.state;
 
+      if (timer.isOn === false) {
+	this.startTimer();
+      }
+      
       /* answer was correct - now it might not be ... */
       if (userInput[selectedY][selectedX] ===  gridSolution[selectedY][selectedX]) {
 	++incorrectAnswers;
@@ -345,7 +389,6 @@ export default class Puzzle extends React.Component {
       userInput[selectedY][selectedX] = key;
 
       if (key.toUpperCase() === this.state.gridSolution[selectedY][selectedX].toUpperCase()) {
-	console.log("-----");
 	--incorrectAnswers;
       }
 
@@ -671,13 +714,25 @@ export default class Puzzle extends React.Component {
     
     this.setState({ preferences: p });
   }
-  
+
+  renderRestOfHeader() {
+    if (this.state.showPrefs) {
+      return null;
+    }
+
+    return (
+	<div>
+	  {this.renderTimer()}
+        </div>
+    );
+  }
   renderHeader() {
     return(
         <div className="PuzzleHeader">
 	  <div className="PreferencesIcon">
 	    <GoGear style={{width: "2rem", height: "2rem"}} aria-label="Preferences" onClick={this.displayPrefs}/>
 	  </div>
+	  {this.renderRestOfHeader()}
 	</div>
     );
   }
@@ -702,13 +757,58 @@ export default class Puzzle extends React.Component {
     }
     
     return(
-	<div className="GridClues">
+	<div className={classnames({"GridClues": true, "obscured": this.isTimerPaused()})}>
 	  <span className="GridClueNumber">{acrossNumber}A. </span><span className="GridClue">{acrossClues[acrossIndex]}</span><br />
 	  <span className="GridClueNumber">{downNumber}D. </span><span className="GridClue">{downClues[downIndex]}</span>
 	</div>
     );
   }
+
+  updateTimer() {
+    this.setState((curState) => { return { timer: {
+      time: Date.now() - curState.timer.start,
+      isOn: curState.timer.isOn,
+      start: curState.timer.start
+    }}});
+  }
   
+  startTimer() {
+    this.setState((curState) => { return {
+      showModal: false,
+      timer: {
+        isOn: true,
+        time: curState.timer.time,
+        start: Date.now() - curState.timer.time
+      }
+    }});
+
+    this.timer = setInterval(this.updateTimer, 1);
+  }
+  
+  pauseTimer() {
+    this.setState((curState) => { return {showModal: true, timer: {start: curState.timer.start, isOn: false, time: curState.timer.time}}});
+    clearInterval(this.timer)
+  }
+
+  isTimerPaused() {
+    return this.state.timer.start !== 0 && this.state.timer.isOn === false;
+  }
+  
+  renderTimer() {
+    if (this.state.preferences.timePuzzle === false) {
+      return null;
+    }
+    
+    let pause = (this.state.timer.time === 0 || !this.state.timer.isOn) ? null : <button onClick={this.pauseTimer}>Pause</button>;
+
+    return(
+      <div className="PuzzleTimer">
+	{ms(this.state.timer.time, {colonNotation: true, secondsDecimalDigits: 0})}
+        {pause}
+      </div>
+    );
+  }
+
   renderBody() {
     if (this.state.showPrefs) {
       return <Preferences setPreferences={this.setPreferences} {...this.state.preferences} />
@@ -733,10 +833,11 @@ export default class Puzzle extends React.Component {
                 gridClickCallback={this.gridClick}
                 clueNumbers={this.state.clueNumbers}
                 circledClues={this.state.circledClues}
+	        showWrongAnswers={this.state.preferences.showWrongAnswers}
               />
             </div>
 	    <ClueList
-              obscured={this.state.showPrefs}
+              obscured={this.isTimerPaused()}
               title={"Across"}
               clueDirection={direction.ACROSS}
               clueNumbers={this.state.acrossNumbers}
@@ -747,7 +848,7 @@ export default class Puzzle extends React.Component {
               gridHeight={this.state.gridHeight}
 	    />
 	    <ClueList
-              obscured={this.state.showPrefs}
+              obscured={this.isTimerPaused()}
               title={"Down"}
               clueDirection={direction.DOWN}
               clueNumbers={this.state.downNumbers}
@@ -774,6 +875,25 @@ export default class Puzzle extends React.Component {
         </div>
     );
   }
+
+  renderModal() {
+    return(
+        <ReactModal 
+           isOpen={this.state.showModal}
+           contentLabel="Puzzle Paused"
+           onRequestClose={this.startTimer}
+           shouldCloseOnOverlayClick={false}
+           className="Modal"
+        >
+	<div classsName="PuzzleModalContent">
+          <h2>Puzzle paused.</h2>
+          <button onClick={this.startTimer}>Resume</button>
+	</div>
+        </ReactModal>
+
+    );
+  }
+  
   render() {
     if (this.state.isLoading) {
       return <Loader />;
@@ -781,6 +901,7 @@ export default class Puzzle extends React.Component {
 
     return (
 	<div className="Puzzle">
+	  {this.renderModal()}
 	  {this.renderHeader()}
           {this.renderBody()}
 	  {this.renderFooter()}

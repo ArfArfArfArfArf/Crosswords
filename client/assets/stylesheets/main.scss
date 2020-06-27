@@ -1,9 +1,12 @@
 @import 'components/ClueList.scss';
+@import 'components/Preferences.scss';
 @import 'components/Puzzle.scss';
 @import 'components/PuzzleGrid.scss';
 @import 'components/PuzzleGridCell.scss';
-@import 'components/Preferences.scss';
+@import 'components/PuzzleHeader.scss';
+@import 'components/PuzzleTimer.scss';
 @import 'components/RadioButtonGroup.scss';
+
 
 .black {
   background: black;

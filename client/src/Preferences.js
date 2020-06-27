@@ -9,6 +9,8 @@ export default class Preferences extends React.Component {
     enterKey: PropTypes.string,
     endOfWord: PropTypes.string,
     skipExisting: PropTypes.bool,
+    timePuzzle: PropTypes.bool,
+    showWrongAnswers: PropTypes.bool,
   };
 
   constructor(props) {
@@ -18,6 +20,8 @@ export default class Preferences extends React.Component {
     this.handleEnterKey = this.handleEnterKey.bind(this);
     this.handleEndOfWord = this.handleEndOfWord.bind(this);
     this.handleSkipExisting = this.handleSkipExisting.bind(this);
+    this.handleTimePuzzle = this.handleTimePuzzle.bind(this);
+    this.handleShowWrongAnswers = this.handleShowWrongAnswers.bind(this);
   }
 
   handleEnterKey(e) {
@@ -34,6 +38,14 @@ export default class Preferences extends React.Component {
 
   handleSkipExisting(e) {
     this.props.setPreferences({ skipExisting: e.target.checked });
+  }
+  
+  handleTimePuzzle(e) {
+    this.props.setPreferences({ timePuzzle: e.target.checked });
+  }
+  
+  handleShowWrongAnswers(e) {
+    this.props.setPreferences({ showWrongAnswers: e.target.checked });
   }
   
   renderNavigation() {
@@ -104,11 +116,26 @@ export default class Preferences extends React.Component {
 	</div>
     );
   }
+
+  renderPuzzlePrefs() {
+    return(
+	<div>
+	  <span className="Heading">Puzzle</span>
+	  <div className="PuzzlePrefs">
+	    <input type="checkbox" id="timepuzzle" name="timepuzzle" value="Yes" onChange={this.handleTimePuzzle} checked={this.props.timePuzzle === true ? "checked" : null} />
+	    <label htmlFor="timePuzzle">Time Puzzle</label> <br />
+	    <input type="checkbox" id="showwronganswers" name="showwronganswers" value="No" onChange={this.handleShowWrongAnswers} checked={this.props.showWrongAnswers === true ? "checked" : null} />
+	    <label htmlFor="showWrongAnswers">Show Wrong Answers</label> <br />
+	  </div>
+        </div>	
+    );
+  }
   
   render() {
     return (
 	<div className="Preferences">
 	  {this.renderNavigation()}
+          {this.renderPuzzlePrefs()}
         </div>
     );
   }

@@ -54,3 +54,15 @@
   line-height: 130%;
   color: #888;
 }
+
+.Modal {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  left: 25%;
+  top: 25%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
