@@ -703,8 +703,16 @@ export default class Puzzle extends React.Component {
 
   displayPrefs() {
     this.setState((curState) => {
-      return { showPrefs: !curState.showPrefs };
+      return {
+	showPrefs: !curState.showPrefs,
+	timer : {
+	  isOn: !curState.timer.isOn,
+	  time: curState.timer.time,
+	  start: curState.timer.start,
+	}
+      }
     });
+    clearInterval(this.timer)
   }
   
   setPreferences(prefs) {
