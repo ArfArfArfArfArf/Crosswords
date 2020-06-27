@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import RadioButtonGroup from './RadioButtonGroup';
 
 export default class Preferences extends React.Component {
-  static defaultProps = {
+  static propTypes = {
     setPreferences: PropTypes.func.isRequired,
     spaceBar: PropTypes.string,
     enterKey: PropTypes.string,
