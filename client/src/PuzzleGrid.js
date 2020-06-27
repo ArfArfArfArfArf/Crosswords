@@ -119,7 +119,7 @@ export default class PuzzleGrid extends React.Component {
       return false;
     }
     
-    if (userInput[i][j] !== gridSolution[i][j]) {
+    if (userInput[i][j].toUpperCase() !== gridSolution[i][j].toUpperCase()) {
       return true;
     }
 
