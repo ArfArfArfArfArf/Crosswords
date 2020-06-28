@@ -11,6 +11,9 @@ import { AllHtmlEntities } from 'html-entities';
 import ms from 'pretty-ms';
 import classnames from 'classnames';
 import ReactModal from 'react-modal';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
 
 const Loader = ({ message }) => {
   return (
@@ -78,6 +81,7 @@ export default class Puzzle extends React.Component {
     this.pauseTimer = this.pauseTimer.bind(this)
     this.updateTimer = this.updateTimer.bind(this);
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
+    this.reveal = this.reveal.bind(this);
     
     document.addEventListener('keydown', this.gridInput);
 
@@ -755,17 +759,70 @@ export default class Puzzle extends React.Component {
     this.setState({ preferences: p });
   }
 
+  reveal(option) {
+    const { gridHeight, gridWidth, gridDirection, userInput, gridSolution, selectedX, selectedY } = this.state;
+    
+    if (option.value === "Letter") {
+      userInput[selectedY][selectedX] = gridSolution[selectedY][selectedX];
+    } else if (option.value === "Word") {
+      if (gridDirection === direction.ACROSS) {
+	let x = selectedX;
+
+	while (x > 0 && gridSolution[selectedY][x - 1] !== '.') {
+	  --x;
+	}
+
+	while (x < gridWidth && gridSolution[selectedY][x] !== '.') {
+	  userInput[selectedY][x] = gridSolution[selectedY][x];
+	  ++x;
+	}
+      } else {
+	let y = selectedY;
+
+	while (y > 0 && gridSolution[y - 1][selectedX] !== '.') {
+	  --y;
+	}
+
+	while (y < gridHeight && gridSolution[y][selectedX] !== '.') {
+	  userInput[y][selectedX] = gridSolution[y][selectedX];
+	  ++y;
+	}
+      }
+    } else {
+      let i,j;
+
+      for (i = 0; i < gridHeight; i++) {
+	for (j = 0; j < gridWidth; j++) {
+	  userInput[i][j] = gridSolution[i][j];
+	}
+      }
+    }
+
+    this.setState({ userInput });
+  }
+  
+  renderRevealDropdown() {
+    const options = [ 'Letter', 'Word', 'Solution' ];
+    
+    return(
+      <div className="RevealDropdown">
+	<Dropdown options={options} onChange={this.reveal} placeholder={"Reveal"} />
+      </div>
+    );
+  }
   renderRestOfHeader() {
     if (this.state.showPrefs) {
       return null;
     }
 
     return (
-	<div>
+	<div className="RightHeader">
+	  {this.renderRevealDropdown()}
 	  {this.renderTimer()}
         </div>
     );
   }
+
   renderHeader() {
     return(
         <div className="PuzzleHeader">
@@ -929,7 +986,7 @@ export default class Puzzle extends React.Component {
            shouldCloseOnOverlayClick={false}
            className="Modal"
         >
-	<div classsName="PuzzleModalContent">
+	<div className="PuzzleModalContent">
           <h2>Puzzle paused.</h2>
           <button onClick={this.startTimer}>Resume</button>
 	</div>

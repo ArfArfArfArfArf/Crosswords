@@ -53,6 +53,11 @@
   display: flex;
   flex-direction: row;
 }
+.Puzzle .PuzzleHeader .RevealDropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .Puzzle .PuzzleBody {
   display: flex;
   flex-direction: row;
@@ -108,6 +113,12 @@
 .Grid {
   position: relative;
   margin: 5px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 .Grid .GridClues {
   margin-left: 0.5rem;
@@ -174,10 +185,10 @@
   width: 100%;
   justify-content: space-between;
 }
-.PuzzleHeader .PuzzleTimer {
-  align-self: flex-end;
+.PuzzleHeader .RightHeader {
+  display: flex;
+  flex-direction: row;
 }
-
 .PuzzleTimer {
   display: flex;
   flex-direction: column;

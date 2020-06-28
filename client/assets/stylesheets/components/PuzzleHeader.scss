@@ -5,6 +5,13 @@
   justify-content: space-between;
   
   .PuzzleTimer {
-    align-self: flex-end;
+  }
+
+  .RightHeader {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .RevealDropdown {
   }
 }
