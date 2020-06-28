@@ -103,7 +103,7 @@ export default class Puzzle extends React.Component {
   }
 
   handleVisibilityChange() {
-    if (this.state.preferences.timePuzzle && document[this.hidden]) {
+    if (!this.state.puzzleComplete && this.state.preferences.timePuzzle && document[this.hidden]) {
       this.pauseTimer();
     }
   }
@@ -226,7 +226,7 @@ export default class Puzzle extends React.Component {
     const defaultPrefs = { endOfWord: 'next', spaceBar: 'change', enterKey: 'next', skipExisting: false, showWrongAnswers: false, timePuzzle: true };
     const prefs = ls.get('preferences') || JSON.stringify(defaultPrefs);
 
-    this.setState({ isLoading: true, preferences: prefs });
+    this.setState({ isLoading: true, preferences: prefs, puzzleComplete: false });
     
     let puz = new PuzParser();
     
@@ -415,7 +415,12 @@ export default class Puzzle extends React.Component {
       this.setState({ userInput, incorrectAnswers });
 
       if (incorrectAnswers === 0) {
-	alert("Puzzle done!");
+	this.setState({ puzzleComplete: true });
+
+	if (this.state.preferences.timePuzzle) {
+	  this.setState((curState) => { return {showModal: true, timer: {start: curState.timer.start, isOn: false, time: curState.timer.time}}});
+	  clearInterval(this.timer)
+	}
       }
       
       this.focusNextInput(selectedX, selectedY);
@@ -826,7 +831,7 @@ export default class Puzzle extends React.Component {
   }
 
   isTimerPaused() {
-    return this.state.timer.start !== 0 && this.state.timer.isOn === false;
+    return !this.state.puzzleComplete && this.state.timer.start !== 0 && this.state.timer.isOn === false;
   }
   
   renderTimer() {
@@ -834,7 +839,7 @@ export default class Puzzle extends React.Component {
       return null;
     }
     
-    let pause = (this.state.timer.time === 0 || !this.state.timer.isOn) ? null : <button onClick={this.pauseTimer}>Pause</button>;
+    let pause = (this.state.puzzleComplete || this.state.timer.time === 0 || !this.state.timer.isOn) ? null : <button onClick={this.pauseTimer}>Pause</button>;
 
     return(
       <div className="PuzzleTimer">
@@ -912,6 +917,10 @@ export default class Puzzle extends React.Component {
   }
 
   renderModal() {
+    if (this.state.puzzleComplete) {
+      return null;
+    }
+    
     return(
         <ReactModal 
            isOpen={this.state.showModal}
