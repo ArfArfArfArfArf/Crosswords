@@ -397,7 +397,7 @@ export default class Puzzle extends React.Component {
     {
       let { timer, incorrectAnswers } = this.state;
 
-      if (timer.isOn === false) {
+      if (timer.isOn === false && !this.state.puzzleComplete) {
 	this.startTimer();
       }
       
