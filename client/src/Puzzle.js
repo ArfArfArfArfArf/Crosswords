@@ -49,7 +49,7 @@ export default class Puzzle extends React.Component {
       showModal: false,
       preferences: {},
       showPrefs: false,
-      isLoading: false,
+      isLoading: true,
       selectedX: 0,
       selectedY: 0,
       gridHeight: 15,
@@ -222,7 +222,10 @@ export default class Puzzle extends React.Component {
   }
   
   componentDidMount() {
-    this.setState({ isLoading: true });
+    const defaultPrefs = { endOfWord: 'next', spaceBar: 'change', enterKey: 'next', skipExisting: false, showWrongAnswers: false, timePuzzle: true };
+    const prefs = ls.get('preferences') || JSON.stringify(defaultPrefs);
+
+    this.setState({ isLoading: true, preferences: prefs });
     
     let puz = new PuzParser();
 
@@ -231,17 +234,23 @@ export default class Puzzle extends React.Component {
     puz.setUrl(`http://${host}/data.json`).then(data => {
       this.buildGrid(data.solution);
 
-      const defaultPrefs = { endOfWord: 'next', spaceBar: 'change', enterKey: 'next', skipExisting: false };
       const entities = new AllHtmlEntities();
-      const prefs = ls.get('preferences') || JSON.stringify(defaultPrefs);
 
+      let len = data.solution.length;
+      let i;
+      let gridSolution = [];
+      
+      for (i = 0; i < len; i++) {
+	gridSolution[i] = data.solution[i].split('');
+      }
+      
       this.setState({
 	isLoading: false,
 	preferences: JSON.parse(prefs),
 	acrossClues: data.clues[0].clues.map((c) => { return entities.decode(c) }),
 	downClues: data.clues[1].clues.map((c) => { return entities.decode(c) }),
 	circledClues: data.circles,
-	gridSolution: data.solution,
+	gridSolution: gridSolution,
 	meta: data.meta,
       });
     });
@@ -315,7 +324,7 @@ export default class Puzzle extends React.Component {
 
   gridInput(event) {
     const { key } = event;
-    const { userInput, selectedX, selectedY } = this.state;
+    const { userInput, selectedX, selectedY, gridDirection, gridSolution } = this.state;
 
     if (key === 'Enter') {
       if (this.state.preferences.enterKey === "change") {
@@ -330,7 +339,7 @@ export default class Puzzle extends React.Component {
     }
 
     if (key === 'ArrowLeft') {
-      if (this.state.gridDirection === direction.ACROSS) {
+      if (gridDirection === direction.ACROSS) {
 	this.focusLeft(selectedX, selectedY);
       } else {
 	this.reverseDirection();
@@ -338,7 +347,7 @@ export default class Puzzle extends React.Component {
     }
 
     if (key === 'ArrowRight') {
-      if (this.state.gridDirection === direction.ACROSS) {
+      if (gridDirection === direction.ACROSS) {
 	this.focusRight(selectedX, selectedY);
       } else {
 	this.reverseDirection();
@@ -346,7 +355,7 @@ export default class Puzzle extends React.Component {
     }
     
     if (key === 'ArrowUp') {
-      if (this.state.gridDirection === direction.DOWN) {
+      if (gridDirection === direction.DOWN) {
 	this.focusUp(selectedX, selectedY);
       } else {
 	this.reverseDirection();
@@ -354,7 +363,7 @@ export default class Puzzle extends React.Component {
     }
     
     if (key === 'ArrowDown') {
-      if (this.state.gridDirection === direction.DOWN) {
+      if (gridDirection === direction.DOWN) {
 	this.focusDown(selectedX, selectedY);
       } else {
 	this.reverseDirection();
@@ -362,8 +371,15 @@ export default class Puzzle extends React.Component {
     }
     
     if (key === 'Backspace' || key === 'Delete') {
-      userInput[selectedY][selectedX] = ' ';
-      this.setState((curState) => { return { userInput, currectAnswers: curState.incorrectAnswers++ } });
+      let incorrectAnswers = this.state.incorrectAnswers;
+
+      if (userInput[selectedY][selectedX] !== '' && userInput[selectedY][selectedX].toUpperCase() === gridSolution[selectedY][selectedX].toUpperCase()) {
+	++incorrectAnswers;
+      }
+      
+      userInput[selectedY][selectedX] = '';
+
+      this.setState((curState) => { return { userInput, incorrectAnswers } });
       this.focusPreviousInput(selectedX, selectedY);
     }
 
@@ -375,14 +391,14 @@ export default class Puzzle extends React.Component {
 
     if (key.length === 1 && (key === ' ' || (key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z') || (key >= '0' && key <= '9')))
     {
-      let { timer, incorrectAnswers, gridSolution } = this.state;
+      let { timer, incorrectAnswers } = this.state;
 
       if (timer.isOn === false) {
 	this.startTimer();
       }
       
       /* answer was correct - now it might not be ... */
-      if (userInput[selectedY][selectedX] ===  gridSolution[selectedY][selectedX]) {
+      if (userInput[selectedY][selectedX].toUpperCase() ===  gridSolution[selectedY][selectedX].toUpperCase()) {
 	++incorrectAnswers;
       }
 
