@@ -46,6 +46,7 @@ export default class Puzzle extends React.Component {
 	isOn: false,
 	start: 0
       },
+      puzzleComplete: false,
       showModal: false,
       preferences: {},
       showPrefs: false,
@@ -220,18 +221,16 @@ export default class Puzzle extends React.Component {
       }
     }
   }
-  
-  componentDidMount() {
+
+  loadPuzzle(puzzle) {
     const defaultPrefs = { endOfWord: 'next', spaceBar: 'change', enterKey: 'next', skipExisting: false, showWrongAnswers: false, timePuzzle: true };
     const prefs = ls.get('preferences') || JSON.stringify(defaultPrefs);
 
     this.setState({ isLoading: true, preferences: prefs });
     
     let puz = new PuzParser();
-
-    const host = window.location.host;
     
-    puz.setUrl(`http://${host}/data.json`).then(data => {
+    puz.setUrl(puzzle).then(data => {
       this.buildGrid(data.solution);
 
       const entities = new AllHtmlEntities();
@@ -254,6 +253,11 @@ export default class Puzzle extends React.Component {
 	meta: data.meta,
       });
     });
+  }
+  
+  componentDidMount() {
+    const host = window.location.host;
+    this.loadPuzzle(`http://${host}/data.json`);
   }
 
   findCurrentWord() {
