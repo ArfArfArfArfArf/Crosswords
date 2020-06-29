@@ -144,7 +144,7 @@ export default class PuzzleGrid extends React.Component {
             focusCallback={this.props.gridFocusCallback}
             inputCallback={this.props.gridInputCallback}
 	    clickCallback={this.props.gridClickCallback}
-	    circled={this.props.circledClues.length > 0 && this.props.circledClues[i].charAt(j) === '1'}
+	    circled={this.props.circledClues.length > 0 && this.props.circledClues[i][j] === '1'}
 	    isIncorrect={this.isIncorrect(i, j)}
           />
         );

@@ -13,7 +13,7 @@ import classnames from 'classnames';
 import ReactModal from 'react-modal';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-
+import WSJParser from './parsers/WSJParser';
 
 const Loader = ({ message }) => {
   return (
@@ -138,7 +138,7 @@ export default class Puzzle extends React.Component {
     let acrossNumbers = [];
     let incrementClueNumber = true;
     let incorrectAnswers = 0;
-    
+
     for (i = 0; i < solution.length; i++) {
       for (j = 0; j < solution[i].length; j++) {
 	if (i === 0) {
@@ -232,7 +232,7 @@ export default class Puzzle extends React.Component {
 
     this.setState({ isLoading: true, preferences: prefs, puzzleComplete: false });
     
-    let puz = new PuzParser();
+    let puz = new WSJParser();
     
     puz.setUrl(puzzle).then(data => {
       this.buildGrid(data.solution);
@@ -244,16 +244,18 @@ export default class Puzzle extends React.Component {
       let gridSolution = [];
       
       for (i = 0; i < len; i++) {
-	gridSolution[i] = data.solution[i].split('');
+	gridSolution[i] = data.solution[i];
       }
       
       this.setState({
 	isLoading: false,
 	preferences: JSON.parse(prefs),
-	acrossClues: data.clues[0].clues.map((c) => { return entities.decode(c) }),
-	downClues: data.clues[1].clues.map((c) => { return entities.decode(c) }),
-	circledClues: data.circles,
+	acrossClues: data.clues[0].map((c) => { return entities.decode(c) }),
+	downClues: data.clues[1].map((c) => { return entities.decode(c) }),
+	circledClues: data.circledClues,
 	gridSolution: gridSolution,
+	gridWidth: data.width,
+	gridHeight: data.height,
 	meta: data.meta,
       });
     });
@@ -261,7 +263,7 @@ export default class Puzzle extends React.Component {
   
   componentDidMount() {
     const host = window.location.host;
-    this.loadPuzzle(`http://${host}/data.json`);
+    this.loadPuzzle(`http://${host}/wsj-200627.json`);
   }
 
   findCurrentWord() {
