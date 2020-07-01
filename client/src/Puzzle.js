@@ -82,6 +82,7 @@ export default class Puzzle extends React.Component {
     this.updateTimer = this.updateTimer.bind(this);
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     this.reveal = this.reveal.bind(this);
+    this.checkPuzzle = this.checkPuzzle.bind(this);
     
     document.addEventListener('keydown', this.gridInput);
 
@@ -813,6 +814,28 @@ export default class Puzzle extends React.Component {
       </div>
     );
   }
+
+  checkPuzzle() {
+    var i,j;
+    const { gridHeight, gridWidth, userInput, gridSolution } = this.state;
+    
+    for (i = 0; i < gridHeight; i++) {
+      for (j = 0; j < gridWidth; j++) {
+	if (userInput[i][j].toUpperCase() !== gridSolution[i][j].toUpperCase()) {
+	  userInput[i][j] = '';
+	}
+      }
+    }
+
+    this.setState({ userInput });
+  }
+  
+  renderCheck() {
+    return (
+	<button onClick={this.checkPuzzle} >Check</button>
+    );
+  }
+  
   renderRestOfHeader() {
     if (this.state.showPrefs) {
       return null;
@@ -820,6 +843,7 @@ export default class Puzzle extends React.Component {
 
     return (
 	<div className="RightHeader">
+	  {this.renderCheck()}
 	  {this.renderRevealDropdown()}
 	  {this.renderTimer()}
         </div>
