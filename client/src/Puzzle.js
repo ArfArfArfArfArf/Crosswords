@@ -6,7 +6,7 @@ import Preferences from './Preferences';
 import { GoGear } from 'react-icons/go';
 import { merge } from 'lodash';
 import ls from 'local-storage';
-import { direction } from './Constants';
+import { puzzleTypes, direction } from './Constants';
 import { AllHtmlEntities } from 'html-entities';
 import ms from 'pretty-ms';
 import classnames from 'classnames';
@@ -14,6 +14,7 @@ import ReactModal from 'react-modal';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import WSJParser from './parsers/WSJParser';
+import LATimesParser from './parsers/LATimesParser';
 
 const Loader = ({ message }) => {
   return (
@@ -83,6 +84,7 @@ export default class Puzzle extends React.Component {
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     this.reveal = this.reveal.bind(this);
     this.checkPuzzle = this.checkPuzzle.bind(this);
+    this.load = this.load.bind(this);
     
     document.addEventListener('keydown', this.gridInput);
 
@@ -227,14 +229,21 @@ export default class Puzzle extends React.Component {
     }
   }
 
-  loadPuzzle(puzzle) {
+  loadPuzzle(puzzle, puzzleType) {
     const defaultPrefs = { endOfWord: 'next', spaceBar: 'change', enterKey: 'next', skipExisting: false, showWrongAnswers: false, timePuzzle: true };
     const prefs = ls.get('preferences') || JSON.stringify(defaultPrefs);
 
     this.setState({ isLoading: true, preferences: prefs, puzzleComplete: false });
-    
-    let puz = new PuzParser();
-    //let puz = new WSJParser();
+
+    var puz;
+
+    if (puzzleType === puzzleTypes.PUZ) {
+      puz = new PuzParser();
+    } else if (puzzleType === puzzleTypes.WSJ) {
+      puz = new WSJParser();
+    } else if (puzzleType === puzzleTypes.LATIMES) {
+      puz = new LATimesParser();
+    }
     
     puz.setUrl(puzzle).then(data => {
       this.buildGrid(data.solution);
@@ -265,7 +274,7 @@ export default class Puzzle extends React.Component {
   
   componentDidMount() {
     const host = window.location.host;
-    this.loadPuzzle(`http://${host}/jz200319.puz`);
+    this.loadPuzzle(`http://${host}/jz200319.puz`, puzzleTypes.PUZ);
   }
 
   findCurrentWord() {
@@ -835,6 +844,30 @@ export default class Puzzle extends React.Component {
 	<button onClick={this.checkPuzzle} >Check</button>
     );
   }
+
+  load(option) {
+    const host = window.location.host;
+
+    if (option.value === "Sample .puz") {
+      this.loadPuzzle(`http://${host}/jz200319.puz`, puzzleTypes.PUZ);
+    } else if (option.value === "Sample WSJ") {
+      this.loadPuzzle(`http://${host}/wsj-200627.json`, puzzleTypes.WSJ);
+    } else if (option.value === "Sample NYT") {
+      this.loadPuzzle(`http://${host}/Jul0120.puz`, puzzleTypes.PUZ);
+    } else if (option.value === "Sample LA Times") {
+      this.loadPuzzle(`http://${host}/la200701.xml`, puzzleTypes.LATIMES);
+    }
+  }
+
+  renderLoad() {
+    const options = [ 'Sample .puz', 'Sample WSJ', 'Sample NYT', 'Sample LA Times' ];
+
+    return(
+      <div className="LoadDropdown">
+	<Dropdown options={options} onChange={this.load} placeholder={"Load"} />
+      </div>
+    );
+  }
   
   renderRestOfHeader() {
     if (this.state.showPrefs) {
@@ -843,6 +876,7 @@ export default class Puzzle extends React.Component {
 
     return (
 	<div className="RightHeader">
+	  {this.renderLoad()}
 	  {this.renderCheck()}
 	  {this.renderRevealDropdown()}
 	  {this.renderTimer()}

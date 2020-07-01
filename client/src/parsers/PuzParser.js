@@ -47,7 +47,6 @@ export default class PuzParser {
     puzInfo.meta.author = json.meta.author;
     puzInfo.meta.copyright = json.meta.copyright;
 
-    console.log(json);
     return puzInfo;
   }
 };

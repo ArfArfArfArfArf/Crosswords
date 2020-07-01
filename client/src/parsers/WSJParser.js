@@ -7,28 +7,9 @@ export default class WSJParser {
       .then(json => { return this.parse(json.data) } )
   }
 
-  /*
-const PuzzleSchema = shape({
-  title: string,
-  author: string,
-  copyright: string,
-
-  width: number.required,
-  height: number.required,
-
-  acrossClues: arrayOf(string),
-  downClues: arrayOf(string),
-
-  solution: arrayOf(string),
-
-  userInput: arrayOf(string),
-});
-*/
   parse(data) {
     var puzInfo = {};
     var i, j;
-    
-    console.log(data);
     
     puzInfo.width = parseInt(data.copy.gridsize.rows);
     puzInfo.height = parseInt(data.copy.gridsize.cols);
@@ -61,7 +42,6 @@ const PuzzleSchema = shape({
       var k;
 
       for (k = 0; k < data.copy.clues[i].clues.length; k++) {
-	console.log(data.copy.clues[i].clues[k].clue);
 	clueList[k] = data.copy.clues[i].clues[k].clue;
       }
       
@@ -74,7 +54,6 @@ const PuzzleSchema = shape({
 
     puzInfo.meta = {};
 
-    console.log(puzInfo);
     return puzInfo;
   }
 }
