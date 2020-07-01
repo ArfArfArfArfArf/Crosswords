@@ -232,7 +232,8 @@ export default class Puzzle extends React.Component {
 
     this.setState({ isLoading: true, preferences: prefs, puzzleComplete: false });
     
-    let puz = new WSJParser();
+    let puz = new PuzParser();
+    //let puz = new WSJParser();
     
     puz.setUrl(puzzle).then(data => {
       this.buildGrid(data.solution);
@@ -263,7 +264,7 @@ export default class Puzzle extends React.Component {
   
   componentDidMount() {
     const host = window.location.host;
-    this.loadPuzzle(`http://${host}/wsj-200627.json`);
+    this.loadPuzzle(`http://${host}/jz200319.puz`);
   }
 
   findCurrentWord() {
