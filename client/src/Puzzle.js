@@ -773,9 +773,14 @@ export default class Puzzle extends React.Component {
   }
 
   reveal(option) {
-    const { gridHeight, gridWidth, gridDirection, userInput, gridSolution, selectedX, selectedY } = this.state;
+    const { gridHeight, gridWidth, gridDirection, userInput, gridSolution, selectedX, selectedY, incorrectAnswers } = this.state;
+
+    let ia = incorrectAnswers;
     
     if (option.value === "Letter") {
+      if (userInput[selectedY][selectedX].toUpperCase() !== gridSolution[selectedY][selectedX].toUpperCase()) {
+	--ia;
+      }
       userInput[selectedY][selectedX] = gridSolution[selectedY][selectedX];
     } else if (option.value === "Word") {
       if (gridDirection === direction.ACROSS) {
@@ -786,6 +791,9 @@ export default class Puzzle extends React.Component {
 	}
 
 	while (x < gridWidth && gridSolution[selectedY][x] !== '.') {
+	  if (userInput[selectedY][x].toUpperCase() !== gridSolution[selectedY][x].toUpperCase()) {
+	    --ia;
+	  }
 	  userInput[selectedY][x] = gridSolution[selectedY][x];
 	  ++x;
 	}
@@ -797,12 +805,17 @@ export default class Puzzle extends React.Component {
 	}
 
 	while (y < gridHeight && gridSolution[y][selectedX] !== '.') {
+	  if (userInput[y][selectedX].toUpperCase() !== gridSolution[y][selectedX].toUpperCase()) {
+	    --ia;
+	  }
 	  userInput[y][selectedX] = gridSolution[y][selectedX];
 	  ++y;
 	}
       }
     } else {
       let i,j;
+
+      ia = 0;
 
       for (i = 0; i < gridHeight; i++) {
 	for (j = 0; j < gridWidth; j++) {
@@ -811,7 +824,7 @@ export default class Puzzle extends React.Component {
       }
     }
 
-    this.setState({ userInput });
+    this.setState({ userInput, incorrectAnswers: ia });
   }
   
   renderRevealDropdown() {
