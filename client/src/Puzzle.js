@@ -15,6 +15,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import WSJParser from './parsers/WSJParser';
 import LATimesParser from './parsers/LATimesParser';
+import puzzleStore from './stores/PuzzleStore';
 
 const Loader = ({ message }) => {
   return (
@@ -229,11 +230,27 @@ export default class Puzzle extends React.Component {
     }
   }
 
-  loadPuzzle(puzzle, puzzleType) {
+  savePuzzle() {
+    puzzleStore.storePuzzle(this.state.puzzleName, this.state.puzzleYear, this.state.puzzleMonth, this.state.puzzleDay, {
+      acrossNumbers: this.state.acrossNumbers,
+      downNumbers: this.state.downNumbers,
+      clueNumbers: this.state.clueNumbers,
+      userInput: this.state.userInput,
+      acrossClues: this.state.acrossClues,
+      downClues: this.state.downClues,
+      circledClues: this.state.circledClues,
+      gridSolution: this.state.gridSolution,
+      gridWidth: this.state.gridWidth,
+      gridHeight: this.state.gridHeight,
+      meta: this.state.meta,
+      });
+  }
+
+  loadPuzzle(puzzleName, puzzle, puzzleType, puzzleYear, puzzleMonth, puzzleDay) {
     const defaultPrefs = { endOfWord: 'next', spaceBar: 'change', enterKey: 'next', skipExisting: false, showWrongAnswers: false, timePuzzle: true };
     const prefs = ls.get('preferences') || JSON.stringify(defaultPrefs);
 
-    this.setState({ isLoading: true, preferences: prefs, puzzleComplete: false });
+    this.setState({ isLoading: true, preferences: JSON.parse(prefs), puzzleComplete: false });
 
     var puz;
 
@@ -243,6 +260,13 @@ export default class Puzzle extends React.Component {
       puz = new WSJParser();
     } else if (puzzleType === puzzleTypes.LATIMES) {
       puz = new LATimesParser();
+    }
+
+    const p = puzzleStore.getPuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay);
+
+    if (p) {
+      this.setState({ isLoading: false, ...p});
+      return;
     }
     
     puz.setUrl(puzzle).then(data => {
@@ -257,12 +281,32 @@ export default class Puzzle extends React.Component {
       for (i = 0; i < len; i++) {
 	gridSolution[i] = data.solution[i];
       }
+
+      const acrossClues = data.clues[0].map((c) => { return entities.decode(c) });
+      const downClues = data.clues[1].map((c) => { return entities.decode(c) });
+
+      puzzleStore.storePuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay, {
+	acrossNumbers: this.state.acrossNumbers,
+	downNumbers: this.state.downNumbers,
+	clueNumbers: this.state.clueNumbers,
+	userInput: this.state.userInput,
+	acrossClues: acrossClues,
+	downClues: downClues,
+	circledClues: data.circledClues,
+	gridSolution: gridSolution,
+	gridWidth: data.width,
+	gridHeight: data.height,
+	meta: data.meta,
+      });
       
       this.setState({
+	puzzleName: puzzleName,
+	puzzleYear: puzzleYear,
+	puzzleMonth: puzzleMonth,
+	puzzleDay: puzzleDay,
 	isLoading: false,
-	preferences: JSON.parse(prefs),
-	acrossClues: data.clues[0].map((c) => { return entities.decode(c) }),
-	downClues: data.clues[1].map((c) => { return entities.decode(c) }),
+	acrossClues: acrossClues,
+	downClues: downClues,
 	circledClues: data.circledClues,
 	gridSolution: gridSolution,
 	gridWidth: data.width,
@@ -274,7 +318,7 @@ export default class Puzzle extends React.Component {
   
   componentDidMount() {
     const host = window.location.host;
-    this.loadPuzzle(`http://${host}/jz200319.puz`, puzzleTypes.PUZ);
+    this.loadPuzzle("WSJ", `http://${host}/jz200319.puz`, puzzleTypes.PUZ, '2020', '03', '19');
   }
 
   findCurrentWord() {
@@ -432,6 +476,7 @@ export default class Puzzle extends React.Component {
       this.setState({ userInput, incorrectAnswers });
 
       if (incorrectAnswers === 0) {
+	this.savePuzzle();
 	this.setState({ puzzleComplete: true });
 
 	if (this.state.preferences.timePuzzle) {
@@ -766,7 +811,7 @@ export default class Puzzle extends React.Component {
   
   setPreferences(prefs) {
     const p = merge({}, this.state.preferences, prefs);
-    
+
     ls.set('preferences', JSON.stringify(p));
     
     this.setState({ preferences: p });
@@ -862,13 +907,13 @@ export default class Puzzle extends React.Component {
     const host = window.location.host;
 
     if (option.value === "Sample .puz") {
-      this.loadPuzzle(`http://${host}/jz200319.puz`, puzzleTypes.PUZ);
+      this.loadPuzzle("WSJ", `http://${host}/jz200319.puz`, puzzleTypes.PUZ, '2020', '03', '19');
     } else if (option.value === "Sample WSJ") {
-      this.loadPuzzle(`http://${host}/wsj-200627.json`, puzzleTypes.WSJ);
+      this.loadPuzzle('WSJ', `http://${host}/wsj-200627.json`, puzzleTypes.WSJ, '2020', '06', '27');
     } else if (option.value === "Sample NYT") {
-      this.loadPuzzle(`http://${host}/Jul0120.puz`, puzzleTypes.PUZ);
+      this.loadPuzzle('NYT', `http://${host}/Jul0120.puz`, puzzleTypes.PUZ, '2020', '06', '01');
     } else if (option.value === "Sample LA Times") {
-      this.loadPuzzle(`http://${host}/la200701.xml`, puzzleTypes.LATIMES);
+      this.loadPuzzle('LAT', `http://${host}/la200701.xml`, puzzleTypes.LATIMES, '2020', '07', '01');
     }
   }
 
