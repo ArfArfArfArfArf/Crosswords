@@ -100,6 +100,8 @@ export default class Puzzle extends React.Component {
       this.visibilityChange = "webkitvisibilitychange";
     }
 
+
+    window.onbeforeunload = () => { this.savePuzzle(); return null; };
     
     // Warn if the browser doesn't support addEventListener or the Page Visibility API
     if (typeof document.addEventListener === "undefined" || this.hidden === undefined) {
@@ -231,6 +233,7 @@ export default class Puzzle extends React.Component {
   }
 
   savePuzzle() {
+    console.log("PUZZLE SAVE");
     puzzleStore.storePuzzle(this.state.puzzleName, this.state.puzzleYear, this.state.puzzleMonth, this.state.puzzleDay, {
       acrossNumbers: this.state.acrossNumbers,
       downNumbers: this.state.downNumbers,
@@ -403,6 +406,22 @@ export default class Puzzle extends React.Component {
       }
     }
 
+    if (key === '.') {
+      if (gridDirection === direction.ACROSS) {
+	this.focusRight(selectedX, selectedY);
+      } else {
+	this.focusDown(selectedX, selectedY);
+      }
+    }
+
+    if (key === ',') {
+      if (gridDirection === direction.ACROSS) {
+	this.focusLeft(selectedX, selectedY);
+      } else {
+	this.focusUp(selectedX, selectedY);
+      }
+    }
+    
     if (key === 'ArrowLeft') {
       if (gridDirection === direction.ACROSS) {
 	this.focusLeft(selectedX, selectedY);
