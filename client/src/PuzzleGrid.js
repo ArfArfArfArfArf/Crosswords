@@ -16,7 +16,7 @@ export default class PuzzleGrid extends React.Component {
     selectedY: PropTypes.number.isRequired,
     gridDirection: PropTypes.number.isRequired,
     clueNumbers: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-    circledClues: PropTypes.arrayOf(PropTypes.string).isRequired,
+    circledClues: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
     showWrongAnswers: PropTypes.bool.isRequired,
   };
 
