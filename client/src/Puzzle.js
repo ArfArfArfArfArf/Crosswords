@@ -87,8 +87,6 @@ export default class Puzzle extends React.Component {
     this.checkPuzzle = this.checkPuzzle.bind(this);
     this.load = this.load.bind(this);
     
-    document.addEventListener('keydown', this.gridInput);
-
     if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
       this.hidden = "hidden";
       this.visibilityChange = "visibilitychange";
@@ -233,8 +231,8 @@ export default class Puzzle extends React.Component {
   }
 
   savePuzzle() {
-    console.log("PUZZLE SAVE");
     puzzleStore.storePuzzle(this.state.puzzleName, this.state.puzzleYear, this.state.puzzleMonth, this.state.puzzleDay, {
+      timer: this.state.timer,
       acrossNumbers: this.state.acrossNumbers,
       downNumbers: this.state.downNumbers,
       clueNumbers: this.state.clueNumbers,
@@ -391,10 +389,59 @@ export default class Puzzle extends React.Component {
   }
 
   gridInput(event) {
-    const { key } = event;
+    const { data, inputType, navigationType } = event;
     const { userInput, selectedX, selectedY, gridDirection, gridSolution } = this.state;
 
-    if (key === 'Enter') {
+    if (inputType === 'deleteContentBackward' || inputType === 'deleteContentBackward') {
+      let incorrectAnswers = this.state.incorrectAnswers;
+
+      if (userInput[selectedY][selectedX] !== '' && userInput[selectedY][selectedX].toUpperCase() === gridSolution[selectedY][selectedX].toUpperCase()) {
+	++incorrectAnswers;
+      }
+      
+      userInput[selectedY][selectedX] = '';
+
+      this.setState({ userInput, incorrectAnswers });
+      this.focusPreviousInput(selectedX, selectedY);
+
+      return;
+    }
+
+    if (navigationType !== '' && data === '') {
+      if (navigationType === 'cursorLeft') {
+	if (gridDirection === direction.ACROSS) {
+	  this.focusLeft(selectedX, selectedY);
+	} else {
+	  this.reverseDirection();
+	}
+      }
+
+      if (navigationType === 'cursorRight') {
+	if (gridDirection === direction.ACROSS) {
+	  this.focusRight(selectedX, selectedY);
+	} else {
+	  this.reverseDirection();
+	}
+      }
+    
+      if (navigationType === 'cursorUp') {
+	if (gridDirection === direction.DOWN) {
+	  this.focusUp(selectedX, selectedY);
+	} else {
+	  this.reverseDirection();
+	}
+      }
+    
+      if (navigationType === 'cursorDown') {
+	if (gridDirection === direction.DOWN) {
+	  this.focusDown(selectedX, selectedY);
+	} else {
+	  this.reverseDirection();
+	}
+      }
+    }
+    
+    if (data === 'Enter') {
       if (this.state.preferences.enterKey === "change") {
 	this.reverseDirection();
       } else {
@@ -406,7 +453,7 @@ export default class Puzzle extends React.Component {
       }
     }
 
-    if (key === '.') {
+    if (data === '.') {
       if (gridDirection === direction.ACROSS) {
 	this.focusRight(selectedX, selectedY);
       } else {
@@ -414,7 +461,7 @@ export default class Puzzle extends React.Component {
       }
     }
 
-    if (key === ',') {
+    if (data === ',') {
       if (gridDirection === direction.ACROSS) {
 	this.focusLeft(selectedX, selectedY);
       } else {
@@ -422,58 +469,11 @@ export default class Puzzle extends React.Component {
       }
     }
     
-    if (key === 'ArrowLeft') {
-      if (gridDirection === direction.ACROSS) {
-	this.focusLeft(selectedX, selectedY);
-      } else {
-	this.reverseDirection();
-      }
-    }
-
-    if (key === 'ArrowRight') {
-      if (gridDirection === direction.ACROSS) {
-	this.focusRight(selectedX, selectedY);
-      } else {
-	this.reverseDirection();
-      }
-    }
-    
-    if (key === 'ArrowUp') {
-      if (gridDirection === direction.DOWN) {
-	this.focusUp(selectedX, selectedY);
-      } else {
-	this.reverseDirection();
-      }
-    }
-    
-    if (key === 'ArrowDown') {
-      if (gridDirection === direction.DOWN) {
-	this.focusDown(selectedX, selectedY);
-      } else {
-	this.reverseDirection();
-      }
-    }
-    
-    if (key === 'Backspace' || key === 'Delete') {
-      let incorrectAnswers = this.state.incorrectAnswers;
-
-      if (userInput[selectedY][selectedX] !== '' && userInput[selectedY][selectedX].toUpperCase() === gridSolution[selectedY][selectedX].toUpperCase()) {
-	++incorrectAnswers;
-      }
-      
-      userInput[selectedY][selectedX] = '';
-
-      this.setState((curState) => { return { userInput, incorrectAnswers } });
-      this.focusPreviousInput(selectedX, selectedY);
-    }
-
-    if (key === ' ' && this.state.preferences.spaceBar === "change") {
+    if (data === ' ' && this.state.preferences.spaceBar === "change") {
       this.reverseDirection();
-      event.preventDefault();
-      return;
     }
 
-    if (key.length === 1 && (key === ' ' || (key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z') || (key >= '0' && key <= '9')))
+    if (data && data.length === 1 && (data === ' ' || (data >= 'a' && data <= 'z') || (data >= 'A' && data <= 'Z') || (data >= '0' && data <= '9')))
     {
       let { timer, incorrectAnswers } = this.state;
 
@@ -486,9 +486,9 @@ export default class Puzzle extends React.Component {
 	++incorrectAnswers;
       }
 
-      userInput[selectedY][selectedX] = key;
+      userInput[selectedY][selectedX] = data;
 
-      if (key.toUpperCase() === this.state.gridSolution[selectedY][selectedX].toUpperCase()) {
+      if (data.toUpperCase() === gridSolution[selectedY][selectedX].toUpperCase()) {
 	--incorrectAnswers;
       }
 
@@ -656,7 +656,7 @@ export default class Puzzle extends React.Component {
   }
 
   setFocus(x, y) {
-    document.getElementById(y + ":" + x).focus();
+    document.getElementById(y + ":" + x).getElementsByTagName('input')[0].focus();
     this.setState({ selectedX: x, selectedY: y });
   }
   
@@ -709,6 +709,7 @@ export default class Puzzle extends React.Component {
   
   focusNextInput(x, y) {
     let nextX = x, nextY = y;
+
     const { gridSolution, gridDirection, gridWidth, gridHeight, preferences } = this.state;
     
     if (gridDirection === direction.ACROSS) {

@@ -1,6 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const IS_INPUT_SUPPORTED = (function() {
+  try {
+    // just kill browsers off, that throw an error if they don't know
+    // `InputEvent`
+    const event = new InputEvent('input', {
+      data: 'xyz',
+      inputType: 'deleteContentForward'
+    });
+    let support = false;
+
+    // catch the others
+    // https://github.com/chromium/chromium/blob/c029168ba251a240b0ec91fa3b4af4214fbbe9ab/third_party/blink/renderer/core/events/input_event.cc#L78-L82
+    const el = document.createElement('input');
+    el.addEventListener('input', function(e) {
+      if (e.inputType === 'deleteContentForward') {
+        support = true;
+      }
+    });
+
+    el.dispatchEvent(event);
+    return support;
+  } catch (error) {
+    return false;
+  }
+})();
+
 export default class PuzzleGridCell extends React.Component {
   static propTypes = {
     gridX: PropTypes.number.isRequired,
@@ -19,8 +45,76 @@ export default class PuzzleGridCell extends React.Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+    this.keypressCallback = this.keypressCallback.bind(this);
+    this.inputCallback = this.inputCallback.bind(this);
+    this.onFocus = this.onFocus.bind(this);
+
+    this.inputSupported = IS_INPUT_SUPPORTED;
   }
 
+  normalizeInputEvent(event) {
+    var inputType = '';
+    var navigationType = '';
+    var data = '';
+
+    console.log(event);
+
+    if (event instanceof KeyboardEvent) {
+      if (event.key === 'Backspace') {
+	inputType = 'deleteContentBackward';
+      } else if (event.key === 'Delete') {
+	inputType = 'deleteContentForward';
+      } else if (event.key.startsWith('Arrow')) {
+	navigationType = event.key.replace('Arrow', 'cursor');
+      } else {
+	data = event.key;
+	inputType = 'insertText';
+      }
+    } else {
+      // @ts-ignore event.inputType is there on android - actually what we need here!
+      inputType = event.inputType;
+      data = event.data;
+      
+      if (inputType === 'insertText') {
+	navigationType = 'cursorRight';
+      }
+    }
+
+    return({ inputType, navigationType, data });
+  }
+  
+  inputCallback(e) {
+    e.preventDefault();
+
+    if (e.nativeEvent.target.value.length > 1) {
+      e.nativeEvent.target.value = e.nativeEvent.target.value[e.nativeEvent.target.value.length - 1];
+    }
+
+    console.log("inputCallback: " + this.props.gridY + ":" + this.props.gridX);
+    this.props.inputCallback(this.normalizeInputEvent(e.nativeEvent));
+    return false;
+  }
+
+  keypressCallback(e) {
+    if (!this.inputSupported || e.nativeEvent.key.length > 1) {
+      e.preventDefault();
+
+      if (e.nativeEvent.key === 'Backspace') {
+	e.nativeEvent.target.value = '';
+      }
+      
+      console.log("keypressCallback: " + this.props.gridY + ":" + this.props.gridX);
+      this.props.inputCallback(this.normalizeInputEvent(e.nativeEvent));
+      return false;
+    }
+
+    return true;
+  }
+  
+  onFocus(e) {
+    document.getElementById(this.props.gridY + ":" + this.props.gridX).getElementsByTagName('input')[0].focus();
+  }
+  
   onClick(e) {
     if (this.props.userValue !== '.') {
       this.props.clickCallback(this.props.gridX, this.props.gridY);
@@ -46,11 +140,13 @@ export default class PuzzleGridCell extends React.Component {
     
     if (this.props.inCurrentWord) {
       className += " highlighted";
+      valueClassName += " highlighted";
     }
 
     if (userValue === '.') {
       className += " black";
       cellValue = '';
+      valueClassName += " black";
     }
 
     if (this.props.isIncorrect) {
@@ -59,6 +155,7 @@ export default class PuzzleGridCell extends React.Component {
     
     if (this.props.isSelectedInput) {
       className += " selected";
+      valueClassName += " selected";
     }
     
     let clueNumString = '';
@@ -76,8 +173,8 @@ export default class PuzzleGridCell extends React.Component {
 	      </svg>
 	    </div>
 	  }
-  	  <span data-testid="clueNumber" className="clueNumber">{clueNumString}</span>
-	  <div tabIndex="-1" data-testid="value" className={valueClassName}>{cellValue}</div>
+  	    <span data-testid="clueNumber" className="clueNumber">{clueNumString}</span>
+	    <input onKeyDown={this.keypressCallback} onInput={this.inputCallback} type="text" size="1" tabIndex="-1" data-testid="value" className={valueClassName} defaultValue={cellValue} />
         </div>
     );
   }
