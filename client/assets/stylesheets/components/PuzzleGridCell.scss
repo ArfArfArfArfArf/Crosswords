@@ -5,8 +5,8 @@
   width: 2rem;
   height: 2rem;
   display: inline-grid;
-  grid-template-columns: .5rem 1.5rem;
-  grid-template-rows: .4rem 1.6rem;
+  grid-template-columns: 0.5rem 1.5rem;
+  grid-template-rows: 0.4rem 1.6rem;
   color: transparent;
   text-shadow: 0 0 0 black;
 
@@ -19,7 +19,7 @@
 
   .clueNumber {
     position: relative;
-    font-size: .5rem;
+    font-size: 0.5rem;
     text-align: left;
     vertical-align: top;
     grid-column-start: 1;
@@ -34,7 +34,6 @@
     font-size: 1.2rem;
     background-color: transparent;
   }
-
 }
 
 input:focus {

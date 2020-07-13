@@ -1,10 +1,10 @@
 {
-  "data" : {
-    "meta" : {
-      "title" : "Off the Beaten Path",
-      "publisher" : "The Wall Street Journal"
+  "data": {
+    "meta": {
+      "title": "Off the Beaten Path",
+      "publisher": "The Wall Street Journal"
     },
-    "clues" : [
+    "clues": [
       {
         "title": "Across",
         "clues": [
@@ -24,75 +24,75 @@
           "Linguist Chomsky",
           "Chinese zodiac animal",
           "Brand in the shaving aisle",
-	  "Province",
-	  "George Washington, as a colonel, commanded it",
-	  "Hamilton and Burr, e.g.",
-	  "Word that&rsquo;s an example of itself",
-	  "Hall of Fame center fielder Roush",
-	  "Group of families in ancient Rome",
-	  "Used a Brillo pad",
-	  "Dramatic increases",
-	  "Wintour of Vogue",
-	  "Virgil&rsquo;s lucky number?",
-	  "Ballade conclusion",
-	  "Acapulco uncle",
-	  "Springsteen song, and what&rsquo;s contained in the circles",
-	  "DOJ raiders",
-	  "Overdue debt",
-	  "Order, in the court",
-	  "Flag thrower",
-	  "Singer Warwick",
-	  "Lip"
-	]
+          "Province",
+          "George Washington, as a colonel, commanded it",
+          "Hamilton and Burr, e.g.",
+          "Word that&rsquo;s an example of itself",
+          "Hall of Fame center fielder Roush",
+          "Group of families in ancient Rome",
+          "Used a Brillo pad",
+          "Dramatic increases",
+          "Wintour of Vogue",
+          "Virgil&rsquo;s lucky number?",
+          "Ballade conclusion",
+          "Acapulco uncle",
+          "Springsteen song, and what&rsquo;s contained in the circles",
+          "DOJ raiders",
+          "Overdue debt",
+          "Order, in the court",
+          "Flag thrower",
+          "Singer Warwick",
+          "Lip"
+        ]
       },
       {
-	"title": "Down",
-	"clues": [
-	  "Wolfgang&rsquo;s one",
-	  "It may be round",
-	  "Mentos buy",
-	  "Sign up",
-	  "Big mouth",
-	  "Harem chamber",
-	  "Butcher&rsquo;s scraps",
-	  "Find out whether",
-	  "Broadway legend Jerry",
-	  "Letters before Arizona or Maine",
-	  "Dash device",
-	  "Not as cordial",
-	  "Of ill repute",
-	  "Start for girl or boy",
-	  "Canyon Bomber maker",
-	  "Enthusiastic ardor",
-	  "Puckish",
-	  "Locomotive fuel",
-	  "Robbins of Baskin-Robbins",
-	  "Babe in the woods",
-	  "Creamy beef dish",
-	  "Asian path",
-	  "Tickle",
-	  "West Wing worker",
-	  "Susan&rsquo;s &ldquo;Thelma & Louise&rdquo; co-star",
-	  "Moody Blues song &ldquo;___ Life Strange&rdquo;",
-	  "Quechua speaker",
-	  "Toss in",
-	  "Mena of &ldquo;American Pie&rdquo;",
-	  "Button beside #",
-	  "Paper portion",
-	  "Persian Gulf emirate",
-	  "Come together",
-	  "Extremely small",
-	  "Compare",
-	  "Miles of film",
-	  "Big name in indoor cars",
-	  "Adherents",
-	  "In need of a timeout",
-	  "___ Quentin",
-	  "Cremona crowd?"
-	]
+        "title": "Down",
+        "clues": [
+          "Wolfgang&rsquo;s one",
+          "It may be round",
+          "Mentos buy",
+          "Sign up",
+          "Big mouth",
+          "Harem chamber",
+          "Butcher&rsquo;s scraps",
+          "Find out whether",
+          "Broadway legend Jerry",
+          "Letters before Arizona or Maine",
+          "Dash device",
+          "Not as cordial",
+          "Of ill repute",
+          "Start for girl or boy",
+          "Canyon Bomber maker",
+          "Enthusiastic ardor",
+          "Puckish",
+          "Locomotive fuel",
+          "Robbins of Baskin-Robbins",
+          "Babe in the woods",
+          "Creamy beef dish",
+          "Asian path",
+          "Tickle",
+          "West Wing worker",
+          "Susan&rsquo;s &ldquo;Thelma & Louise&rdquo; co-star",
+          "Moody Blues song &ldquo;___ Life Strange&rdquo;",
+          "Quechua speaker",
+          "Toss in",
+          "Mena of &ldquo;American Pie&rdquo;",
+          "Button beside #",
+          "Paper portion",
+          "Persian Gulf emirate",
+          "Come together",
+          "Extremely small",
+          "Compare",
+          "Miles of film",
+          "Big name in indoor cars",
+          "Adherents",
+          "In need of a timeout",
+          "___ Quentin",
+          "Cremona crowd?"
+        ]
       }
     ],
-  
+
     "circles": [
       "...............",
       "...............",
@@ -110,7 +110,7 @@
       "...............",
       "..............."
     ],
-    
+
     "solution": [
       "ETRE.MOOSHU.TIS",
       "IRON.ADFEES.ACE",

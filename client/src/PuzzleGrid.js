@@ -1,22 +1,26 @@
-import React from 'react';
-import PuzzleGridCell from './PuzzleGridCell';
-import PropTypes from 'prop-types';
-import { direction } from './Constants';
+import React from "react";
+import PuzzleGridCell from "./PuzzleGridCell";
+import PropTypes from "prop-types";
+import { direction } from "./Constants";
 
 export default class PuzzleGrid extends React.Component {
   static propTypes = {
     gridWidth: PropTypes.number.isRequired,
     gridHeight: PropTypes.number.isRequired,
     gridInputCallback: PropTypes.func.isRequired,
-    userInput: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
-    gridSolution: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+    userInput: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+      .isRequired,
+    gridSolution: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+      .isRequired,
     gridFocusCallback: PropTypes.func.isRequired,
     gridClickCallback: PropTypes.func.isRequired,
     selectedX: PropTypes.number.isRequired,
     selectedY: PropTypes.number.isRequired,
     gridDirection: PropTypes.number.isRequired,
-    clueNumbers: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
-    circledClues: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+    clueNumbers: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number))
+      .isRequired,
+    circledClues: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+      .isRequired,
     showWrongAnswers: PropTypes.bool.isRequired,
   };
 
@@ -25,7 +29,7 @@ export default class PuzzleGrid extends React.Component {
 
     this.clueNumber = 0;
   }
-  
+
   isSelectedInput(x, y) {
     return this.props.selectedY === y && this.props.selectedX === x;
   }
@@ -35,65 +39,65 @@ export default class PuzzleGrid extends React.Component {
 
     if (gridDirection === direction.ACROSS) {
       if (selectedY !== y) {
-	return false;
+        return false;
       }
 
       if (x === selectedX) {
-	return true;
+        return true;
       }
-      
+
       if (x < selectedX) {
-	let p = x;
-	
-	while (p < selectedX && gridSolution[y][p] !== '.') {
-	  ++p;
-	}
-	
-	if (p === selectedX) {
-	  return true;
-	}
+        let p = x;
+
+        while (p < selectedX && gridSolution[y][p] !== ".") {
+          ++p;
+        }
+
+        if (p === selectedX) {
+          return true;
+        }
       } else {
-	let p = x;
-	
-	while (p > selectedX && gridSolution[y][p] !== '.') {
-	  --p;
-	}
-	
-	if (p === selectedX) {
-	  return true;
-	}
+        let p = x;
+
+        while (p > selectedX && gridSolution[y][p] !== ".") {
+          --p;
+        }
+
+        if (p === selectedX) {
+          return true;
+        }
       }
 
       return false;
     } else {
       if (selectedX !== x) {
-	return false;
+        return false;
       }
 
       if (y === selectedY) {
-	return true;
+        return true;
       }
-      
+
       if (y < selectedY) {
-	let p = y;
-	
-	while (p < selectedY && gridSolution[p][x] !== '.') {
-	  ++p;
-	}
-	
-	if (p === selectedY) {
-	  return true;
-	}
+        let p = y;
+
+        while (p < selectedY && gridSolution[p][x] !== ".") {
+          ++p;
+        }
+
+        if (p === selectedY) {
+          return true;
+        }
       } else {
-	let p = y;
-	
-	while (p > selectedY && gridSolution[p][x] !== '.') {
-	  --p;
-	}
-	
-	if (p === selectedY) {
-	  return true;
-	}
+        let p = y;
+
+        while (p > selectedY && gridSolution[p][x] !== ".") {
+          --p;
+        }
+
+        if (p === selectedY) {
+          return true;
+        }
       }
 
       return false;
@@ -101,11 +105,13 @@ export default class PuzzleGrid extends React.Component {
   }
 
   renderGridRows() {
-    return [...Array(this.props.gridHeight).keys()].map((i) => { return (
-	<div className="GridRow" key={`Row${i}`}>
-	  {this.renderGridRow(i)}
+    return [...Array(this.props.gridHeight).keys()].map((i) => {
+      return (
+        <div className="GridRow" key={`Row${i}`}>
+          {this.renderGridRow(i)}
         </div>
-    )});
+      );
+    });
   }
 
   isIncorrect(i, j) {
@@ -114,11 +120,11 @@ export default class PuzzleGrid extends React.Component {
     if (this.props.showWrongAnswers === false) {
       return false;
     }
-    
-    if (gridSolution[i][j] === '.' || userInput[i][j] === '') {
+
+    if (gridSolution[i][j] === "." || userInput[i][j] === "") {
       return false;
     }
-    
+
     if (userInput[i][j].toUpperCase() !== gridSolution[i][j].toUpperCase()) {
       return true;
     }
@@ -132,22 +138,25 @@ export default class PuzzleGrid extends React.Component {
 
     for (j = 0; j < this.props.gridWidth; j++) {
       grid.push(
-	  <PuzzleGridCell 
-  	    inCurrentWord={this.isInCurrentWord(j, i)}
-	    isSelectedInput={this.isSelectedInput(j, i)}
-            userValue={this.props.userInput[i][j]}
-            correctValue={this.props.gridSolution[i][j]}
-	    clueNumber={this.props.clueNumbers[i][j].toString()}
-            key={"Cell:" + i + "," + j}
-            gridX={j}
-            gridY={i}
-            focusCallback={this.props.gridFocusCallback}
-            inputCallback={this.props.gridInputCallback}
-	    clickCallback={this.props.gridClickCallback}
-	    circled={this.props.circledClues.length > 0 && this.props.circledClues[i][j] === '1'}
-	    isIncorrect={this.isIncorrect(i, j)}
-          />
-        );
+        <PuzzleGridCell
+          inCurrentWord={this.isInCurrentWord(j, i)}
+          isSelectedInput={this.isSelectedInput(j, i)}
+          userValue={this.props.userInput[i][j]}
+          correctValue={this.props.gridSolution[i][j]}
+          clueNumber={this.props.clueNumbers[i][j].toString()}
+          key={"Cell:" + i + "," + j}
+          gridX={j}
+          gridY={i}
+          focusCallback={this.props.gridFocusCallback}
+          inputCallback={this.props.gridInputCallback}
+          clickCallback={this.props.gridClickCallback}
+          circled={
+            this.props.circledClues.length > 0 &&
+            this.props.circledClues[i][j] === "1"
+          }
+          isIncorrect={this.isIncorrect(i, j)}
+        />
+      );
     }
 
     return grid;
@@ -155,9 +164,9 @@ export default class PuzzleGrid extends React.Component {
 
   render() {
     return (
-        <div id="grid" className="Grid">
-          {this.renderGridRows()}
-        </div>
+      <div id="grid" className="Grid">
+        {this.renderGridRows()}
+      </div>
     );
   }
 }

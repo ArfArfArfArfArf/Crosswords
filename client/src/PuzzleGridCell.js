@@ -1,21 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const IS_INPUT_SUPPORTED = (function() {
+const IS_INPUT_SUPPORTED = (function () {
   try {
     // just kill browsers off, that throw an error if they don't know
     // `InputEvent`
-    const event = new InputEvent('input', {
-      data: 'xyz',
-      inputType: 'deleteContentForward'
+    const event = new InputEvent("input", {
+      data: "xyz",
+      inputType: "deleteContentForward",
     });
     let support = false;
 
     // catch the others
     // https://github.com/chromium/chromium/blob/c029168ba251a240b0ec91fa3b4af4214fbbe9ab/third_party/blink/renderer/core/events/input_event.cc#L78-L82
-    const el = document.createElement('input');
-    el.addEventListener('input', function(e) {
-      if (e.inputType === 'deleteContentForward') {
+    const el = document.createElement("input");
+    el.addEventListener("input", function (e) {
+      if (e.inputType === "deleteContentForward") {
         support = true;
       }
     });
@@ -41,7 +41,7 @@ export default class PuzzleGridCell extends React.Component {
     circled: PropTypes.bool.isRequired,
     isIncorrect: PropTypes.bool.isRequired,
   };
-  
+
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
@@ -52,45 +52,66 @@ export default class PuzzleGridCell extends React.Component {
     this.inputSupported = IS_INPUT_SUPPORTED;
   }
 
-  normalizeInputEvent(event) {
-    var inputType = '';
-    var navigationType = '';
-    var data = '';
+  componentDidUpdate(prevProps) {
+    if (
+      (this.props.userValue !== "" || prevProps.userValue !== "") &&
+      prevProps.userValue !== this.props.userValue
+    ) {
+      document
+        .getElementById(this.props.gridY + ":" + this.props.gridX)
+        .getElementsByTagName("input")[0].value = this.props.userValue;
+    }
+  }
 
-    console.log(event);
+  normalizeInputEvent(event) {
+    var inputType = "";
+    var navigationType = "";
+    var data = "";
 
     if (event instanceof KeyboardEvent) {
-      if (event.key === 'Backspace') {
-	inputType = 'deleteContentBackward';
-      } else if (event.key === 'Delete') {
-	inputType = 'deleteContentForward';
-      } else if (event.key.startsWith('Arrow')) {
-	navigationType = event.key.replace('Arrow', 'cursor');
+      if (event.key === "Backspace") {
+        inputType = "deleteContentBackward";
+      } else if (event.key === "Delete") {
+        inputType = "deleteContentForward";
+      } else if (event.key.startsWith("Arrow")) {
+        navigationType = event.key.replace("Arrow", "cursor");
       } else {
-	data = event.key;
-	inputType = 'insertText';
+        data = event.key;
+        inputType = "insertText";
       }
     } else {
       // @ts-ignore event.inputType is there on android - actually what we need here!
       inputType = event.inputType;
       data = event.data;
-      
-      if (inputType === 'insertText') {
-	navigationType = 'cursorRight';
+
+      if (inputType === "insertText") {
+        navigationType = "cursorRight";
       }
     }
 
-    return({ inputType, navigationType, data });
+    return { inputType, navigationType, data };
   }
-  
+
   inputCallback(e) {
     e.preventDefault();
+    const { target } = e.nativeEvent;
 
-    if (e.nativeEvent.target.value.length > 1) {
-      e.nativeEvent.target.value = e.nativeEvent.target.value[e.nativeEvent.target.value.length - 1];
+    if (target.value.length > 1) {
+      var value = target.value;
+
+      value = value.replace(this.props.userValue, "");
+
+      if (value.length > 1) {
+        target.value = value[value.length - 1];
+      } else {
+        target.value = value;
+      }
+    } else {
+      if (target.value === "." || target.value === ",") {
+        target.value = this.props.userInput || "";
+      }
     }
 
-    console.log("inputCallback: " + this.props.gridY + ":" + this.props.gridX);
     this.props.inputCallback(this.normalizeInputEvent(e.nativeEvent));
     return false;
   }
@@ -99,83 +120,115 @@ export default class PuzzleGridCell extends React.Component {
     if (!this.inputSupported || e.nativeEvent.key.length > 1) {
       e.preventDefault();
 
-      if (e.nativeEvent.key === 'Backspace') {
-	e.nativeEvent.target.value = '';
+      if (e.nativeEvent.key === "Backspace") {
+        e.nativeEvent.target.value = "";
       }
-      
-      console.log("keypressCallback: " + this.props.gridY + ":" + this.props.gridX);
+
       this.props.inputCallback(this.normalizeInputEvent(e.nativeEvent));
       return false;
     }
 
     return true;
   }
-  
+
   onFocus(e) {
-    document.getElementById(this.props.gridY + ":" + this.props.gridX).getElementsByTagName('input')[0].focus();
+    document
+      .getElementById(this.props.gridY + ":" + this.props.gridX)
+      .getElementsByTagName("input")[0]
+      .focus();
   }
-  
+
   onClick(e) {
-    if (this.props.userValue !== '.') {
+    if (this.props.userValue !== ".") {
       this.props.clickCallback(this.props.gridX, this.props.gridY);
       e.preventDefault();
     }
   }
-  
+
   getTabIndex() {
-    if (this.props.userValue === '.') {
+    if (this.props.userValue === ".") {
       return -1;
     } else {
       return 0;
     }
   }
-  
-  render()
-  {
+
+  render() {
     const { userValue, clueNumber } = this.props;
-    
+
     let className = "GridCell";
     let valueClassName = "clueValue";
     let cellValue = userValue;
-    
+
     if (this.props.inCurrentWord) {
       className += " highlighted";
       valueClassName += " highlighted";
     }
 
-    if (userValue === '.') {
+    if (userValue === ".") {
       className += " black";
-      cellValue = '';
+      cellValue = "";
       valueClassName += " black";
     }
 
     if (this.props.isIncorrect) {
       valueClassName += " incorrect";
     }
-    
+
     if (this.props.isSelectedInput) {
       className += " selected";
       valueClassName += " selected";
     }
-    
-    let clueNumString = '';
-    
-    if (clueNumber !== "0" && userValue !== '.') {
+
+    let clueNumString = "";
+
+    if (clueNumber !== "0" && userValue !== ".") {
       clueNumString = clueNumber;
     }
 
     return (
-	<div data-testid='gridcell' className={className} onFocus={this.onFocus} onClick={this.onClick} tabIndex={this.getTabIndex()} id={this.props.gridY + ":" + this.props.gridX} key={this.props.gridY + ":" + this.props.gridX}>
-          {this.props.circled &&
-	    <div className="circled">
-	      <svg data-testid="circle" xmlns="http://www.w3.org/2000/svg" version="1.1" height="2rem" width="2rem">
-                <circle cx="1rem" cy="1rem" r="1rem" fill="transparent" stroke="#000000" />
-	      </svg>
-	    </div>
-	  }
-  	    <span data-testid="clueNumber" className="clueNumber">{clueNumString}</span>
-	    <input onKeyDown={this.keypressCallback} onInput={this.inputCallback} type="text" size="1" tabIndex="-1" data-testid="value" className={valueClassName} defaultValue={cellValue} />
-        </div>
+      <div
+        data-testid="gridcell"
+        className={className}
+        onFocus={this.onFocus}
+        onClick={this.onClick}
+        tabIndex={this.getTabIndex()}
+        id={this.props.gridY + ":" + this.props.gridX}
+        key={this.props.gridY + ":" + this.props.gridX}
+      >
+        {this.props.circled && (
+          <div className="circled">
+            <svg
+              data-testid="circle"
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              height="2rem"
+              width="2rem"
+            >
+              <circle
+                cx="1rem"
+                cy="1rem"
+                r="1rem"
+                fill="transparent"
+                stroke="#000000"
+              />
+            </svg>
+          </div>
+        )}
+        <span data-testid="clueNumber" className="clueNumber">
+          {clueNumString}
+        </span>
+        <input
+          onKeyDown={this.keypressCallback}
+          onInput={this.inputCallback}
+          type="text"
+          size="1"
+          tabIndex="-1"
+          data-testid="value"
+          className={valueClassName}
+          defaultValue={cellValue}
+        />
+      </div>
     );
   }
 }

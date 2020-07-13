@@ -8,7 +8,6 @@
     flex-direction: row;
 
     .PreferencesIcon {
-
     }
 
     .RevealDropdown {
@@ -42,10 +41,10 @@
 
 .loader {
   margin-top: 1rem;
-  border-top: .625rem solid #58b647;
-  border-right: .625rem solid rgba(136, 136, 136, 0.2);
-  border-bottom: .625rem solid rgba(136, 136, 136, 0.2);
-  border-left: .625rem solid rgba(136, 136, 136, 0.2);
+  border-top: 0.625rem solid #58b647;
+  border-right: 0.625rem solid rgba(136, 136, 136, 0.2);
+  border-bottom: 0.625rem solid rgba(136, 136, 136, 0.2);
+  border-left: 0.625rem solid rgba(136, 136, 136, 0.2);
   animation: spinner 0.9s linear infinite;
   border-radius: 50%;
   width: 4rem;

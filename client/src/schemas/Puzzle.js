@@ -1,4 +1,4 @@
-import { shape, string, arrayOf, number } from 'prop-types';
+import { shape, string, arrayOf, number } from "prop-types";
 
 const PuzzleSchema = shape({
   title: string,

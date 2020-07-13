@@ -1,10 +1,10 @@
-import Puz from 'puzjs';
+import Puz from "puzjs";
 
 export default class PuzParser {
   setUrl(url) {
     return fetch(url)
-      .then(response => response.arrayBuffer())
-      .then(buf => this.parsePuzzle(buf));
+      .then((response) => response.arrayBuffer())
+      .then((buf) => this.parsePuzzle(buf));
   }
 
   parsePuzzle(buf) {
@@ -20,24 +20,24 @@ export default class PuzParser {
     let clueNum = 0;
     let acrossClues = [];
     let downClues = [];
-    
+
     for (i = 0; i < json.clues.across.length; i++) {
       if (json.clues.across[i] !== undefined) {
-	acrossClues[clueNum] = json.clues.across[i];
-	++clueNum;
+        acrossClues[clueNum] = json.clues.across[i];
+        ++clueNum;
       }
     }
 
     downClues = [];
     clueNum = 0;
-    
+
     for (i = 0; i < json.clues.down.length; i++) {
       if (json.clues.down[i] !== undefined) {
-	downClues[clueNum] = json.clues.down[i];
-	++clueNum;
+        downClues[clueNum] = json.clues.down[i];
+        ++clueNum;
       }
     }
-    
+
     puzInfo.clues[0] = acrossClues;
     puzInfo.clues[1] = downClues;
     puzInfo.circledClues = json.circles;
@@ -49,4 +49,4 @@ export default class PuzParser {
 
     return puzInfo;
   }
-};
+}

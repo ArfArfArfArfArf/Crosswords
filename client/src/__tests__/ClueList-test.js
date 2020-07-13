@@ -1,12 +1,12 @@
-import React from 'react';
-import ClueList from '../ClueList';
-import { render, queryByAttribute } from '@testing-library/react';
+import React from "react";
+import ClueList from "../ClueList";
+import { render, queryByAttribute } from "@testing-library/react";
 
 var defaultProps = {
   title: "Across",
   clueDirection: 0,
-  clueNumbers: [ 1, 6, 9 ],
-  clues: [ "Clue 1", "Clue 6", "Clue 9" ],
+  clueNumbers: [1, 6, 9],
+  clues: ["Clue 1", "Clue 6", "Clue 9"],
   selectedClue: 1,
   primary: true,
   onClueClicked: jest.fn,
@@ -17,8 +17,8 @@ var defaultProps = {
 var blurProps = {
   title: "Across",
   clueDirection: 0,
-  clueNumbers: [ 1, 6, 9 ],
-  clues: [ "Clue 1", "Clue 6", "Clue 9" ],
+  clueNumbers: [1, 6, 9],
+  clues: ["Clue 1", "Clue 6", "Clue 9"],
   selectedClue: 1,
   primary: true,
   onClueClicked: jest.fn,
@@ -26,18 +26,18 @@ var blurProps = {
   obscured: true,
 };
 
-const getById = queryByAttribute.bind(null, 'id');
+const getById = queryByAttribute.bind(null, "id");
 
-test('it displays the clues', () => {
+test("it displays the clues", () => {
   const { container, getByText } = render(<ClueList {...defaultProps} />);
 
-  expect(getByText('1. Clue 1')).toBeInTheDocument();
-  expect(getByText('6. Clue 6')).toBeInTheDocument();
-  expect(getByText('9. Clue 9')).toBeInTheDocument();
+  expect(getByText("1. Clue 1")).toBeInTheDocument();
+  expect(getByText("6. Clue 6")).toBeInTheDocument();
+  expect(getByText("9. Clue 9")).toBeInTheDocument();
 });
 
-test('it blurs the clues if flag is set', () => {
+test("it blurs the clues if flag is set", () => {
   const { container } = render(<ClueList {...blurProps} />);
 
-  expect(getById(container, 'cluelist')).toHaveClass("obscured");
+  expect(getById(container, "cluelist")).toHaveClass("obscured");
 });
