@@ -530,7 +530,7 @@ export default class Puzzle extends React.Component {
     if (
       data &&
       data.length === 1 &&
-      (data === " " ||
+	((data === " " && this.state.preferences.spaceBar !== "change") ||
         (data >= "a" && data <= "z") ||
         (data >= "A" && data <= "Z") ||
         (data >= "0" && data <= "9"))
