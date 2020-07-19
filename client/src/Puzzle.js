@@ -201,8 +201,7 @@ export default class Puzzle extends React.Component {
       }
     }
 
-    const x = this.findFirstSquare(direction.ACROSS);
-    const y = this.findFirstSquare(direction.DOWN);
+    const [ x, y ]  = this.findFirstSquare(solution);
 
     this.setState({
       acrossNumbers: acrossNumbers,
@@ -210,35 +209,23 @@ export default class Puzzle extends React.Component {
       clueNumbers: clueNumbers,
       userInput: userInput,
       selectedX: x,
-      slectedY: y,
+      selectedY: y,
       incorrectAnswers: incorrectAnswers,
     });
   }
 
-  findFirstSquare(dir) {
-    const { gridWidth, gridHeight, gridSolution } = this.state;
-
+  findFirstSquare(gridSolution) {
     let i = 0;
+    let j = 0;
 
-    if (dir === direction.ACROSS) {
-      while (i < gridWidth) {
-        if (gridSolution[0][i] !== ".") {
-	  console.log("ACROSS: " + i);
-          return i;
-        }
-        ++i;
-      }
-    } else {
-      while (i < gridHeight) {
-        if (gridSolution[i][0] !== ".") {
-	  console.log("DOWN: " + i);
-          return i;
-        }
-        ++i;
+    for (i = 0; i < gridSolution.length; i++) {
+      for (j = 0; j < gridSolution[0].length; j++) {
+	if (gridSolution[i][j] !== ".") {
+	  return [ j, i ];
+	}
       }
     }
-
-    return 0;
+    return [0, 0];
   }
 
   savePuzzle() {
@@ -259,6 +246,8 @@ export default class Puzzle extends React.Component {
         gridWidth: this.state.gridWidth,
         gridHeight: this.state.gridHeight,
         meta: this.state.meta,
+	selectedX: this.state.selectedX,
+	selectedY: this.state.selectedY,
       }
     );
   }
