@@ -223,6 +223,7 @@ export default class Puzzle extends React.Component {
     if (dir === direction.ACROSS) {
       while (i < gridWidth) {
         if (gridSolution[0][i] !== ".") {
+	  console.log("ACROSS: " + i);
           return i;
         }
         ++i;
@@ -230,6 +231,7 @@ export default class Puzzle extends React.Component {
     } else {
       while (i < gridHeight) {
         if (gridSolution[i][0] !== ".") {
+	  console.log("DOWN: " + i);
           return i;
         }
         ++i;
@@ -1062,7 +1064,7 @@ export default class Puzzle extends React.Component {
     } else if (option.value === "Sample NYT") {
       this.loadPuzzle(
         "NYT",
-        `http://${host}/Jul0120.puz`,
+        `http://${host}/Jul1920.puz`,
         puzzleTypes.PUZ,
         "2020",
         "06",
