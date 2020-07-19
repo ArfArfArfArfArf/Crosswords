@@ -133,7 +133,7 @@ export default class Preferences extends React.Component {
             type="checkbox"
             id="timepuzzle"
             name="timepuzzle"
-            value="Yes"
+            value={this.props.timePuzzle}
             onChange={this.handleTimePuzzle}
             checked={this.props.timePuzzle === true ? "checked" : null}
           />
@@ -142,7 +142,7 @@ export default class Preferences extends React.Component {
             type="checkbox"
             id="showwronganswers"
             name="showwronganswers"
-            value="No"
+            value={this.props.showWrongAnswers}
             onChange={this.handleShowWrongAnswers}
             checked={this.props.showWrongAnswers === true ? "checked" : null}
           />

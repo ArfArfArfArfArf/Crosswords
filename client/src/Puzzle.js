@@ -8,7 +8,6 @@ import { merge } from "lodash";
 import ls from "local-storage";
 import { puzzleTypes, direction } from "./Constants";
 import { AllHtmlEntities } from "html-entities";
-import ms from "pretty-ms";
 import classnames from "classnames";
 import ReactModal from "react-modal";
 import Dropdown from "react-dropdown";
@@ -44,13 +43,9 @@ export default class Puzzle extends React.Component {
     }
 
     this.state = {
-      timer: {
-        time: 0,
-        isOn: false,
-        start: 0,
-      },
-      puzzleComplete: false,
+      puzzleStartTime: 0,
       showModal: false,
+      puzzleComplete: false,
       preferences: {},
       showPrefs: false,
       isLoading: true,
@@ -77,14 +72,12 @@ export default class Puzzle extends React.Component {
     this.onClueClicked = this.onClueClicked.bind(this);
     this.displayPrefs = this.displayPrefs.bind(this);
     this.setPreferences = this.setPreferences.bind(this);
-    this.startTimer = this.startTimer.bind(this);
-    this.pauseTimer = this.pauseTimer.bind(this);
-    this.updateTimer = this.updateTimer.bind(this);
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     this.reveal = this.reveal.bind(this);
     this.checkPuzzle = this.checkPuzzle.bind(this);
     this.load = this.load.bind(this);
-
+    this.resumePuzzle = this.resumePuzzle.bind(this);
+    
     if (typeof document.hidden !== "undefined") {
       // Opera 12.10 and Firefox 18 and later support
       this.hidden = "hidden";
@@ -126,7 +119,7 @@ export default class Puzzle extends React.Component {
       this.state.preferences.timePuzzle &&
       document[this.hidden]
     ) {
-      this.pauseTimer();
+      this.setState({ showModal: true, puzzleTime: Date.now() - this.state.puzzleStartTime });
     }
   }
 
@@ -242,6 +235,8 @@ export default class Puzzle extends React.Component {
         ++i;
       }
     }
+
+    return 0;
   }
 
   savePuzzle() {
@@ -251,7 +246,6 @@ export default class Puzzle extends React.Component {
       this.state.puzzleMonth,
       this.state.puzzleDay,
       {
-        timer: this.state.timer,
         acrossNumbers: this.state.acrossNumbers,
         downNumbers: this.state.downNumbers,
         clueNumbers: this.state.clueNumbers,
@@ -289,6 +283,11 @@ export default class Puzzle extends React.Component {
       isLoading: true,
       preferences: JSON.parse(prefs),
       puzzleComplete: false,
+      puzzleName: puzzleName,
+      puzzleType: puzzleType,
+      puzzleYear: puzzleYear,
+      puzzleMonth: puzzleMonth,
+      puzzleDay: puzzleDay,
     });
 
     var puz;
@@ -348,10 +347,6 @@ export default class Puzzle extends React.Component {
       });
 
       this.setState({
-        puzzleName: puzzleName,
-        puzzleYear: puzzleYear,
-        puzzleMonth: puzzleMonth,
-        puzzleDay: puzzleDay,
         isLoading: false,
         acrossClues: acrossClues,
         downClues: downClues,
@@ -549,14 +544,14 @@ export default class Puzzle extends React.Component {
         (data >= "A" && data <= "Z") ||
         (data >= "0" && data <= "9"))
     ) {
-      let { timer, incorrectAnswers } = this.state;
+      let { incorrectAnswers } = this.state;
 
       if (
-        timer.isOn === false &&
         !this.state.puzzleComplete &&
-        this.state.preferences.timePuzzle
+          this.state.preferences.timePuzzle &&
+	  this.state.puzzleStartTime === 0
       ) {
-        this.startTimer();
+	this.setState({ puzzleStartTime: Date.now() });
       }
 
       /* answer was correct - now it might not be ... */
@@ -580,20 +575,6 @@ export default class Puzzle extends React.Component {
       if (incorrectAnswers === 0) {
         this.savePuzzle();
         this.setState({ puzzleComplete: true });
-
-        if (this.state.preferences.timePuzzle) {
-          this.setState((curState) => {
-            return {
-              showModal: true,
-              timer: {
-                start: curState.timer.start,
-                isOn: false,
-                time: curState.timer.time,
-              },
-            };
-          });
-          clearInterval(this.timer);
-        }
       }
 
       this.focusNextInput(selectedX, selectedY);
@@ -927,25 +908,16 @@ export default class Puzzle extends React.Component {
     }
   }
 
+  resumePuzzle() {
+    this.setState((curState) => { return { showModal: false, puzzleStartTime: Date.now() - curState.puzzleTime }; });
+  }
+  
   displayPrefs() {
-    const timerOn = this.state.timer.isOn;
-
     this.setState((curState) => {
       return {
         showPrefs: !curState.showPrefs,
-        timer: {
-          isOn: !curState.timer.isOn,
-          time: curState.timer.time,
-          start: curState.timer.start,
-        },
       };
     });
-
-    if (timerOn) {
-      clearInterval(this.timer);
-    } else {
-      this.timer = setInterval(this.updateTimer, 1);
-    }
   }
 
   setPreferences(prefs) {
@@ -1065,9 +1037,7 @@ export default class Puzzle extends React.Component {
   }
 
   load(option) {
-    if (this.state.puzzleName) {
-      this.savePuzzle();
-    }
+    this.savePuzzle();
 
     const host = window.location.host;
 
@@ -1135,7 +1105,6 @@ export default class Puzzle extends React.Component {
         {this.renderLoad()}
         {this.renderCheck()}
         {this.renderRevealDropdown()}
-        {this.renderTimer()}
       </div>
     );
   }
@@ -1179,7 +1148,7 @@ export default class Puzzle extends React.Component {
       <div
         className={classnames({
           GridClues: true,
-          obscured: this.isTimerPaused(),
+          obscured: this.state.showModal,
         })}
       >
         <span className="GridClueNumber">{acrossNumber}A. </span>
@@ -1191,77 +1160,6 @@ export default class Puzzle extends React.Component {
     );
   }
 
-  updateTimer() {
-    this.setState((curState) => {
-      return {
-        timer: {
-          time: Date.now() - curState.timer.start,
-          isOn: curState.timer.isOn,
-          start: curState.timer.start,
-        },
-      };
-    });
-  }
-
-  startTimer() {
-    this.setState((curState) => {
-      return {
-        showModal: false,
-        timer: {
-          isOn: true,
-          time: curState.timer.time,
-          start: Date.now() - curState.timer.time,
-        },
-      };
-    });
-
-    this.timer = setInterval(this.updateTimer, 1);
-  }
-
-  pauseTimer() {
-    this.setState((curState) => {
-      return {
-        showModal: true,
-        timer: {
-          start: curState.timer.start,
-          isOn: false,
-          time: curState.timer.time,
-        },
-      };
-    });
-    clearInterval(this.timer);
-  }
-
-  isTimerPaused() {
-    return (
-      !this.state.puzzleComplete &&
-      this.state.timer.start !== 0 &&
-      this.state.timer.isOn === false
-    );
-  }
-
-  renderTimer() {
-    if (this.state.preferences.timePuzzle === false) {
-      return null;
-    }
-
-    let pause =
-      this.state.puzzleComplete ||
-      this.state.timer.time === 0 ||
-      !this.state.timer.isOn ? null : (
-        <button onClick={this.pauseTimer}>Pause</button>
-      );
-
-    return (
-      <div className="PuzzleTimer">
-        {ms(this.state.timer.time, {
-          colonNotation: true,
-          secondsDecimalDigits: 0,
-        })}
-        {pause}
-      </div>
-    );
-  }
 
   renderBody() {
     if (this.state.showPrefs) {
@@ -1296,7 +1194,7 @@ export default class Puzzle extends React.Component {
             />
           </div>
           <ClueList
-            obscured={this.isTimerPaused()}
+            obscured={this.state.showModal}
             title={"Across"}
             clueDirection={direction.ACROSS}
             clueNumbers={this.state.acrossNumbers}
@@ -1307,7 +1205,7 @@ export default class Puzzle extends React.Component {
             gridHeight={this.state.gridHeight}
           />
           <ClueList
-            obscured={this.isTimerPaused()}
+            obscured={this.state.showModal}
             title={"Down"}
             clueDirection={direction.DOWN}
             clueNumbers={this.state.downNumbers}
@@ -1344,13 +1242,13 @@ export default class Puzzle extends React.Component {
       <ReactModal
         isOpen={this.state.showModal}
         contentLabel="Puzzle Paused"
-        onRequestClose={this.startTimer}
+        onRequestClose={this.resumePuzzle}
         shouldCloseOnOverlayClick={false}
         className="Modal"
       >
         <div className="PuzzleModalContent">
           <h2>Puzzle paused.</h2>
-          <button onClick={this.startTimer}>Resume</button>
+          <button onClick={this.resumePuzzle}>Resume</button>
         </div>
       </ReactModal>
     );
