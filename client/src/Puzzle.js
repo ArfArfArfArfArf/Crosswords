@@ -299,6 +299,7 @@ export default class Puzzle extends React.Component {
     );
 
     if (p) {
+      debugger;
       this.setState({ isLoading: false, ...p });
       return;
     }
@@ -335,6 +336,8 @@ export default class Puzzle extends React.Component {
         gridWidth: data.width,
         gridHeight: data.height,
         meta: data.meta,
+	selectedX: this.state.selectedX,
+	selectedY: this.state.selectedY,
       });
 
       this.setState({
@@ -353,12 +356,12 @@ export default class Puzzle extends React.Component {
   componentDidMount() {
     const host = window.location.host;
     this.loadPuzzle(
-      "WSJ",
-      `http://${host}/jz200319.puz`,
-      puzzleTypes.PUZ,
+      "LAT",
+      `http://${host}/la200721.xml`,
+      puzzleTypes.LATIMES,
       "2020",
-      "03",
-      "19"
+      "07",
+      "21"
     );
   }
 
@@ -447,8 +450,7 @@ export default class Puzzle extends React.Component {
 
       if (
         userInput[selectedY][selectedX] !== "" &&
-        userInput[selectedY][selectedX].toUpperCase() ===
-          gridSolution[selectedY][selectedX].toUpperCase()
+        userInput[selectedY][selectedX] === gridSolution[selectedY][selectedX]
       ) {
         ++incorrectAnswers;
       }
@@ -547,16 +549,15 @@ export default class Puzzle extends React.Component {
 
       /* answer was correct - now it might not be ... */
       if (
-        userInput[selectedY][selectedX].toUpperCase() ===
-        gridSolution[selectedY][selectedX].toUpperCase()
+        userInput[selectedY][selectedX] ===  gridSolution[selectedY][selectedX]
       ) {
         ++incorrectAnswers;
       }
 
-      userInput[selectedY][selectedX] = data;
+      userInput[selectedY][selectedX] = data.toUpperCase();
 
       if (
-        data.toUpperCase() === gridSolution[selectedY][selectedX].toUpperCase()
+        userInput[selectedY][selectedX] === gridSolution[selectedY][selectedX]
       ) {
         --incorrectAnswers;
       }
@@ -935,8 +936,7 @@ export default class Puzzle extends React.Component {
 
     if (option.value === "Letter") {
       if (
-        userInput[selectedY][selectedX].toUpperCase() !==
-        gridSolution[selectedY][selectedX].toUpperCase()
+        userInput[selectedY][selectedX] !== gridSolution[selectedY][selectedX]
       ) {
         --ia;
       }
@@ -951,8 +951,7 @@ export default class Puzzle extends React.Component {
 
         while (x < gridWidth && gridSolution[selectedY][x] !== ".") {
           if (
-            userInput[selectedY][x].toUpperCase() !==
-            gridSolution[selectedY][x].toUpperCase()
+            userInput[selectedY][x] !== gridSolution[selectedY][x]
           ) {
             --ia;
           }
@@ -968,8 +967,7 @@ export default class Puzzle extends React.Component {
 
         while (y < gridHeight && gridSolution[y][selectedX] !== ".") {
           if (
-            userInput[y][selectedX].toUpperCase() !==
-            gridSolution[y][selectedX].toUpperCase()
+            userInput[y][selectedX] !== gridSolution[y][selectedX]
           ) {
             --ia;
           }
@@ -1013,7 +1011,7 @@ export default class Puzzle extends React.Component {
     for (i = 0; i < gridHeight; i++) {
       for (j = 0; j < gridWidth; j++) {
         if (
-          userInput[i][j].toUpperCase() !== gridSolution[i][j].toUpperCase()
+          userInput[i][j] !== gridSolution[i][j]
         ) {
           userInput[i][j] = "";
         }
