@@ -229,6 +229,10 @@ export default class Puzzle extends React.Component {
   }
 
   savePuzzle() {
+    if (!this.state.puzzleName) {
+      debugger;
+    }
+    
     puzzleStore.storePuzzle(
       this.state.puzzleName,
       this.state.puzzleYear,
@@ -299,7 +303,6 @@ export default class Puzzle extends React.Component {
     );
 
     if (p) {
-      debugger;
       this.setState({ isLoading: false, ...p });
       return;
     }
@@ -1133,20 +1136,37 @@ export default class Puzzle extends React.Component {
       }
     }
 
-    return (
-      <div
-        className={classnames({
-          GridClues: true,
-          obscured: this.state.showModal,
-        })}
-      >
-        <span className="GridClueNumber">{acrossNumber}A. </span>
-        <span className="GridClue">{acrossClues[acrossIndex]}</span>
-        <br />
-        <span className="GridClueNumber">{downNumber}D. </span>
-        <span className="GridClue">{downClues[downIndex]}</span>
-      </div>
-    );
+    if (this.state.gridDirection === direction.ACROSS) {
+      return (
+	  <div
+            className={classnames({
+              GridClues: true,
+              obscured: this.state.showModal,
+            })}
+	  >
+            <span className="GridClueNumber">{acrossNumber}A. </span>
+            <span className="GridClue">{acrossClues[acrossIndex]}</span>
+            <br />
+            <span className="GridClueNumber">{downNumber}D. </span>
+            <span className="GridClue">{downClues[downIndex]}</span>
+	  </div>
+      );
+    } else {
+      return (
+	  <div
+            className={classnames({
+              GridClues: true,
+              obscured: this.state.showModal,
+            })}
+	  >
+            <span className="GridClueNumber">{downNumber}D. </span>
+            <span className="GridClue">{downClues[downIndex]}</span>
+            <br />
+            <span className="GridClueNumber">{acrossNumber}A. </span>
+            <span className="GridClue">{acrossClues[acrossIndex]}</span>
+	  </div>
+      );
+    }
   }
 
 
@@ -1155,7 +1175,7 @@ export default class Puzzle extends React.Component {
       return (
         <Preferences
           setPreferences={this.setPreferences}
-          {...this.state.preferences}
+          { ...this.state.preferences }
         />
       );
     } else {
