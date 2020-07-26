@@ -229,10 +229,6 @@ export default class Puzzle extends React.Component {
   }
 
   savePuzzle() {
-    if (!this.state.puzzleName) {
-      debugger;
-    }
-    
     puzzleStore.storePuzzle(
       this.state.puzzleName,
       this.state.puzzleYear,
@@ -1057,17 +1053,17 @@ export default class Puzzle extends React.Component {
         `http://${host}/Jul1920.puz`,
         puzzleTypes.PUZ,
         "2020",
-        "06",
-        "01"
+        "07",
+        "20"
       );
     } else if (option.value === "Sample LA Times") {
       this.loadPuzzle(
         "LAT",
-        `http://${host}/la200701.xml`,
+        `http://${host}/la200725.xml`,
         puzzleTypes.LATIMES,
         "2020",
         "07",
-        "01"
+        "25"
       );
     }
   }
