@@ -229,10 +229,6 @@ export default class Puzzle extends React.Component {
   }
 
   savePuzzle() {
-    if (!this.state.puzzleName) {
-      debugger;
-    }
-    
     puzzleStore.storePuzzle(
       this.state.puzzleName,
       this.state.puzzleYear,
@@ -285,16 +281,6 @@ export default class Puzzle extends React.Component {
       puzzleDay: puzzleDay,
     });
 
-    var puz;
-
-    if (puzzleType === puzzleTypes.PUZ) {
-      puz = new PuzParser();
-    } else if (puzzleType === puzzleTypes.WSJ) {
-      puz = new WSJParser();
-    } else if (puzzleType === puzzleTypes.LATIMES) {
-      puz = new LATimesParser();
-    }
-
     const p = puzzleStore.getPuzzle(
       puzzleName,
       puzzleYear,
@@ -305,6 +291,16 @@ export default class Puzzle extends React.Component {
     if (p) {
       this.setState({ isLoading: false, ...p });
       return;
+    }
+
+    var puz;
+
+    if (puzzleType === puzzleTypes.PUZ) {
+      puz = new PuzParser();
+    } else if (puzzleType === puzzleTypes.WSJ) {
+      puz = new WSJParser();
+    } else if (puzzleType === puzzleTypes.LATIMES) {
+      puz = new LATimesParser();
     }
 
     puz.setUrl(puzzle).then((data) => {
@@ -447,7 +443,7 @@ export default class Puzzle extends React.Component {
 
     if (
       inputType === "deleteContentBackward" ||
-      inputType === "deleteContentBackward"
+      inputType === "deleteContentForward"
     ) {
       let incorrectAnswers = this.state.incorrectAnswers;
 
@@ -753,7 +749,7 @@ export default class Puzzle extends React.Component {
   focusPreviousInput(x, y) {
     let nextX = x;
     let nextY = y;
-    const { gridSolution, gridDirection } = this.state;
+    const { gridWidth, gridHeight, gridSolution, gridDirection } = this.state;
 
     if (gridDirection === direction.ACROSS) {
       if (x > 0) {
@@ -762,6 +758,11 @@ export default class Puzzle extends React.Component {
           --x;
         }
 
+	if (gridSolution[y][x] === ".") {
+	  while (x < gridWidth && gridSolution[y][x] === ".") {
+	    ++x;
+	  }
+	}
         nextX = x;
       }
     } else {
@@ -771,6 +772,12 @@ export default class Puzzle extends React.Component {
         while (y > 0 && gridSolution[y][x] === ".") {
           --y;
         }
+
+	if (gridSolution[y][x] === ".") {
+	  while (y < gridHeight && gridSolution[y][x] === ".") {
+	    ++y;
+	  }
+	}
 
         nextY = y;
       }
@@ -1032,6 +1039,12 @@ export default class Puzzle extends React.Component {
     this.savePuzzle();
 
     const host = window.location.host;
+    const hostname = window.location.hostname;
+    
+    const d = new Date();
+    const year = d.getFullYear() - 2000;
+    var month = (d.getMonth() + 1).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+    var monthDay = d.getDate().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
 
     if (option.value === "Sample .puz") {
       this.loadPuzzle(
@@ -1042,14 +1055,14 @@ export default class Puzzle extends React.Component {
         "03",
         "19"
       );
-    } else if (option.value === "Sample WSJ") {
+    } else if (option.value === "Today's WSJ") {
       this.loadPuzzle(
         "WSJ",
-        `http://${host}/wsj-200627.json`,
+        `http://${hostname}:3001/puzzle/WSJ/${year}${month}${monthDay}`,
         puzzleTypes.WSJ,
-        "2020",
-        "06",
-        "27"
+        year,
+        month,
+        monthDay
       );
     } else if (option.value === "Sample NYT") {
       this.loadPuzzle(
@@ -1057,17 +1070,26 @@ export default class Puzzle extends React.Component {
         `http://${host}/Jul1920.puz`,
         puzzleTypes.PUZ,
         "2020",
-        "06",
-        "01"
+        "07",
+        "20"
       );
-    } else if (option.value === "Sample LA Times") {
+    } else if (option.value === "Today's LA Times") {
       this.loadPuzzle(
         "LAT",
-        `http://${host}/la200701.xml`,
+        `http://${hostname}:3001/puzzle/LAT/${year}${month}${monthDay}`,
         puzzleTypes.LATIMES,
-        "2020",
-        "07",
-        "01"
+        year,
+        month,
+        monthDay
+      );
+    } else if (option.value === "Today's NYT") {
+      this.loadPuzzle(
+        "NYT",
+        `http://${hostname}:3001/puzzle/NYT/${year}${month}${monthDay}`,
+        puzzleTypes.PUZ,
+        year,
+        month,
+        monthDay
       );
     }
   }
@@ -1075,9 +1097,10 @@ export default class Puzzle extends React.Component {
   renderLoad() {
     const options = [
       "Sample .puz",
-      "Sample WSJ",
+      "Today's WSJ",
       "Sample NYT",
-      "Sample LA Times",
+      "Today's LA Times",
+      "Today's NYT",
     ];
 
     return (
