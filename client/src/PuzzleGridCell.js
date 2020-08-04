@@ -94,20 +94,25 @@ export default class PuzzleGridCell extends React.Component {
 
   inputCallback(e) {
     e.preventDefault();
-    const { target } = e.nativeEvent;
+    const { target, data } = e.nativeEvent;
 
     if (target.value.length > 1) {
       var value = target.value;
 
-      value = value.replace(this.props.userValue, "");
-
-      if (value.length > 1) {
-        target.value = value[value.length - 1];
+      if (data === " " || data === "," || data === ".") {
+	value = this.props.userValue;
       } else {
-        target.value = value;
+	value = value.replace(this.props.userValue, "");
+
+	if (value.length > 1) {
+          target.value = value[value.length - 1];
+	}
       }
+
+      target.value = value;
+
     } else {
-      if (target.value === "." || target.value === ",") {
+      if (target.value === "." || target.value === "," || target.value === ' ') {
         target.value = this.props.userInput || "";
       }
     }
