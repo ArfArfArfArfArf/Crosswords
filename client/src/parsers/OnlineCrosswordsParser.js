@@ -53,7 +53,7 @@ export default class OnlineCrosswordsParser {
       const child = children[i];
 
       const a = child.getAttribute("a");
-      const c = unescape(child.getAttribute("c").replace(/\+/g, ' '));
+      const c = decodeURIComponent(child.getAttribute("c")).replace(/\+/g, ' ');
       const n = parseInt(child.getAttribute("n"));
 
       puzInfo.clues[0][i] = c;
@@ -77,7 +77,7 @@ export default class OnlineCrosswordsParser {
     
     for (i = 0; i < len; i++) {
       const child = children2[i];
-      const c = unescape(child.getAttribute("c").replace(/\+/g, ' '));
+      const c = decodeURIComponent(child.getAttribute("c")).replace(/\+/g, ' ');
 
       puzInfo.clues[1][i] = c;
     }

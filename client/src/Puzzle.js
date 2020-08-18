@@ -140,8 +140,10 @@ export default class Puzzle extends React.Component {
       new PuzzleInfo(WEEKLY, puzzleNames.OCP_5, puzzleIDs.OCP_5, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
       new PuzzleInfo(WEEKLY, puzzleNames.OCP_6, puzzleIDs.OCP_6, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
       new PuzzleInfo(WEEKLY, puzzleNames.OCP_7, puzzleIDs.OCP_7, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
-      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSSHEFFER, puzzleIDs.KFSSHEFFER, puzzleTypes.KFS, FLAG_NO_FLAGS),
-      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSJOSEPH, puzzleIDs.KFSJOSEPH, puzzleTypes.KFS, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.ARKADIUM, puzzleIDs.ARKADIUM, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.PENNYDELL, puzzleIDs.PENNYDELL, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSSHEFFER, puzzleIDs.KFSSHEFFER, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSJOSEPH, puzzleIDs.KFSJOSEPH, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
       new PuzzleInfo(MON_TO_THU_SAT, puzzleNames.WSJ, puzzleIDs.WSJ, puzzleTypes.WSJ, FLAG_NO_FLAGS),
       new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC, puzzleIDs.NYTCLASSIC, puzzleTypes.NYT, FLAG_NO_FLAGS),
       new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC2, puzzleIDs.NYTCLASSIC2, puzzleTypes.NYT, FLAG_NO_FLAGS),
@@ -149,7 +151,7 @@ export default class Puzzle extends React.Component {
       new PuzzleInfo(TUESDAY, puzzleNames.BEQ_TUESDAY, puzzleIDs.BEQ_TUESDAY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
       new PuzzleInfo(THURSDAY, puzzleNames.JONESIN, puzzleIDs.JONESIN, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
       new PuzzleInfo(FRIDAY, puzzleNames.BEQ_FRIDAY, puzzleIDs.BEQ_FRIDAY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
-      new PuzzleInfo(SUNDAY, puzzleNames.KFSPREMIER, puzzleIDs.KFSPREMIER, puzzleTypes.KFS, FLAG_NO_FLAGS),
+      new PuzzleInfo(SUNDAY, puzzleNames.KFSPREMIER, puzzleIDs.KFSPREMIER, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
       new PuzzleInfo(SUNDAY, puzzleNames.BOSTON_GLOBE, puzzleIDs.BOSTON_GLOBE, puzzleTypes.WSJ, FLAG_NO_ARCHIVE),
     ];
   }

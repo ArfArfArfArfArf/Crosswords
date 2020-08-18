@@ -50,6 +50,10 @@ export default class LATimesParser {
 
     for (i = 0; i < clues.length; i++) {
       const title = clues[i].getElementsByTagName("title")[0];
+      if (!title) {
+	continue;
+      }
+      
       if (title.innerHTML.includes("Across")) {
         clueDir = direction.ACROSS;
       } else {

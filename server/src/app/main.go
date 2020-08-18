@@ -88,11 +88,15 @@ func findPuzzle(puzzle, year, month, day string) (string, error) {
   BOSTON_GLOBE: "BG",
 */
 	switch puzzle {
+	case "PD":
+		return "http://ams.cdn.arkadiumhosted.com/assets/gamesfeed/penny-dell//daily-crossword/puzzle_" + date + ".xml", nil
+	case "ARK":
+		return "http://cdn.arenaconnect.arkadiumhosted.com/clients/Boatload/puzzle_" + date + ".xml", nil
 	case "BG":
 		return "", nil
 	case "KFS":
 		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
-		return "http://puzzles.kingdigital.com/javacontent/clues/premier/" + newDate + ".txt", nil
+		return "http://puzzles.kingdigital.com/jpz/Premier/" + newDate + ".jpz", nil
 	case "J":
 		return "http://herbach.dnsalias.com/Jonesin/jz" + date + ".puz", nil
 	case "NYTC1":
@@ -105,12 +109,12 @@ func findPuzzle(puzzle, year, month, day string) (string, error) {
 		return "", nil
 	case "BEQF":
 		return "", nil
-	case "KFSSHEFFER":
+	case "SD":
 		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
-		return "http://puzzles.kingdigital.com/javacontent/clues/sheffer/" + newDate + ".txt", nil
-	case "KFSJOSEPH":
+		return "http://puzzles.kingdigital.com/jpz/Sheffer/" + newDate + ".jpz", nil
+	case "JD":
 		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
-		return "http://puzzles.kingdigital.com/javacontent/clues/joseph/" + newDate + ".txt", nil
+		return "http://puzzles.kingdigital.com/jpz/Joseph/" + newDate + ".jpz", nil
 	case "OC1":
 		return "http://www.onlinecrosswords.net/en/puzzle.php?p=1", nil
 	case "OC2":

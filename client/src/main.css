@@ -203,6 +203,12 @@ input:focus {
 }
 .PuzzleList {
   margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.PuzzleDate {
+  display: inline-block;
 }
 
 .PuzzleDateString {
@@ -210,7 +216,14 @@ input:focus {
   font-size: 1.5rem;
 }
 
+.PuzzleLink {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid black;
+}
+
 .PuzzleName {
+  padding: 0.5rem;
   cursor: pointer;
 }
 
