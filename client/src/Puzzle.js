@@ -15,7 +15,7 @@ import WSJParser from "./parsers/WSJParser";
 import LATimesParser from "./parsers/LATimesParser";
 import BrainsOnlyParser from "./parsers/BrainsOnlyParser";
 import OnlineCrosswordsParser from "./parsers/OnlineCrosswordsParser";
-import puzzleStore from "./stores/PuzzleStore";
+import PuzzleStore from "./stores/PuzzleStore";
 import PuzzleList from "./PuzzleList";
 import PuzzleInfo from "./PuzzleInfo";
 import { direction, daysOfTheWeek, puzzleNames, puzzleTypes, puzzleIDs } from './Constants';
@@ -288,27 +288,33 @@ export default class Puzzle extends React.Component {
   }
 
   savePuzzle() {
-    puzzleStore.storePuzzle(
-      this.state.puzzleName,
-      this.state.puzzleYear,
-      this.state.puzzleMonth,
-      this.state.puzzleDay,
-      {
-        acrossNumbers: this.state.acrossNumbers,
-        downNumbers: this.state.downNumbers,
-        clueNumbers: this.state.clueNumbers,
-        userInput: this.state.userInput,
-        acrossClues: this.state.acrossClues,
-        downClues: this.state.downClues,
-        circledClues: this.state.circledClues,
-        gridSolution: this.state.gridSolution,
-        gridWidth: this.state.gridWidth,
-        gridHeight: this.state.gridHeight,
-        meta: this.state.meta,
-	selectedX: this.state.selectedX,
-	selectedY: this.state.selectedY,
-      }
-    );
+    const { puzzleName, puzzleYear, puzzleMonth, puzzleDay } = this.state;
+    
+    if (puzzleName && puzzleYear && puzzleMonth && puzzleDay) {
+      ls.set("lastpuzzle", `${puzzleName}-${puzzleYear}-${puzzleMonth}-${puzzleDay}`);
+
+      PuzzleStore.storePuzzle(
+	puzzleName,
+	puzzleYear,
+	puzzleMonth,
+	puzzleDay,
+	{
+          acrossNumbers: this.state.acrossNumbers,
+          downNumbers: this.state.downNumbers,
+          clueNumbers: this.state.clueNumbers,
+          userInput: this.state.userInput,
+          acrossClues: this.state.acrossClues,
+          downClues: this.state.downClues,
+          circledClues: this.state.circledClues,
+          gridSolution: this.state.gridSolution,
+          gridWidth: this.state.gridWidth,
+          gridHeight: this.state.gridHeight,
+          meta: this.state.meta,
+	  selectedX: this.state.selectedX,
+	  selectedY: this.state.selectedY,
+	}
+      );
+    }
   }
 
   loadPuzzle(
@@ -340,7 +346,7 @@ export default class Puzzle extends React.Component {
       puzzleDay: puzzleDay,
     });
 
-    const p = puzzleStore.getPuzzle(
+    const p = PuzzleStore.getPuzzle(
       puzzleName,
       puzzleYear,
       puzzleMonth,
@@ -389,7 +395,7 @@ export default class Puzzle extends React.Component {
         return entities.decode(c);
       });
 
-      puzzleStore.storePuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay, {
+      PuzzleStore.storePuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay, {
         acrossNumbers: this.state.acrossNumbers,
         downNumbers: this.state.downNumbers,
         clueNumbers: this.state.clueNumbers,
@@ -423,15 +429,18 @@ export default class Puzzle extends React.Component {
   }
 
   componentDidMount() {
-    const host = window.location.host;
-    this.loadPuzzle(
-      "LAT",
-      `http://${host}/la200721.xml`,
-      puzzleTypes.UCLICK,
-      "2020",
-      "07",
-      "21"
-    );
+    const lastPuzzle = ls.get("lastpuzzle");
+
+    if (lastPuzzle) {
+      const vals = lastPuzzle.split('-');
+      const p = PuzzleStore.getPuzzle(vals[0], vals[1], vals[2], vals[3]);
+      if (p) {
+	this.setState( { isLoading: false, ...p });
+	return;
+      }
+    } 
+
+    this.setState( { isLoading: false, showPuzzleList: true } );
   }
 
   findCurrentWord() {
