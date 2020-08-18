@@ -6,7 +6,6 @@ import Preferences from "./Preferences";
 import { GoGear } from "react-icons/go";
 import { merge } from "lodash";
 import ls from "local-storage";
-import { puzzleTypes, direction } from "./Constants";
 import { AllHtmlEntities } from "html-entities";
 import classnames from "classnames";
 import ReactModal from "react-modal";
@@ -14,7 +13,12 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import WSJParser from "./parsers/WSJParser";
 import LATimesParser from "./parsers/LATimesParser";
+import BrainsOnlyParser from "./parsers/BrainsOnlyParser";
+import OnlineCrosswordsParser from "./parsers/OnlineCrosswordsParser";
 import puzzleStore from "./stores/PuzzleStore";
+import PuzzleList from "./PuzzleList";
+import PuzzleInfo from "./PuzzleInfo";
+import { direction, daysOfTheWeek, puzzleNames, puzzleTypes, puzzleIDs } from './Constants';
 
 const Loader = ({ message }) => {
   return (
@@ -48,6 +52,7 @@ export default class Puzzle extends React.Component {
       puzzleComplete: false,
       preferences: {},
       showPrefs: false,
+      showPuzzleList: false,
       isLoading: true,
       selectedX: 0,
       selectedY: 0,
@@ -75,8 +80,9 @@ export default class Puzzle extends React.Component {
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     this.reveal = this.reveal.bind(this);
     this.checkPuzzle = this.checkPuzzle.bind(this);
-    this.load = this.load.bind(this);
+    this.puzzleList = this.puzzleList.bind(this);
     this.resumePuzzle = this.resumePuzzle.bind(this);
+    this.puzzleSelected = this.puzzleSelected.bind(this);
     
     if (typeof document.hidden !== "undefined") {
       // Opera 12.10 and Firefox 18 and later support
@@ -111,8 +117,61 @@ export default class Puzzle extends React.Component {
         false
       );
     }
+    const { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY } = daysOfTheWeek;
+    const WEEKLY = SUNDAY | MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY;
+    const MON_TO_SAT = MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY;
+    const MON_TO_THU_SAT = MONDAY | TUESDAY | WEDNESDAY | THURSDAY | SATURDAY;
+
+    const FLAG_NO_FLAGS = 0;
+    const FLAG_NO_ARCHIVE = 1;
+    
+
+    this.puzzles = [
+      new PuzzleInfo(WEEKLY, puzzleNames.NYT_DAILY, puzzleIDs.NYT_DAILY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.LA_TIMES, puzzleIDs.LA_TIMES, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.BRAINS_ONLY, puzzleIDs.BRAINS_ONLY, puzzleTypes.BRAINSONLY_COM, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.UNIVERSAL, puzzleIDs.UNIVERSAL, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.USA_TODAY, puzzleIDs.USA_TODAY, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.DAILY_AMERICAN, puzzleIDs.DAILY_AMERICAN, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_1, puzzleIDs.OCP_1, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_2, puzzleIDs.OCP_2, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_3, puzzleIDs.OCP_3, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_4, puzzleIDs.OCP_4, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_5, puzzleIDs.OCP_5, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_6, puzzleIDs.OCP_6, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_7, puzzleIDs.OCP_7, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
+      new PuzzleInfo(WEEKLY, puzzleNames.ARKADIUM, puzzleIDs.ARKADIUM, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(WEEKLY, puzzleNames.PENNYDELL, puzzleIDs.PENNYDELL, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSSHEFFER, puzzleIDs.KFSSHEFFER, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSJOSEPH, puzzleIDs.KFSJOSEPH, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(MON_TO_THU_SAT, puzzleNames.WSJ, puzzleIDs.WSJ, puzzleTypes.WSJ, FLAG_NO_FLAGS),
+      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC, puzzleIDs.NYTCLASSIC, puzzleTypes.NYT, FLAG_NO_FLAGS),
+      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC2, puzzleIDs.NYTCLASSIC2, puzzleTypes.NYT, FLAG_NO_FLAGS),
+      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC3, puzzleIDs.NYTCLASSIC3, puzzleTypes.NYT, FLAG_NO_FLAGS),
+      new PuzzleInfo(TUESDAY, puzzleNames.BEQ_TUESDAY, puzzleIDs.BEQ_TUESDAY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
+      new PuzzleInfo(THURSDAY, puzzleNames.JONESIN, puzzleIDs.JONESIN, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
+      new PuzzleInfo(FRIDAY, puzzleNames.BEQ_FRIDAY, puzzleIDs.BEQ_FRIDAY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
+      new PuzzleInfo(SUNDAY, puzzleNames.KFSPREMIER, puzzleIDs.KFSPREMIER, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
+      new PuzzleInfo(SUNDAY, puzzleNames.BOSTON_GLOBE, puzzleIDs.BOSTON_GLOBE, puzzleTypes.WSJ, FLAG_NO_ARCHIVE),
+    ];
   }
 
+  parseDate(date) {
+    var d = new Date(date);
+
+    return { year: d.getFullYear(), month: d.getMonth() + 1, day: d.getDate() };
+  }
+  
+  puzzleSelected(id, date) {
+    const puzzle = this.puzzles[id];
+    const host = window.location.hostname;
+
+    var d = this.parseDate(date);
+    const url = `http://${host}:3001/puzzle/${puzzle.ID}/${d.year}/${d.month}/${d.day}`;
+    console.log("URL: " + url);
+    this.loadPuzzle(puzzle.name, url, puzzle.type, d.year - 2000, d.month, d.day);
+  }
+  
   handleVisibilityChange() {
     if (
       !this.state.puzzleComplete &&
@@ -288,19 +347,26 @@ export default class Puzzle extends React.Component {
       puzzleDay
     );
 
-    if (p) {
-      this.setState({ isLoading: false, ...p });
+/*    if (p) {
+      this.setState({ showPuzzleList: false, isLoading: false, ...p });
       return;
-    }
+    }*/
 
     var puz;
-
-    if (puzzleType === puzzleTypes.PUZ) {
+/*
+  KFS: 4,
+  NYT: 6,
+*/
+    if (puzzleType === puzzleTypes.ACROSS_LITE) {
       puz = new PuzParser();
     } else if (puzzleType === puzzleTypes.WSJ) {
       puz = new WSJParser();
-    } else if (puzzleType === puzzleTypes.LATIMES) {
+    } else if (puzzleType === puzzleTypes.UCLICK) {
       puz = new LATimesParser();
+    } else if (puzzleType === puzzleTypes.BRAINSONLY_COM) {
+      puz = new BrainsOnlyParser();
+    } else if (puzzleType === puzzleTypes.ONLINE_CROSSWORDS) {
+      puz = new OnlineCrosswordsParser();
     }
 
     puz.setUrl(puzzle).then((data) => {
@@ -340,6 +406,7 @@ export default class Puzzle extends React.Component {
       });
 
       this.setState({
+	showPuzzleList: false,
         isLoading: false,
         acrossClues: acrossClues,
         downClues: downClues,
@@ -349,6 +416,9 @@ export default class Puzzle extends React.Component {
         gridHeight: data.height,
         meta: data.meta,
       });
+    }).catch((error) => {
+      alert("Unable to load puzzle: " + error);
+      this.setState({ showPuzzleList: false, isLoading: false, ...p });
     });
   }
 
@@ -357,7 +427,7 @@ export default class Puzzle extends React.Component {
     this.loadPuzzle(
       "LAT",
       `http://${host}/la200721.xml`,
-      puzzleTypes.LATIMES,
+      puzzleTypes.UCLICK,
       "2020",
       "07",
       "21"
@@ -918,6 +988,7 @@ export default class Puzzle extends React.Component {
     this.setState((curState) => {
       return {
         showPrefs: !curState.showPrefs,
+	showPuzzleList: false,
       };
     });
   }
@@ -1035,83 +1106,16 @@ export default class Puzzle extends React.Component {
     return <button onClick={this.checkPuzzle}>Check</button>;
   }
 
-  load(option) {
-    this.savePuzzle();
-
-    const host = window.location.host;
-    const hostname = window.location.hostname;
-    
-    const d = new Date();
-    const year = d.getFullYear() - 2000;
-    var month = (d.getMonth() + 1).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
-    var monthDay = d.getDate().toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
-
-    if (option.value === "Sample .puz") {
-      this.loadPuzzle(
-        "WSJ",
-        `http://${host}/jz200319.puz`,
-        puzzleTypes.PUZ,
-        "2020",
-        "03",
-        "19"
-      );
-    } else if (option.value === "Today's WSJ") {
-      this.loadPuzzle(
-        "WSJ",
-        `http://${hostname}:3001/puzzle/WSJ/${year}${month}${monthDay}`,
-        puzzleTypes.WSJ,
-        year,
-        month,
-        monthDay
-      );
-    } else if (option.value === "Sample NYT") {
-      this.loadPuzzle(
-        "NYT",
-        `http://${host}/Jul1920.puz`,
-        puzzleTypes.PUZ,
-        "2020",
-        "07",
-        "20"
-      );
-    } else if (option.value === "Today's LA Times") {
-      this.loadPuzzle(
-        "LAT",
-        `http://${hostname}:3001/puzzle/LAT/${year}${month}${monthDay}`,
-        puzzleTypes.LATIMES,
-        year,
-        month,
-        monthDay
-      );
-    } else if (option.value === "Today's NYT") {
-      this.loadPuzzle(
-        "NYT",
-        `http://${hostname}:3001/puzzle/NYT/${year}${month}${monthDay}`,
-        puzzleTypes.PUZ,
-        year,
-        month,
-        monthDay
-      );
-    }
+  puzzleList() {
+    this.setState( { showPuzzleList: true } );
   }
-
+  
   renderLoad() {
-    const options = [
-      "Sample .puz",
-      "Today's WSJ",
-      "Sample NYT",
-      "Today's LA Times",
-      "Today's NYT",
-    ];
-
-    return (
-      <div className="LoadDropdown">
-        <Dropdown options={options} onChange={this.load} placeholder={"Load"} />
-      </div>
-    );
+    return <button onClick={this.puzzleList}>Load</button>;
   }
 
   renderRestOfHeader() {
-    if (this.state.showPrefs) {
+    if (this.state.showPrefs || this.state.showPuzzleList) {
       return null;
     }
 
@@ -1194,7 +1198,14 @@ export default class Puzzle extends React.Component {
 
 
   renderBody() {
-    if (this.state.showPrefs) {
+    if (this.state.showPuzzleList) {
+      return (
+	  <PuzzleList
+            puzzles={this.puzzles}
+            puzzleSelected={this.puzzleSelected}
+	  />
+      );
+    } else if (this.state.showPrefs) {
       return (
         <Preferences
           setPreferences={this.setPreferences}
@@ -1253,7 +1264,7 @@ export default class Puzzle extends React.Component {
   }
 
   renderFooter() {
-    if (this.state.showPrefs) {
+    if (this.state.showPrefs || this.state.showPuzzleList) {
       return null;
     }
 

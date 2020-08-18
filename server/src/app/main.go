@@ -3,6 +3,7 @@ import (
   "bytes"
 	"compress/gzip"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"log"
   "net/http"
@@ -74,10 +75,70 @@ func findWSJUrl(date string) (string, error) {
 	return "", nil
 }
 
-func findPuzzle(puzzle, date string) (string, error) {
+func findPuzzle(puzzle, year, month, day string) (string, error) {
+	y, _ := strconv.Atoi(year);
+	y -= 2000;
+	m, _ := strconv.Atoi(month);
+	d, _ := strconv.Atoi(day);
+
+	date := fmt.Sprintf("%02d%02d%02d", y, m, d)
+
+	/*  NYT_DAILY: "NYTD",
+  WSJ: "WSJ",
+  BOSTON_GLOBE: "BG",
+*/
 	switch puzzle {
+	case "PD":
+		return "http://ams.cdn.arkadiumhosted.com/assets/gamesfeed/penny-dell//daily-crossword/puzzle_" + date + ".xml", nil
+	case "ARK":
+		return "http://cdn.arenaconnect.arkadiumhosted.com/clients/Boatload/puzzle_" + date + ".xml", nil
+	case "BG":
+		return "", nil
+	case "KFS":
+		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
+		return "http://puzzles.kingdigital.com/jpz/Premier/" + newDate + ".jpz", nil
+	case "J":
+		return "http://herbach.dnsalias.com/Jonesin/jz" + date + ".puz", nil
+	case "NYTC1":
+		return "", nil
+	case "NYTC2":
+		return "", nil
+	case "NYTC3":
+		return "", nil
+	case "BEQT":
+		return "", nil
+	case "BEQF":
+		return "", nil
+	case "SD":
+		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
+		return "http://puzzles.kingdigital.com/jpz/Sheffer/" + newDate + ".jpz", nil
+	case "JD":
+		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
+		return "http://puzzles.kingdigital.com/jpz/Joseph/" + newDate + ".jpz", nil
+	case "OC1":
+		return "http://www.onlinecrosswords.net/en/puzzle.php?p=1", nil
+	case "OC2":
+		return "http://www.onlinecrosswords.net/en/puzzle.php?p=2", nil
+	case "OC3":
+		return "http://www.onlinecrosswords.net/en/puzzle.php?p=3", nil
+	case "OC4":
+		return "http://www.onlinecrosswords.net/en/puzzle.php?p=4", nil
+	case "OC5":
+		return "http://www.onlinecrosswords.net/en/puzzle.php?p=5", nil
+	case "OC6":
+		return "http://www.onlinecrosswords.net/en/puzzle.php?p=6", nil
+	case "OC7":
+		return "http://www.onlinecrosswords.net/en/puzzle.php?p=7", nil
+	case "DA":
+		return "https://ams.cdn.arkadiumhosted.com/assets/gamesfeed/bestforpuzzles-ftp/dailyamericancrossword/daily-american-" + date + ".xml", nil
+	case "USAT":
+		return "http://www.uclick.com/puzzles/usaon/data/usaon" + date + "-data.xml", nil
 	case "LAT":
 		return "http://cdn.games.arkadiumhosted.com/latimes/assets/DailyCrossword/la" + date + ".xml", nil
+	case "CS":
+		return "http://www.brainsonly.com/servlets-newsday-crossword/newsdaycrossword?date=" + date, nil
+	case "UNI":
+		return "http://picayune.uclick.com/comics/fcx/data/fcx" + date + "-data.xml", nil
 	case "WSJ":
 		url, err := findWSJUrl(date)
 		return url, err
@@ -102,13 +163,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	s := strings.Split(puzzle, "/")
 	
-	url, err := findPuzzle(s[0], s[1])
+	url, err := findPuzzle(s[0], s[1], s[2], s[3])
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		
 		return;
 	}
+
+	log.Println("URL: " + url);
 
 	req, err := http.NewRequest("GET", url, nil)
 	
@@ -124,7 +187,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			return;
 		}
 
-		if (loopR.StatusCode == 302) {
+		if (loopR.StatusCode == 301) {
 			url = loopR.Header.Get("Location")
 			req, err = http.NewRequest("GET", url, nil)
 		} else if (loopR.StatusCode == 200) {
