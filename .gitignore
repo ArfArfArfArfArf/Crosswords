@@ -73,4 +73,5 @@ flycheck_*.el
 # Dependency directories (remove the comment below to include it)
 server/pkg/
 server/tmp/
+server/src/app/tmp
 server/src/app/main
