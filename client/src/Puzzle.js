@@ -833,9 +833,6 @@ export default class Puzzle extends React.Component {
     if (gridDirection === direction.ACROSS) {
       if (x > 0) {
         x--;
-        while (x > 0 && gridSolution[y][x] === ".") {
-          --x;
-        }
 
 	if (gridSolution[y][x] === ".") {
 	  while (x < gridWidth && gridSolution[y][x] === ".") {
@@ -847,10 +844,6 @@ export default class Puzzle extends React.Component {
     } else {
       if (y > 0) {
         --y;
-
-        while (y > 0 && gridSolution[y][x] === ".") {
-          --y;
-        }
 
 	if (gridSolution[y][x] === ".") {
 	  while (y < gridHeight && gridSolution[y][x] === ".") {
