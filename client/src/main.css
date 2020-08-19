@@ -1,5 +1,6 @@
 .ClueList {
-  margin: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   cursor: pointer;
 }
 @media screen and (max-width: 640px) {
@@ -65,6 +66,37 @@
 }
 .Puzzle .PuzzleBody {
   display: flex;
+  flex-direction: column;
+}
+.Puzzle .GridClues {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.Puzzle .GridClues .GridClueNumber {
+  font-weight: bold;
+}
+.Puzzle .obscured {
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.Puzzle .GridRow {
+  display: flex;
+  flex-direction: row;
+}
+.Puzzle .PuzzleGrid {
+  display: flex;
   flex-direction: row;
 }
 .Puzzle .PuzzleFooter {
@@ -115,9 +147,9 @@
   align-items: center;
 }
 
-.Grid {
+.PuzzleGrid {
   position: relative;
-  margin: 5px;
+  margin-top: 0.5rem;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -125,14 +157,14 @@
   -o-user-select: none;
   user-select: none;
 }
-.Grid .GridClues {
+.PuzzleGrid .GridClues {
   margin-left: 0.5rem;
   font-size: 1.2rem;
 }
-.Grid .GridClues .GridClueNumber {
+.PuzzleGrid .GridClues .GridClueNumber {
   font-weight: bold;
 }
-.Grid .obscured {
+.PuzzleGrid .obscured {
   color: transparent;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   -webkit-user-select: none;

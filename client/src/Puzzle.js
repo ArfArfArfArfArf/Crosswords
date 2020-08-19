@@ -1227,8 +1227,8 @@ export default class Puzzle extends React.Component {
 
       return (
         <div className="PuzzleBody">
-          <div className="Grid">
-            {this.renderGridClues(acrossNumber, downNumber)}
+          {this.renderGridClues(acrossNumber, downNumber)}
+          <div className="PuzzleGrid">
             <PuzzleGrid
               selectedX={this.state.selectedX}
               selectedY={this.state.selectedY}
@@ -1244,7 +1244,6 @@ export default class Puzzle extends React.Component {
               circledClues={this.state.circledClues}
               showWrongAnswers={this.state.preferences.showWrongAnswers}
             />
-          </div>
           <ClueList
             obscured={this.state.showModal}
             title={"Across"}
@@ -1267,6 +1266,7 @@ export default class Puzzle extends React.Component {
             onClueClicked={this.onClueClicked}
             gridHeight={this.state.gridHeight}
           />
+          </div>
         </div>
       );
     }
