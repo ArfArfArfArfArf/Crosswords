@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
   "net/http"
+	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -24,7 +25,63 @@ func splitDate(date string) (int, int, int) {
 	return year, month, monthDay
 }
 
+func putInCache(name, date, url string) {
+	ioutil.WriteFile("../../tmp/puzzles/" + name + "-" + date, []byte(url), 0644)
+}
+
+func getFromCache(name, date string) (string) {
+	_, err := os.Stat("../../tmp/puzzles/" + name + "-" + date)
+	if os.IsNotExist(err) == false {
+		url, err := ioutil.ReadFile("../../tmp/puzzles/" + name + "-" + date)
+		log.Println("Found cached url for " + name)
+		if (err == nil) {
+			return string(url)
+		}
+	}	
+
+	return "";
+}
+
+func findBEQUrl(name, date string) (string, error) {
+	url := getFromCache(name, date)
+
+	if url != "" {
+		return url, nil
+	}
+
+	resp, err := http.Get("http://www.brendanemmettquigley.com/")
+	if err != nil {
+		return "", err
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return "", err
+	}
+
+	reg := "</span><a href=\"(.*)\"> <span style=\"font-size: 1.4em;\">ACROSS LITE</span>"
+
+	re := regexp.MustCompile(reg)
+
+	match := re.FindStringSubmatch(string(body))
+
+	resp.Body.Close()
+
+	if (len(match) > 1) {
+		putInCache(name, date, match[1])
+		return match[1], nil
+	}
+
+	return "", nil
+}
+
 func findWSJUrl(date string) (string, error) {
+	url := getFromCache("WSJ", date)
+
+	if url != "" {
+		return url, nil
+	}
+
 	resp, err := http.Get("http://blogs.wsj.com/puzzle/")
 
 	if err != nil {
@@ -68,7 +125,11 @@ func findWSJUrl(date string) (string, error) {
 		match := re.FindStringSubmatch(string(body))
 		
 		if (len(match) == 3) {
-			return "https://blogs.wsj.com/puzzle/crossword/" + match[1] + "/" + match[2] + "/data.json", nil
+			url := "https://blogs.wsj.com/puzzle/crossword/" + match[1] + "/" + match[2] + "/data.json";
+			
+			/* save the url to a temp file */
+			putInCache("WSJ", date, url);
+			return url, nil
 		}
 	}
 	
@@ -106,9 +167,11 @@ func findPuzzle(puzzle, year, month, day string) (string, error) {
 	case "NYTC3":
 		return "", nil
 	case "BEQT":
-		return "", nil
+		url, err := findBEQUrl(puzzle, date)
+		return url, err
 	case "BEQF":
-		return "", nil
+		url, err := findBEQUrl(puzzle, date)
+		return url, err
 	case "SD":
 		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
 		return "http://puzzles.kingdigital.com/jpz/Sheffer/" + newDate + ".jpz", nil
