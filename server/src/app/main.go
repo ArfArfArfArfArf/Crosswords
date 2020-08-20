@@ -42,6 +42,51 @@ func getFromCache(name, date string) (string) {
 	return "";
 }
 
+func findNYTUrl(name, date string) (string, error) {
+	url := getFromCache(name, date)
+
+	if url != "" {
+		return url, nil
+	}
+
+	resp, err := http.Get("https://www.nytimes.com/crosswords/")
+	if err != nil {
+		return "", err
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return "", err
+	}
+
+	reg := `svc/crosswords/v2/puzzle/(\d+)\.puz`
+
+	re := regexp.MustCompile(reg)
+
+	match := re.FindAllStringSubmatch(string(body), -1)
+
+	log.Println("Matches: ")
+	log.Println(match)
+	
+	resp.Body.Close()
+	
+	if len(match) == 3 {
+		putInCache("NYTC1", date, "https://www.nytimes.com/svc/crosswords/v2/puzzle/" + match[0][1] + ".puz")
+		putInCache("NYTC2", date, "https://www.nytimes.com/svc/crosswords/v2/puzzle/" + match[1][1] + ".puz")
+		putInCache("NYTC3", date, "https://www.nytimes.com/svc/crosswords/v2/puzzle/" + match[2][1] + ".puz")
+
+		if name == "NYTC1" {
+			return "https://www.nytimes.com/svc/crosswords/v2/puzzle/" + match[0][1] + ".puz", nil
+		} else if name == "NYTC2" {
+			return "https://www.nytimes.com/svc/crosswords/v2/puzzle/" + match[1][1] + ".puz", nil
+		} else if name == "NYTC3" {
+			return "https://www.nytimes.com/svc/crosswords/v2/puzzle/" + match[2][1] + ".puz", nil
+		}
+	}
+
+	return "", nil
+}
+
 func findBEQUrl(name, date string) (string, error) {
 	url := getFromCache(name, date)
 
@@ -161,17 +206,15 @@ func findPuzzle(puzzle, year, month, day string) (string, error) {
 	case "J":
 		return "http://herbach.dnsalias.com/Jonesin/jz" + date + ".puz", nil
 	case "NYTC1":
-		return "", nil
+		return findNYTUrl(puzzle, date)
 	case "NYTC2":
-		return "", nil
+		return findNYTUrl(puzzle, date)
 	case "NYTC3":
-		return "", nil
+		return findNYTUrl(puzzle, date)
 	case "BEQT":
-		url, err := findBEQUrl(puzzle, date)
-		return url, err
+		return findBEQUrl(puzzle, date)
 	case "BEQF":
-		url, err := findBEQUrl(puzzle, date)
-		return url, err
+		return findBEQUrl(puzzle, date)
 	case "SD":
 		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
 		return "http://puzzles.kingdigital.com/jpz/Sheffer/" + newDate + ".jpz", nil
@@ -203,8 +246,7 @@ func findPuzzle(puzzle, year, month, day string) (string, error) {
 	case "UNI":
 		return "http://picayune.uclick.com/comics/fcx/data/fcx" + date + "-data.xml", nil
 	case "WSJ":
-		url, err := findWSJUrl(date)
-		return url, err
+		return findWSJUrl(date)
 	case "NYT":
 		year, _, _ := splitDate(date)
 		return "http://www.nytimes.com/svc/crosswords/v2/puzzle/daily-" + strconv.Itoa(year) + "-" + date[2:4] + "-" + date[4:6] + ".puz", nil
