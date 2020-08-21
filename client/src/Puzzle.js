@@ -1265,6 +1265,15 @@ export default class Puzzle extends React.Component {
     }
   }
 
+  renderTime() {
+    const time = (Date.now() - this.state.puzzleStartTime) / 1000;
+
+    const mins = Math.floor(time/60);
+    const secs = time % 60;
+    
+    return (<span className="Time">Time: {mins}:{secs}</span>);
+  }
+  
   renderFooter() {
     if (this.state.showPrefs || this.state.showPuzzleList) {
       return null;
@@ -1273,7 +1282,12 @@ export default class Puzzle extends React.Component {
     return (
       <div className="PuzzleFooter">
         <span className="Title">{this.state.meta.title}</span> <br />
+        <span className="Author">{this.state.meta.author}</span> <br />
         <span className="Published">{this.state.meta.publisher}</span> <br />
+	{this.state.puzzleComplete &&  (
+	  <span className="Complete">Puzzle Complete!</span>
+	)}
+        {this.state.preferences.timePuzzle && this.renderTime()}
       </div>
     );
   }
