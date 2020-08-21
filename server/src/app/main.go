@@ -35,7 +35,7 @@ func getFromCache(name, date string) (string) {
 		url, err := ioutil.ReadFile("../../tmp/puzzles/" + name + "-" + date)
 		log.Println("Found cached url for " + name)
 		if (err == nil) {
-			return string(url)
+			return strings.TrimSuffix(string(url), "\n")
 		}
 	}	
 
