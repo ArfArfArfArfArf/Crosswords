@@ -312,6 +312,7 @@ export default class Puzzle extends React.Component {
           meta: this.state.meta,
 	  selectedX: this.state.selectedX,
 	  selectedY: this.state.selectedY,
+	  incorrectAnswers: this.state.incorrectAnswers,
 	}
       );
     }
