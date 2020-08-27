@@ -313,6 +313,7 @@ export default class Puzzle extends React.Component {
 	  selectedX: this.state.selectedX,
 	  selectedY: this.state.selectedY,
 	  incorrectAnswers: this.state.incorrectAnswers,
+	  puzzleComplete: this.state.puzzleComplete,
 	}
       );
     }
@@ -1147,7 +1148,16 @@ export default class Puzzle extends React.Component {
   }
 
   renderGridClues(acrossNumber, downNumber) {
-    const { acrossNumbers, acrossClues, downNumbers, downClues } = this.state;
+    const { acrossNumbers, acrossClues, downNumbers, downClues, puzzleComplete } = this.state;
+
+    if (puzzleComplete) {
+      return (
+	<div>
+	  <span className="Complete">Puzzle Complete!</span>
+	</div>
+      );
+    }
+    
     let acrossIndex = 0,
       downIndex = 0;
     let i;
@@ -1285,9 +1295,6 @@ export default class Puzzle extends React.Component {
         <span className="Title">{this.state.meta.title}</span> <br />
         <span className="Author">{this.state.meta.author}</span> <br />
         <span className="Published">{this.state.meta.publisher}</span> <br />
-	{this.state.puzzleComplete &&  (
-	  <span className="Complete">Puzzle Complete!</span>
-	)}
         {this.state.preferences.timePuzzle && this.renderTime()}
       </div>
     );

@@ -1,0 +1,3779 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript">
+	var methode = {};
+	window.globe = window.globe || {};
+	globe.version = '19860I2153';
+</script>
+<!-- /lifestyle/crossword auto:  -->
+	<title>Crossword - The Boston Globe</title>
+<meta name="eomportal-instanceid" content="211"/>
+<meta name="eomportal-id" content="27245"/>
+<meta name="eomportal-loid" content="1.0.355027469"/>
+<meta name="eomportal-uuid" content="b35a07f0-d763-11e0-b819-39b513f0a8e6"/>
+<meta name="eomportal-lastUpdate" content="Sun Aug 23 16:41:49 EDT 2020"/>
+<title>Crossword - The Boston Globe</title>
+<!-- Methode uuid: "b35a07f0-d763-11e0-b819-39b513f0a8e6" -->
+<script src="//cdn.blueconic.net/bostonglobemedia.js"></script>
+
+	<meta property="og:type" content="website"/>
+	<meta property="og:description" content=""/>
+	<meta property="og:title" content="Crossword - The Boston Globe"/>
+	<meta property="og:site_name" content="BostonGlobe.com" />
+	<meta property="fb:admins" content="100001044693856" />
+	<meta property="fb:admins" content="507486035" />
+	<meta property="fb:app_id" content="103933749691726" />
+	<meta property="fb:pages" content="5637143257" />
+	<meta property="article:publisher" content="https://www.facebook.com/globe" />
+	<link rel='apple-touch-icon' sizes='57x57' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-57x57.png'>
+	<link rel='apple-touch-icon' sizes='60x60' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-60x60.png'>
+	<link rel='apple-touch-icon' sizes='72x72' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-72x72.png'>
+	<link rel='apple-touch-icon' sizes='76x76' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-76x76.png'>
+	<link rel='apple-touch-icon' sizes='114x114' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-114x114.png'>
+	<link rel='apple-touch-icon' sizes='120x120' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-120x120.png'>
+	<link rel='apple-touch-icon' sizes='144x144' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-144x144.png'>
+	<link rel='apple-touch-icon' sizes='152x152' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-152x152.png'>
+	<link rel='apple-touch-icon' sizes='180x180' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/apple-touch-icon-180x180.png'>
+
+	<link rel='icon' type='image/png' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/favicon-16x16.png' sizes='16x16'>
+	<link rel='icon' type='image/png' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/favicon-32x32.png' sizes='32x32'>
+	<link rel='icon' type='image/png' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/favicon-96x96.png' sizes='96x96'>
+	<link rel='icon' type='image/png' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/favicon-194x194.png' sizes='194x194'>
+	<link rel='icon' type='image/png' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/favicon-192x192.png' sizes='192x192'>
+
+	<link rel='mask-icon' href='/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/safari-pinned-tab.svg' color='#000000'>
+
+	<link rel="shortcut icon" type="image/gif" href="/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/favicon.ico" />
+
+	<meta name='msapplication-TileColor' content='#ffffff'>
+	<meta name='msapplication-TileImage' content='//c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/bg-images/png/favicon/mstile-144x144.png'>
+	<meta name='theme-color' content='#ffffff'>
+
+	<!--[if gte IE 9 ]>
+	<meta name="application-name" content="Homepage"/>
+	<meta name="msapplication-tooltip" content="This is the tooltip"/>
+	<meta name="msapplication-starturl" content="/?comp=9"/>
+	<![endif]-->
+
+	<!--[if lte IE 8 ]>
+	<meta name="application-name" content="Boston Globe"/>
+	<meta name="msapplication-TileColor" content="#000000"/>
+	<meta name="msapplication-TileImage" content="25a75e8d-4542-40a4-80aa-253aea7efc28.png"/>
+	<link rel="stylesheet" media="print" href="/css/globe-ie-print.css?v=19860I2153" type="text/css" />
+	<![endif]-->
+
+	<meta property="twitter:account_id" content="95431448" />
+<meta name="robots" content="noarchive" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="news_keywords" content="" />
+<meta property="og:url" content="https://www.bostonglobe.com/lifestyle/crossword"/>
+<link rel="canonical" href="https://www.bostonglobe.com/lifestyle/crossword" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="BostonGlobe" />
+<meta name="twitter:description" content=""/>
+	<meta name="twitter:title" content="Crossword - The Boston Globe"/>
+	<meta name="twitter:image" content="https://www.bostonglobe.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/logo-bg-twitter.jpg" />
+	<meta property="og:image" content="//c.o0bg.com/rw/SysConfig/WebPortal/BostonGlobe/Framework/images/logo-bg.jpg" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> <!--[if gte IE 6]><link href="/css/html5reset.css,globe-globals.css,globe-masthead.css,globe-nav.css,globe-nav-menus.css,globe-main.css,globe-footer.css,globe-print.css" rel="stylesheet"><![endif]-->
+<!--[if !IE]><link href="/css/html5reset.css,globe-globals.css,globe-masthead.css,globe-nav.css,globe-nav-menus.css,globe-main.css,globe-footer.css,globe-print.css?v=19860I2153" rel="stylesheet" media="only all"><![endif]-->
+<script src="/js/lib/rwd-images.js,lib/respond.min.js,lib/modernizr.custom.min.js,globe-define.js,globe-controller.js?v=19860I2153"></script>
+	<script type="text/javascript" title="https://iconizr.com | © 2014 Joschi Kuphal | MIT">!function(){var a=window,b=a.document,c=arguments,d="createElementNS",e="http://www.w3.org/",f="svg",g=function(a){var g=b.getElementsByTagName("script")[0],h=b.createElement("link");h.rel="stylesheet",h.type="text/css",h.href=c[1*a|2*(b[d]&&b[d](e+"2000/"+f,f).createSVGRect&&b.implementation.hasFeature(e+"TR/SVG11/feature#Image","1.1"))],g.parentNode.insertBefore(h,g)},h=new a.Image;h.onerror=function(){g(0)},h.onload=function(){g(1===h.width&&1===h.height)},h.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}("/css/icon-png-sprite.css","/css/icon-png-data.css","/css/icon-svg-sprite.css","/css/icon-svg-data.css");</script>
+	<noscript>
+	   <link href="/css/icon-png-sprite.css?v=19860I2153" rel="stylesheet" type="text/css" media="all">
+	</noscript>
+
+<meta name="datePublished" content="" />
+
+<!-- /lifestyle/crossword and dwp_sectionpage -->
+<script src="/js/lib/jquery.js,lib/lo-dash-custom-2.4.1.js,lib/a9.js,lib/pb.js,dist/ad-init.js,globe-newsletter.js,globe-profile-page.js,dist/globe-topic-nav.js,dist/rakuten.js?v=19860I2153"></script>
+<link rel="stylesheet" type="text/css" media="all" href="/css/html5reset.css,globe-globals.css,dist/site-header.css,globe-main.css,globe-footer.css,globe-polldaddy.css,article.css,gallery.css,globe-topic-nav.css,globe-profile-page.css,globe-bgbrandlab-belt.css?v=19860I2153"/>
+<link rel="stylesheet" type="text/css" media="print" href="/css/globe-print.css?v=19860I2153"/>
+<!-- oas_sitepage:www.bostonglobe.com/lifestyle/games/homepage -->
+<!-- webtype is dwp_sectionpage section is /lifestyle/crossword adPageType  oas_sitepage www.bostonglobe.com/lifestyle/games/homepage-->
+
+<!-- modAdunit: bostonglobe.com/lifestyle/games/homepage  -->
+    <script type="text/javascript" src="//dz9qn8fh4jznm.cloudfront.net/script.js"></script> 
+
+    <script async class="kxint" data-namespace="bostonglobe" type="text/javascript">
+        window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]),function(){function n(n){var r="kxbostonglobe_"+n,u=function(){try{return window.localStorage}catch(n){return null}}();if(u)return u[r]||"";if(navigator.cookieEnabled){var e=document.cookie.match(r+"=([^;]*)");return e&&unescape(e[1])||""}return""}Krux.user=n("user"),Krux.segments=n("segs")?n("segs").split(","):[]}();
+    </script>
+
+    <script type="text/javascript">
+        var gads = document.createElement("script");
+        gads.async = true;
+        gads.type = "text/javascript";
+        gads.src = "//www.googletagservices.com/tag/js/gpt.js";
+        var node = document.getElementsByTagName("script")[0];
+        node.parentNode.insertBefore(gads, node);
+    </script>
+
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+
+        googletag.cmd.push(function() {
+            googletag.pubads().disableInitialLoad();
+        });
+    </script>
+
+    <script>
+    	  var globe = globe || {};
+	      globe.dfp = {
+	        networkCode: 61381659
+	      };
+
+          globe.dfp.keyValuePairs = {
+            s1: 'bostonglobe.com',
+            s2: 'lifestyle',
+            s3: 'games',
+            s4: 'homepage',
+            pgtype: '',
+            pageurl: '_lifestyle_crossword',
+            meta: "",
+            weather: "",
+            temp: "",
+            aam: ""
+        }
+        globe.dfp.adUnit = 'bostonglobe.com/lifestyle/games/homepage';
+        globe.dfp.isBigArticle = ( '' === 'Special Article' ? true : false );
+    </script>
+<script class="kxct" data-id="skwb6bm8t" data-timing="async" data-version="3.0" type="text/javascript">
+window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+(function(){
+   var k=document.createElement('script');k.type='text/javascript';k.async=true;
+   k.src=(location.protocol==='https:'?'https:':'http:')+'//cdn.krxd.net/controltag/skwb6bm8t.js';
+   var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+}());
+</script>
+<script src="//dc8xl0ndzn2cb.cloudfront.net/js/bostonglobe/v0/keywee.min.js" type="text/javascript" async></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class='type-internal type-crossword section-lifestyle '>
+
+<div id="contain">
+
+<div id="contain">
+	<!--
+	type: EOM::WebPage
+	section: /lifestyle/crossword
+	topSection: /lifestyle/crossword
+	autoSection: 
+	sectionTitle: Crossword
+-->
+<header class="site-header site-header--section js-site-header">
+
+	<aside class="takeover-menu js-takeover-menu">
+		<div class="takeover-menu__wrap js-takeover-menu-wrap">
+
+			<div class="js-user-settings" data-location="Menu" data-baseurl="https://www.bostonglobe.com"></div>
+		<div class="js-user-subscribe" data-location="Menu" data-baseurl="https://www.bostonglobe.com"></div>
+	<div class="takeover-menu__content js-takeover-menu-content">
+				<nav class="takeover-menu__section takeover-menu__section--left">
+					<ul class="takeover-menu__list" role="menu">
+						<li class="takeover-menu__item">
+										<a href="/metro?p1=BGMenu" class="takeover-menu__link">Metro</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="/sports?p1=BGMenu" class="takeover-menu__link">Sports</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="/business?p1=BGMenu" class="takeover-menu__link">Business & Tech</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="/opinion?p1=BGMenu" class="takeover-menu__link">Opinion</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="/news/politics?p1=BGMenu" class="takeover-menu__link">Politics</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="/lifestyle?p1=BGMenu" class="takeover-menu__link">Lifestyle</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="/news/marijuana?p1=BGMenu" class="takeover-menu__link">Marijuana</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="/arts?p1=BGMenu" class="takeover-menu__link">Arts</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="http://www.boston.com/section/cars?s_campaign=bg:hp:mainnav:cars" class="takeover-menu__link"
+										target="_blank"
+										onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Menu - Nav - Cars');">
+										Cars</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="http://realestate.boston.com?s_campaign=bg:hp:mainnav:realestate" class="takeover-menu__link"
+										target="_blank"
+										onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Menu - Nav - Real Estate');">
+										Real Estate</a>
+									</li>
+								<li class="takeover-menu__item">
+										<a href="https://globeevents.splashthat.com?s_campaign=bg:hp:mainnav:splashthat" class="takeover-menu__link"
+										target="_blank"
+										onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Menu - Nav - Events');">
+										Events</a>
+									</li>
+								</ul>
+				</nav>
+
+				<div class="takeover-menu__section takeover-menu__section--right">
+					<div class="takeover-menu__suggestion-header">Most popular on BostonGlobe.com</div>
+
+	<ul class="takeover-menu__suggestion-list">
+		<li class="takeover-menu__suggestion-item">
+				<a href="//www.bostonglobe.com/2020/08/22/metro/nantucket-racist-act-gets-second-look/?p1=BGMenu_Article" class="takeover-menu__link" aria-label="recommended article">
+							<div class="takeover-menu__suggestion-img-wrap">
+								<img class="takeover-menu__suggestion-img" src="//bostonglobe-prod.cdn.arcpublishing.com/resizer/a8DjEDGvw5R1i9k22kbYH1wVf4s=/506x0/cloudfront-us-east-1.images.arcpublishing.com/bostonglobe/YEA7WJUTCDKZNT76CRKBTR2RS4.jpg"/>
+							</div>
+							<div class="takeover-menu__suggestion-headline">On Nantucket, a racist act gets a second look</div>
+		 				</a>
+					</li>
+		<li class="takeover-menu__suggestion-item">
+				<a href="//www.bostonglobe.com/2020/08/22/metro/state-criticized-over-calls-teachers-work-empty-classrooms-this-fall/?p1=BGMenu_Article" class="takeover-menu__link" aria-label="recommended article">
+							<div class="takeover-menu__suggestion-img-wrap">
+								<img class="takeover-menu__suggestion-img" src="//bostonglobe-prod.cdn.arcpublishing.com/resizer/mCUy_AVK-5c8N1b8oBDekBMNOng=/506x0/cloudfront-us-east-1.images.arcpublishing.com/bostonglobe/SUFJKXXEFUI6VMQ77J4LZ3HW34.jpg"/>
+							</div>
+							<div class="takeover-menu__suggestion-headline">State criticized over calls for teachers to work from empty classrooms this fall</div>
+		 				</a>
+					</li>
+		<li class="takeover-menu__suggestion-item">
+				<a href="//www.bostonglobe.com/2020/08/23/sports/celtics-pull-away-put-finishing-touches-sweep-76ers/?p1=BGMenu_Article" class="takeover-menu__link" aria-label="recommended article">
+							<div class="takeover-menu__suggestion-img-wrap">
+								<img class="takeover-menu__suggestion-img" src="//bostonglobe-prod.cdn.arcpublishing.com/resizer/_9tJA2XH_BuJl5_Px3SODPdpops=/506x0/cloudfront-us-east-1.images.arcpublishing.com/bostonglobe/5JNKAPVBYTCCSKSKON3CNPEB4Y.jpg"/>
+							</div>
+							<div class="takeover-menu__suggestion-headline">Celtics pull away, and other observations on their  sweep of the 76ers</div>
+		 				</a>
+					</li>
+		<li class="takeover-menu__suggestion-item">
+				<a href="//www.bostonglobe.com/2020/08/20/magazine/math-problem-stumped-experts-50-years-this-grad-student-maine-solved-it-days/?p1=BGMenu_Article" class="takeover-menu__link" aria-label="recommended article">
+							<div class="takeover-menu__suggestion-img-wrap">
+								<img class="takeover-menu__suggestion-img" src="//bostonglobe-prod.cdn.arcpublishing.com/resizer/Uy-iEZJujEEz6GHDR9-A6k33fxU=/506x0/cloudfront-us-east-1.images.arcpublishing.com/bostonglobe/LAITJPYW3FAA3NCHVFJNT64VBM.jpg"/>
+							</div>
+							<div class="takeover-menu__suggestion-headline">A math problem stumped experts for 50 years. This grad student from Maine solved it in days</div>
+		 				</a>
+					</li>
+		</ul>
+<form class="takeover-menu__search" action="/queryResult/search" method="get" role="search">
+						<input class="takeover-menu__search-input" type="search" placeholder="Search BostonGlobe.com" name="q">
+						<span class="takeover-menu__search-icon">
+							<svg width="21" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="globe-search-title">
+	<title id="globe-search-title">Search The Boston Globe</title>
+	<g transform="translate(2.064 1.892)" stroke="#777" stroke-width="3" fill="none" fill-rule="evenodd"><ellipse cx="10.524" cy="6.545" rx="6.476" ry="6.545"/>
+		<path d="M6.07 11.864L.406 17.59" stroke-linecap="square"/>
+	</g>
+
+	<!-- fallback .png -->
+	<image src="/bg-images/png/search-magnifying-glass.png" xlink:href=""/>
+</svg>
+</span>
+					</form>
+				</div>
+
+				<nav class="takeover-menu__section takeover-menu__section--footer">
+					<ul class="takeover-menu__list" role="menu">
+						<li class="takeover-menu__item takeover-menu__item--subsection">
+								<a href="/todayspaper?p1=BGMenu_Subnav" class="takeover-menu__link takeover-menu__link--subsection">Today's Paper</a>
+							</li>
+						<li class="takeover-menu__item takeover-menu__item--subsection">
+								<a href="/magazine?p1=BGMenu_Subnav" class="takeover-menu__link takeover-menu__link--subsection">Magazine</a>
+							</li>
+						<li class="takeover-menu__item takeover-menu__item--subsection">
+								<a href="/metro/obituaries?p1=BGMenu_Subnav" class="takeover-menu__link takeover-menu__link--subsection">Obituaries</a>
+							</li>
+						<li class="takeover-menu__item takeover-menu__item--subsection">
+								<a href="http://www.boston.com/weather?p1=BGMenu_Subnav" class="takeover-menu__link takeover-menu__link--subsection">Weather</a>
+							</li>
+						<li class="takeover-menu__item takeover-menu__item--subsection">
+								<a href="/lifestyle/comics?p1=BGMenu_Subnav" class="takeover-menu__link takeover-menu__link--subsection">Comics</a>
+							</li>
+						<li class="takeover-menu__item takeover-menu__item--subsection">
+								<a href="/lifestyle/crossword?p1=BGMenu_Subnav" class="takeover-menu__link takeover-menu__link--subsection">Crossword</a>
+							</li>
+						<li class="takeover-menu__item takeover-menu__item--subsection">
+								<a href="/news/bigpicture?p1=BGMenu_Subnav" class="takeover-menu__link takeover-menu__link--subsection">The Big Picture</a>
+							</li>
+						</ul>
+
+					<form class="takeover-menu__search takeover-menu__search--footer" action="/queryResult/search" method="get" role="search">
+						<input class="takeover-menu__search-input" type="search" placeholder="Search BostonGlobe.com" name="q">
+						<span class="takeover-menu__search-icon">
+							<svg width="21" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="globe-search-title">
+	<title id="globe-search-title">Search The Boston Globe</title>
+	<g transform="translate(2.064 1.892)" stroke="#777" stroke-width="3" fill="none" fill-rule="evenodd"><ellipse cx="10.524" cy="6.545" rx="6.476" ry="6.545"/>
+		<path d="M6.07 11.864L.406 17.59" stroke-linecap="square"/>
+	</g>
+
+	<!-- fallback .png -->
+	<image src="/bg-images/png/search-magnifying-glass.png" xlink:href=""/>
+</svg>
+</span>
+					</form>
+				</nav>
+			</div>
+		</div>
+	</aside>
+
+	<div class="site-header__menu js-header-menu">
+		<a class="site-header__hamburger js-hamburger-menu" href="#" role="button" aria-label="main menu" onclick="var s=s_gi('nytbostonglobecom');s.tl(this,'o','BG Menu - Open');">
+			<span class="site-header__hamburger-line takeover-menu__hamburger-line"></span>
+			<span class="site-header__hamburger-text">Menu</span>
+		</a>
+		<a href="/?p1=BGHeader_Logo" class="site-header__home-link takeover-menu__home-link" aria-label="Visit The Boston Globe homepage">
+			<span class="site-header__logo-link">
+				<svg class="bg-logo bg-logo--full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="globe-logo--big" x="0px" y="0px" width="140px" height="17px" viewBox="0 0 140 17" enable-background="new 0 0 140 18.674" xml:space="preserve" aria-labelledby="globe-title">
+	<title id="globe-title">The Boston Globe</title>
+	<path d="M129.334,11.479c0,1.375-0.062,4.065-0.062,4.16l-0.095,0.094l-2.597-1.625V7.727c0.406-0.625,0.97-0.938,1.471-0.938   c0.594,0,1.03,0.438,1.249,1.032C129.3,8.071,129.334,9.729,129.334,11.479 M137.902,8.885l-2.408,1.97V6.383L137.902,8.885z    M131.521,14.546c-0.156-1.406-0.123-5.225-0.123-7.006c0-1.157-1.004-2.002-2.254-2.534l-2.564,2.158V2.472   c0-0.781,0.47-1.626,1.031-1.626V0.689c-1.219,0-2.563,0.971-2.783,1.597c-0.28-0.47-0.938-0.752-1.562-0.752l-0.031,0.25   c0.625,0,1.221,1.064,1.221,2.941c0,3.784-0.033,7.413-0.033,8.974c0,0.503-0.062,0.847-0.344,1.253l3.849,2.345   C129.395,15.923,129.958,15.517,131.521,14.546 M140,13.952l-0.189-0.189c-0.97,0.971-1.533,1.377-2.095,1.377   c-0.563,0-1.096-0.345-2.222-1.22v-2.563l4.41-3.536c-1.032-0.875-3.158-3.002-3.158-3.002c-1.189,1.064-1.878,1.658-3.535,2.815   c0.062,0.344,0.125,0.812,0.125,1.188v4.973c0,0.345-0.031,0.595-0.156,1l3.473,2.438L140,13.952z M98.868,11.979   c0,0.846-0.252,1.377-0.813,1.814c-1.281-1.251-1.906-3.003-1.906-4.754c0-2.626,0.906-3.629,2.158-4.535   c0.188-0.157,0.375-0.282,0.562-0.406V11.979z M102.247,15.576c-1.658-0.124-2.938-0.687-3.94-1.531   c1.529-1.062,2.502-1.594,2.502-3.223v-8.1l0.469-0.374c0.345,0.124,0.625,0.249,0.971,0.374L102.247,15.576L102.247,15.576z    M107.125,11.886c0,0.909-0.094,1.534-0.343,2.286c-0.907,0.905-2.255,1.438-3.786,1.438h-0.438v-8.04   c0.281-0.032,0.531-0.063,0.782-0.063C105.593,7.508,107.125,9.541,107.125,11.886 M105.904,4.474l-3.346,2.971V2.848   C103.748,3.317,104.812,3.88,105.904,4.474 M120.355,15.422l-0.188,0.124l-2.657-1.688V6.383l2.814,1.375L120.355,15.422z    M109.223,1.784l-0.283-0.25l-1.029,1.095c0,0-2.66-0.875-4.818-2.126c-2.971,2.251-5.223,3.846-8.131,5.911   c-0.689,1.031-1.064,2.376-1.064,3.849c0,4,3.691,7.129,8.353,7.129c3.032-1.281,5.19-3.064,6.787-5.224   c0.094-0.437,0.125-1.063,0.125-1.407c0-2.909-1.972-4.535-4.065-5.035L109.223,1.784z M122.671,6.632l-3.753-1.938   c-1.159,1.062-2.284,1.844-3.784,2.594c0.093,0.283,0.188,1.44,0.188,2.16v5.162c-0.346,0.373-0.69,0.562-1.033,0.562   c-0.344,0-0.719-0.158-1.189-0.501V2.16c0-0.72,0.438-1.565,1.004-1.565V0.503c-1.158,0-2.191,0.53-2.502,1.406   c-0.283-0.469-0.721-0.875-1.377-0.875l-0.031,0.126c0.375,0,0.75,1.062,0.75,2.062v10.042c0,0.969-0.127,1.471-0.5,2.002   l2.502,1.813l2.345-2.033l3.63,2.188c1.375-1.281,2.189-2.032,3.721-2.938c-0.093-0.471-0.125-1.377-0.125-1.752V8.103   C122.514,7.352,122.546,6.945,122.671,6.632 M63.275,15.671c-0.908-0.812-2.158-1.499-4.16-1.499l3.065-3.254l1.062,0.937   L63.275,15.671z M64.307,8.134l-2.626,2.846l-1.157-0.845V6.351C61.712,7.164,62.398,7.602,64.307,8.134 M77.225,15.733   L77.1,15.829l-2.502-1.533v-7.82l2.627,1.564V15.733z M79.663,14.576c-0.124-0.404-0.155-0.813-0.155-1.188V6.82L76.1,4.911   c-1.096,1.095-2.349,1.876-3.94,2.753c0.093,0.312,0.155,0.812,0.155,1.157v5.536c-0.5,0.533-1.002,0.846-1.438,0.846   c-0.437,0-0.876-0.188-1.346-0.688c0-0.438,0.032-5.192,0.032-8.101H72V5.819l-2.438-0.093c0,0,0.031-2.283,0.062-2.753h-0.281   l-3.41,3.597c-1.47-0.219-2.564-0.75-4.16-1.844c-1.25,1.281-2.096,1.875-3.596,2.595c0.062,0.751,0.093,1.157,0.093,1.909   c0,0.875,0,1.158-0.062,1.91l2.002,1.405l-1.877,1.972c-0.812,0.844-1.125,1.531-1.125,2.219c0,0.627,0.25,1.125,0.625,1.597   l0.22-0.124c-0.25-0.377-0.407-0.814-0.407-1.221c0-0.656,0.344-1.221,1.314-1.221c0.97,0,2.033,0.625,3.097,1.469   c1.188-1.094,2.065-1.812,3.377-2.469v-3.19c0-0.376,0.032-0.532,0.125-0.782L63.556,9.45l2.566-2.785h1.188   c0,2.846-0.031,6.506-0.031,6.912c0,0.501-0.094,1.127-0.437,1.627l2.846,2.095l2.44-2.22l3.534,2.312   C77.038,16.108,78.132,15.267,79.663,14.576 M91.018,15.015L90.8,14.767l-1.065,0.904c-0.529,0-0.905-0.374-0.905-0.969   c0-0.53,0.032-6.725,0.063-7.788c-0.408-0.815-0.939-1.439-2.129-1.846l-2.847,2.095c0-0.875-0.5-1.657-1.47-2.158l-1.658,1.409   l0.877,0.938c0,0-0.031,5.504-0.031,6.411c0,0.909-0.656,1.565-0.656,1.565l2.597,1.905l1.377-1.688l-1.034-0.938V7.727   c0.501-0.656,1.034-0.938,1.503-0.938c0.531,0,0.97,0.375,1.095,0.908c0.03,0.406,0.03,1.062,0.03,1.751   c0,1.062,0,4.814-0.03,6.285c0.188,0.658,1.156,1.563,1.782,1.563L91.018,15.015z M45.227,10.354l-0.062,4.502   c-0.468,0.252-0.781,0.408-1.219,0.72c-0.343-0.218-0.688-0.438-1.095-0.687V9.072L45.227,10.354z M45.572,6.445   c0,0.687-0.625,1.032-2.722,2.345V6.788c0-1,0.063-1.563,0.094-1.97h-0.437c0.062,0.438,0.094,0.97,0.094,1.97v7.979   c-1.313-0.783-2.909-1.598-4.599-1.723c1.596-0.906,3.19-2.126,3.19-3.91V5.225c0-1.25,0.5-2.003,1.815-3.127   c1.031,1.532,1.439,2.188,2.251,3.566C45.446,5.975,45.572,6.289,45.572,6.445 M54.423,15.671l-0.125,0.096l-2.471-1.504V6.351   l2.596,1.47V15.671z M41.475,1.565l-0.062-0.188c-1.314,0-2.033-0.157-2.722-0.281c-0.657-0.094-1.22-0.22-2.001-0.22   c-2.064,0-3.409,1.064-3.409,2.785c0,0.719,0.156,1.125,0.625,1.657l0.188-0.187c-0.25-0.313-0.375-0.626-0.375-0.971   c0-0.75,0.625-1.407,2.001-1.407c1.032,0,1.97,0.188,2.784,0.375c-1.751,1.281-2.816,2.22-2.816,4.941   c-0.25-0.094-0.594-0.156-1.063-0.156c-1.313,0-2.001,0.875-2.001,1.719c0,0.377,0.093,0.783,0.344,1.064l0.219-0.125   c-0.094-0.188-0.157-0.377-0.157-0.562c0-0.563,0.438-1.002,1.251-1.002c0.72,0,1.251,0.312,1.501,0.752   c0,1.906-0.375,2.877-1.375,2.877v0.219c1.501,0,3.314-1.095,3.314-2.846V6.507C37.721,3.629,39.41,2.286,41.475,1.565    M48.012,9.479l-2.785-1.845c1.064-0.657,1.408-0.845,1.783-1.126c0.658-0.47,0.845-0.751,0.845-1.032   c0-0.219-0.094-0.625-0.594-1.376c-0.625-0.938-1.22-1.846-2.471-3.596c-1.751,1.188-2.721,1.906-4.566,3.346   c-0.75,0.594-1.314,1.532-1.314,2.721c0,0.407,0.032,2.502,0.032,3.879c0,1.062-0.188,1.627-1.314,2.564   c-2.721,0-4.348,1.752-4.348,3.502c0,0.752,0.25,1.533,0.813,2.158l0.188-0.188c-0.345-0.377-0.625-0.971-0.625-1.657   c0-0.938,0.688-1.972,2.846-1.972c2.377,0,4.597,1.627,5.88,2.408c1.845-1.562,3.003-2.221,5.38-3.004v-3.972   C47.761,10.011,47.855,9.729,48.012,9.479 M56.957,6.757L53.36,4.786c-1.096,1.096-2.502,1.971-4.097,2.847   c0.219,0.657,0.155,1.5,0.155,2.564c0,2.598,0.031,4.005-0.438,4.692l3.971,2.439c1.096-1.128,2.284-2.002,3.88-2.878   c-0.125-0.407-0.157-0.813-0.157-1.188v-4.44C56.675,7.508,56.8,7.039,56.957,6.757 M4.473,11.638c0,0.938-0.157,1.502-0.657,1.938   C2.66,12.388,2.033,10.698,2.033,8.79c0-1.063,0.188-1.875,0.563-2.439c0.626-0.563,1.377-1.095,1.877-1.376v2.409V11.638z    M8.039,15.576c-1.563-0.187-2.909-0.781-3.91-1.688c1.939-1.406,2.377-2.222,2.377-3.785V3.754l0.062-0.062   c0.626,0.062,0.971,0.094,1.471,0.125V15.576z M26.805,8.915l-2.533,2.033V6.569l0.094-0.094L26.805,8.915z M28.775,13.952   l-0.188-0.189c-1.001,1.065-1.438,1.346-2.189,1.346c-0.562,0-1.22-0.342-2.126-1.188v-2.564l4.503-3.439L25.71,4.88   c-1.345,1.063-1.563,1.251-2.533,2.002c-0.532,0.405-0.845,0.594-1.189,0.75c0.062,0.375,0.125,0.907,0.125,1.282v5.726   c-0.531,0.498-1.032,0.719-1.407,0.719c-0.501,0-0.876-0.312-0.876-0.844V6.851c-0.312-0.969-0.906-1.595-2.064-2.001l-2.847,2.314   v-5.38c0-0.781,0.438-1.5,0.844-1.688V0c-1.157,0-1.97,0.752-2.314,1.628l-0.5-1.033l-0.188,0.032V14.39   c-1.125,0.594-2.345,1.25-3.691,1.25c-0.249,0-0.469,0-0.719-0.029V3.849c0.595,0.062,0.97,0.093,1.314,0.093   c0.531,0,0.876-0.093,1.126-0.219l1.533-3.128l-0.25-0.062c-0.594,1.188-0.906,1.375-2.189,1.375c-0.594,0-1.908-0.155-3.222-0.312   C5.411,1.44,4.128,1.284,3.473,1.284c-1.939,0-3.066,1.345-3.066,2.722c0,0.562,0.187,1.126,0.564,1.626l0.217-0.156   c-0.249-0.313-0.405-0.72-0.405-1.064c0-0.562,0.438-1.062,1.626-1.062c0.47,0,2.127,0.157,3.69,0.28   C4.316,4.505,2.847,5.443,1.126,6.757C0.375,7.758,0,9.041,0,10.354c0,3.377,2.565,7.035,8.227,7.035   c1.657-0.937,4.097-2.345,4.097-2.345l2.252,2.033l1.563-1.533l-1.22-1.282V7.727c0.532-0.719,1.126-1.032,1.596-1.032   c0.531,0,1.031,0.376,1.157,1.064v7.852c0.187,0.656,0.968,1.279,1.751,1.5l2.784-2.096l3.222,2.221L28.775,13.952z"></path>
+
+	<!-- fallback .png -->
+	<image src="/bg-images/png/bg-logo--full.png" xlink:href=""/>
+</svg>
+</span>
+			<span class="site-header__bug-link">
+				<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="globe-title">
+	<title id="globe-title">Visit The Boston Globe</title>
+	<path d="M15.314 10.916l-.068 4.873c-.507.27-.845.44-1.32.777-.372-.236-.744-.474-1.184-.745V9.528l2.572 1.388zm.373-4.232c0 .744-.677 1.117-2.945 2.54v-2.17c0-1.082.068-1.69.1-2.132h-.472c.067.474.102 1.05.102 2.133v8.633c-1.423-.848-3.15-1.728-4.977-1.863 1.727-.982 3.452-2.302 3.452-4.233v-4.23c0-1.354.542-2.167 1.964-3.385 1.12 1.657 1.56 2.368 2.44 3.858.203.338.34.677.34.846l-.003.004zm-4.434-5.28l-.068-.204c-1.422 0-2.2-.17-2.946-.304C7.53.794 6.92.658 6.072.658c-2.235 0-3.69 1.152-3.69 3.013 0 .78.168 1.22.676 1.797l.202-.203c-.27-.34-.405-.678-.405-1.05 0-.812.676-1.523 2.165-1.523 1.118 0 2.133.204 3.013.407C6.14 4.483 4.99 5.5 4.99 8.444c-.272-.102-.644-.17-1.152-.17-1.42 0-2.166.95-2.166 1.862 0 .407.1.848.373 1.152l.237-.135c-.102-.204-.17-.407-.17-.61 0-.61.474-1.083 1.354-1.083.78 0 1.354.338 1.624.813 0 2.064-.405 3.114-1.488 3.114v.236c1.624 0 3.588-1.184 3.588-3.08v-3.79c0-3.116 1.828-4.57 4.063-5.35zm7.075 8.563L15.314 7.97c1.15-.71 1.524-.914 1.93-1.218.71-.508.914-.813.914-1.117 0-.238-.1-.677-.643-1.49-.677-1.016-1.32-1.997-2.674-3.892-1.894 1.286-2.943 2.063-4.94 3.622C9.09 4.517 8.48 5.533 8.48 6.82c0 .44.034 2.707.034 4.196 0 1.15-.202 1.76-1.42 2.775-2.945 0-4.706 1.898-4.706 3.793 0 .813.27 1.66.88 2.335l.204-.204c-.373-.407-.677-1.05-.677-1.793 0-1.016.746-2.133 3.08-2.133 2.574 0 4.977 1.76 6.365 2.607 1.997-1.693 3.25-2.404 5.822-3.252v-4.298c0-.304.1-.608.27-.88l-.002.003z" fill-rule="nonzero" fill="#000"/>
+
+	<!-- fallback .png -->
+	<image src="/bg-images/png/bg-logo--bug.png" xlink:href=""/>
+</svg>
+</span>
+		</a>
+	</div>
+
+	<div class="js-user-settings" data-location="" data-baseurl="https://www.bostonglobe.com"></div>
+		<div class="js-user-subscribe" data-location="" data-baseurl="https://www.bostonglobe.com"></div>
+	<!-- Current section link. -->
+	<a href="/lifestyle/crossword?p1=BGHeader_SectionLink" class="site-header__section-front" aria-label="Current sectionfront">Crossword</a>
+		<div class="smartbar " role="dialog" aria-label="breaking news">
+	<div class="smartbar__slot smartbar__slot--breaking ">
+		<a href="/news/nation/2019/12/12/watch-live-governor-andrew-cuomo-gives-update-coronavirus-response/uuSOmtCihEr8HBfQLgH6KJ/story.html?p1=BGHeader_SmartBar_Breaking" aria-label="breaking news: Severe thunderstorm warning issued for Boston area until 5:30 p.m." class="smartbar-link smartbar-link--breaking" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar15,channel,prop1';s.linkTrackEvents='none';s.tl(this,'o','BG Header - Smart Bar_Breaking');">
+			<span class="smartbar-text">Severe thunderstorm warning issued for Boston area until 5:30 p.m.</span>
+		</a>
+	</div>
+
+	<div class="breaking-bar">
+		<div class="breaking-bar__content">
+			<a href="/news/nation/2019/12/12/watch-live-governor-andrew-cuomo-gives-update-coronavirus-response/uuSOmtCihEr8HBfQLgH6KJ/story.html?p1=BGHeader_SmartBar_Breaking" aria-label="breaking news: Severe thunderstorm warning issued for Boston area until 5:30 p.m." class="breaking-bar__link" onClick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='eVar15,channel,prop1';s.linkTrackEvents='none';s.tl(this,'o','BG Header - Smart Bar_Breaking');">Severe thunderstorm warning issued for Boston area until 5:30 p.m.</a>
+		</div>
+	</div>
+</div>
+<div class="site-header__centerpiece">
+			<a href="/lifestyle/crossword?p1=BGHeader_SectionTitle" aria-label="current sectionfront Crossword" class="site-header__centerpiece-link">Crossword</a>
+						</div>
+
+		<nav class="site-nav">
+			<ul class="site-nav__list" role="menu">
+
+				<li class="site-nav__item site-nav__item--search js-search-toggle" role="button" aria-label="search The Boston Globe content" onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,prop6,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Header - Search Open');">
+							<svg width="21" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="globe-search-title">
+	<title id="globe-search-title">Search The Boston Globe</title>
+	<g transform="translate(2.064 1.892)" stroke="#777" stroke-width="3" fill="none" fill-rule="evenodd"><ellipse cx="10.524" cy="6.545" rx="6.476" ry="6.545"/>
+		<path d="M6.07 11.864L.406 17.59" stroke-linecap="square"/>
+	</g>
+
+	<!-- fallback .png -->
+	<image src="/bg-images/png/search-magnifying-glass.png" xlink:href=""/>
+</svg>
+</li>
+					</ul>
+		</nav>
+	</header>
+<!-- Page header ends -->
+
+<div class="ad billboard" id="ad_outofpage2"></div>
+
+<div id="main" role="main">
+<div class="section-head">
+<div class="facebook-like"><!-- fb injection --></div>
+<h2 class="hed-topic">Crossword</h2>
+<p class="subhed">
+BEAN BAG Emily Cox and Henry Rathvon, 2020 Emily Cox and Henry Rathvon
+</p>
+<p class="subhed-link">
+<a href="http://www.uclick.com/client/bos/fcx/">For more puzzles and games, go to Boston.com</a>
+</p>
+<div class="ad lead1 lead1--crossword" id="ad_lead1"></div>
+</div><!-- /end .section-hed -->
+<div class="mod bg-crossword">
+<div class="col bg-col-ab" id="puzzle-wrapper">
+<div class="validate">
+<button class="validate bg-button" style="display: inline-block; margin-bottom: 1em;">Show Errors</button>
+</div>
+<table id="puzzle">
+<tbody>
+<tr>
+<td data-coords="1,1" class="position-1 position-2">
+<div>
+<span id="1row0">1</span>
+<input type="text" name="E" maxlength="1" size="1" id="input-1" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,1" class="position-1 position-3">
+<div>
+<span id="1row1">2</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-2" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,1" class="position-1 position-4">
+<div>
+<span id="1row2">3</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-3" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,1" class="position-1 position-5">
+<div>
+<span id="1row3">4</span>
+<input type="text" name="O" maxlength="1" size="1" id="input-4" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="6,1" class="position-6 position-7">
+<div>
+<span id="1row5">5</span>
+<input type="text" name="B" maxlength="1" size="1" id="input-5" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,1" class="position-6 position-8">
+<div>
+<span id="1row6">6</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-6" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,1" class="position-6 position-9">
+<div>
+<span id="1row7">7</span>
+<input type="text" name="E" maxlength="1" size="1" id="input-7" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,1" class="position-6 position-10">
+<div>
+<span id="1row8">8</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-8" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,1" class="position-6 position-11">
+<div>
+<span id="1row9">9</span>
+<input type="text" name="M" maxlength="1" size="1" id="input-9" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="12,1" class="position-12 position-13">
+<div>
+<span id="1row11">10</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-10" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,1" class="position-12 position-14">
+<div>
+<span id="1row12">11</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-11" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,1" class="position-12 position-15">
+<div>
+<span id="1row13">12</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-12" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,1" class="position-12 position-16">
+<div>
+<span id="1row14">13</span>
+<input type="text" name="G" maxlength="1" size="1" id="input-13" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,1" class="position-12 position-17">
+<div>
+<span id="1row15">14</span>
+<input type="text" name="E" maxlength="1" size="1" id="input-14" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="18,1" class="position-18 position-19">
+<div>
+<span id="1row17">15</span>
+<input type="text" name="P" maxlength="1" size="1" id="input-15" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,1" class="position-18 position-20">
+<div>
+<span id="1row18">16</span>
+<input type="text" name="O" maxlength="1" size="1" id="input-16" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,1" class="position-18 position-21">
+<div>
+<span id="1row19">17</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-17" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,1" class="position-18 position-22">
+<div>
+<span id="1row20">18</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-18" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,2" class="position-23 position-2">
+<div>
+<span id="2row0">19</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-19" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,2" class="position-23 position-3">
+<div>
+<span id="2row1"></span>
+<input type="text" name="H" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,2" class="position-23 position-4">
+<div>
+<span id="2row2"></span>
+<input type="text" name="U" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,2" class="position-23 position-5">
+<div>
+<span id="2row3"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="6,2" class="position-24 position-7">
+<div>
+<span id="2row5">20</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-20" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,2" class="position-24 position-8">
+<div>
+<span id="2row6"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,2" class="position-24 position-9">
+<div>
+<span id="2row7"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,2" class="position-24 position-10">
+<div>
+<span id="2row8"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,2" class="position-24 position-11">
+<div>
+<span id="2row9"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="12,2" class="position-25 position-13">
+<div>
+<span id="2row11">21</span>
+<input type="text" name="Q" maxlength="1" size="1" id="input-21" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,2" class="position-25 position-14">
+<div>
+<span id="2row12"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,2" class="position-25 position-15">
+<div>
+<span id="2row13"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,2" class="position-25 position-16">
+<div>
+<span id="2row14"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,2" class="position-25 position-17">
+<div>
+<span id="2row15"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="18,2" class="position-26 position-19">
+<div>
+<span id="2row17">22</span>
+<input type="text" name="O" maxlength="1" size="1" id="input-22" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,2" class="position-26 position-20">
+<div>
+<span id="2row18"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,2" class="position-26 position-21">
+<div>
+<span id="2row19"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,2" class="position-26 position-22">
+<div>
+<span id="2row20"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,3" class="position-27 position-2">
+<div>
+<span id="3row0">23</span>
+<input type="text" name="P" maxlength="1" size="1" id="input-23" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,3" class="position-27 position-3">
+<div>
+<span id="3row1"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,3" class="position-27 position-4">
+<div>
+<span id="3row2"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,3" class="position-27 position-5">
+<div>
+<span id="3row3"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,3" class="position-27 position-28">
+<div>
+<span id="3row4">24</span>
+<input type="text" name="V" maxlength="1" size="1" id="input-24" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,3" class="position-27 position-7">
+<div>
+<span id="3row5"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,3" class="position-27 position-8">
+<div>
+<span id="3row6"></span>
+<input type="text" name="U" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,3" class="position-27 position-9">
+<div>
+<span id="3row7"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,3" class="position-27 position-10">
+<div>
+<span id="3row8"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,3" class="position-27 position-11">
+<div>
+<span id="3row9"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="12,3" class="position-29 position-13">
+<div>
+<span id="3row11">25</span>
+<input type="text" name="U" maxlength="1" size="1" id="input-25" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,3" class="position-29 position-14">
+<div>
+<span id="3row12"></span>
+<input type="text" name="M" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,3" class="position-29 position-15">
+<div>
+<span id="3row13"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,3" class="position-29 position-16">
+<div>
+<span id="3row14"></span>
+<input type="text" name="M" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,3" class="position-29 position-17">
+<div>
+<span id="3row15"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="18,3" class="position-30 position-19">
+<div>
+<span id="3row17">26</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-26" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,3" class="position-30 position-20">
+<div>
+<span id="3row18"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,3" class="position-30 position-21">
+<div>
+<span id="3row19"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,3" class="position-30 position-22">
+<div>
+<span id="3row20"></span>
+<input type="text" name="W" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,4" class="position-31 position-2">
+<div>
+<span id="4row0">27</span>
+<input type="text" name="N" maxlength="1" size="1" id="input-27" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,4" class="position-31 position-3">
+<div>
+<span id="4row1"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,4" class="position-31 position-4">
+<div>
+<span id="4row2"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,4" class="position-31 position-5">
+<div>
+<span id="4row3"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,4" class="position-31 position-28">
+<div>
+<span id="4row4"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,4" class="position-31 position-7">
+<div>
+<span id="4row5"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,4" class="position-31 position-8">
+<div>
+<span id="4row6"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,4" class="position-31 position-9">
+<div>
+<span id="4row7"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="10,4" class="position-32 position-11">
+<div>
+<span id="4row9">28</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-28" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,4" class="position-32 position-33">
+<div>
+<span id="4row10">29</span>
+<input type="text" name="N" maxlength="1" size="1" id="input-29" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,4" class="position-32 position-13">
+<div>
+<span id="4row11"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,4" class="position-32 position-14">
+<div>
+<span id="4row12"></span>
+<input type="text" name="P" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,4" class="position-32 position-15">
+<div>
+<span id="4row13"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,4" class="position-32 position-16">
+<div>
+<span id="4row14"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,4" class="position-32 position-17">
+<div>
+<span id="4row15"></span>
+<input type="text" name="C" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,4" class="position-32 position-34">
+<div>
+<span id="4row16">30</span>
+<input type="text" name="I" maxlength="1" size="1" id="input-30" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,4" class="position-32 position-19">
+<div>
+<span id="4row17"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,4" class="position-32 position-20">
+<div>
+<span id="4row18"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,4" class="position-32 position-21">
+<div>
+<span id="4row19"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,4" class="position-32 position-22">
+<div>
+<span id="4row20"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="4,5" class="position-35 position-5">
+<div>
+<span id="5row3">31</span>
+<input type="text" name="R" maxlength="1" size="1" id="input-31" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,5" class="position-35 position-28">
+<div>
+<span id="5row4"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,5" class="position-35 position-7">
+<div>
+<span id="5row5"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,5" class="position-35 position-8">
+<div>
+<span id="5row6"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="9,5" class="position-36 position-37">
+<div>
+<span id="5row8">32</span>
+<input type="text" name="L" maxlength="1" size="1" id="input-32" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,5" class="position-36 position-11">
+<div>
+<span id="5row9"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,5" class="position-36 position-33">
+<div>
+<span id="5row10"></span>
+<input type="text" name="Y" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,5" class="position-36 position-13">
+<div>
+<span id="5row11"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,5" class="position-36 position-14">
+<div>
+<span id="5row12"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="17,5" class="position-38 position-34">
+<div>
+<span id="5row16">33</span>
+<input type="text" name="N" maxlength="1" size="1" id="input-33" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,5" class="position-38 position-19">
+<div>
+<span id="5row17"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,5" class="position-38 position-20">
+<div>
+<span id="5row18"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,5" class="position-38 position-21">
+<div>
+<span id="5row19"></span>
+<input type="text" name="P" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,5" class="position-38 position-22">
+<div>
+<span id="5row20"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,6" class="position-39 position-40">
+<div>
+<span id="6row0">34</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-34" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,6" class="position-39 position-41">
+<div>
+<span id="6row1">35</span>
+<input type="text" name="F" maxlength="1" size="1" id="input-35" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,6" class="position-39 position-42">
+<div>
+<span id="6row2">36</span>
+<input type="text" name="L" maxlength="1" size="1" id="input-36" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,6" class="position-39 position-5">
+<div>
+<span id="6row3"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,6" class="position-39 position-28">
+<div>
+<span id="6row4"></span>
+<input type="text" name="C" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="8,6" class="position-43 position-44">
+<div>
+<span id="6row7">37</span>
+<input type="text" name="B" maxlength="1" size="1" id="input-37" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,6" class="position-43 position-37">
+<div>
+<span id="6row8"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,6" class="position-43 position-11">
+<div>
+<span id="6row9"></span>
+<input type="text" name="G" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,6" class="position-43 position-33">
+<div>
+<span id="6row10"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,6" class="position-43 position-13">
+<div>
+<span id="6row11"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="14,6" class="position-45 position-46">
+<div>
+<span id="6row13">38</span>
+<input type="text" name="L" maxlength="1" size="1" id="input-38" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,6" class="position-45 position-47">
+<div>
+<span id="6row14">39</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-39" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,6" class="position-45 position-48">
+<div>
+<span id="6row15">40</span>
+<input type="text" name="M" maxlength="1" size="1" id="input-40" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,6" class="position-45 position-34">
+<div>
+<span id="6row16"></span>
+<input type="text" name="P" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,6" class="position-45 position-19">
+<div>
+<span id="6row17"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+</tr>
+<tr>
+<td data-coords="1,7" class="position-49 position-40">
+<div>
+<span id="7row0">41</span>
+<input type="text" name="B" maxlength="1" size="1" id="input-41" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,7" class="position-49 position-41">
+<div>
+<span id="7row1"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,7" class="position-49 position-42">
+<div>
+<span id="7row2"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,7" class="position-49 position-5">
+<div>
+<span id="7row3"></span>
+<input type="text" name="C" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,7" class="position-49 position-28">
+<div>
+<span id="7row4"></span>
+<input type="text" name="K" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,7" class="position-49 position-50">
+<div>
+<span id="7row5">42</span>
+<input type="text" name="M" maxlength="1" size="1" id="input-42" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,7" class="position-49 position-51">
+<div>
+<span id="7row6">43</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-43" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,7" class="position-49 position-44">
+<div>
+<span id="7row7"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,7" class="position-49 position-37">
+<div>
+<span id="7row8"></span>
+<input type="text" name="K" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,7" class="position-49 position-11">
+<div>
+<span id="7row9"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,7" class="position-49 position-33">
+<div>
+<span id="7row10"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="13,7" class="position-52 position-53">
+<div>
+<span id="7row12">44</span>
+<input type="text" name="W" maxlength="1" size="1" id="input-44" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,7" class="position-52 position-46">
+<div>
+<span id="7row13"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,7" class="position-52 position-47">
+<div>
+<span id="7row14"></span>
+<input type="text" name="X" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,7" class="position-52 position-48">
+<div>
+<span id="7row15"></span>
+<input type="text" name="M" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,7" class="position-52 position-34">
+<div>
+<span id="7row16"></span>
+<input type="text" name="U" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,7" class="position-52 position-19">
+<div>
+<span id="7row17"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,7" class="position-52 position-54">
+<div>
+<span id="7row18">45</span>
+<input type="text" name="E" maxlength="1" size="1" id="input-45" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,7" class="position-52 position-55">
+<div>
+<span id="7row19">46</span>
+<input type="text" name="U" maxlength="1" size="1" id="input-46" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,7" class="position-52 position-56">
+<div>
+<span id="7row20">47</span>
+<input type="text" name="M" maxlength="1" size="1" id="input-47" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,8" class="position-57 position-40">
+<div>
+<span id="8row0">48</span>
+<input type="text" name="Y" maxlength="1" size="1" id="input-48" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,8" class="position-57 position-41">
+<div>
+<span id="8row1"></span>
+<input type="text" name="U" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,8" class="position-57 position-42">
+<div>
+<span id="8row2"></span>
+<input type="text" name="C" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,8" class="position-57 position-5">
+<div>
+<span id="8row3"></span>
+<input type="text" name="K" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="6,8" class="position-58 position-50">
+<div>
+<span id="8row5">49</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-49" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,8" class="position-58 position-51">
+<div>
+<span id="8row6"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,8" class="position-58 position-44">
+<div>
+<span id="8row7"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,8" class="position-58 position-37">
+<div>
+<span id="8row8"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,8" class="position-58 position-11">
+<div>
+<span id="8row9"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="12,8" class="position-59 position-60">
+<div>
+<span id="8row11">50</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-50" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,8" class="position-59 position-53">
+<div>
+<span id="8row12"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,8" class="position-59 position-46">
+<div>
+<span id="8row13"></span>
+<input type="text" name="V" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,8" class="position-59 position-47">
+<div>
+<span id="8row14"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,8" class="position-59 position-48">
+<div>
+<span id="8row15"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,8" class="position-59 position-34">
+<div>
+<span id="8row16"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="19,8" class="position-61 position-54">
+<div>
+<span id="8row18">51</span>
+<input type="text" name="C" maxlength="1" size="1" id="input-51" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,8" class="position-61 position-55">
+<div>
+<span id="8row19"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,8" class="position-61 position-56">
+<div>
+<span id="8row20"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,9" class="position-62 position-40">
+<div>
+<span id="9row0">52</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-52" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,9" class="position-62 position-41">
+<div>
+<span id="9row1"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,9" class="position-62 position-42">
+<div>
+<span id="9row2"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="5,9" class="position-63 position-64">
+<div>
+<span id="9row4">53</span>
+<input type="text" name="O" maxlength="1" size="1" id="input-53" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,9" class="position-63 position-50">
+<div>
+<span id="9row5"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,9" class="position-63 position-51">
+<div>
+<span id="9row6"></span>
+<input type="text" name="C" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,9" class="position-63 position-44">
+<div>
+<span id="9row7"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,9" class="position-63 position-37">
+<div>
+<span id="9row8"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="11,9" class="position-65 position-66">
+<div>
+<span id="9row10">54</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-54" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,9" class="position-65 position-60">
+<div>
+<span id="9row11"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,9" class="position-65 position-53">
+<div>
+<span id="9row12"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,9" class="position-65 position-46">
+<div>
+<span id="9row13"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,9" class="position-65 position-47">
+<div>
+<span id="9row14"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="18,9" class="position-67 position-68">
+<div>
+<span id="9row17">55</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-55" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,9" class="position-67 position-54">
+<div>
+<span id="9row18"></span>
+<input type="text" name="H" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,9" class="position-67 position-55">
+<div>
+<span id="9row19"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,9" class="position-67 position-56">
+<div>
+<span id="9row20"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,10" class="position-69 position-40">
+<div>
+<span id="10row0">56</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-56" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,10" class="position-69 position-41">
+<div>
+<span id="10row1"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,10" class="position-69 position-42">
+<div>
+<span id="10row2"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,10" class="position-69 position-70">
+<div>
+<span id="10row3">57</span>
+<input type="text" name="I" maxlength="1" size="1" id="input-57" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,10" class="position-69 position-64">
+<div>
+<span id="10row4"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,10" class="position-69 position-50">
+<div>
+<span id="10row5"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,10" class="position-69 position-51">
+<div>
+<span id="10row6"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,10" class="position-69 position-44">
+<div>
+<span id="10row7"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="10,10" class="position-71 position-72">
+<div>
+<span id="10row9">58</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-58" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,10" class="position-71 position-66">
+<div>
+<span id="10row10"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,10" class="position-71 position-60">
+<div>
+<span id="10row11"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,10" class="position-71 position-53">
+<div>
+<span id="10row12"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,10" class="position-71 position-46">
+<div>
+<span id="10row13"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,10" class="position-71 position-47">
+<div>
+<span id="10row14"></span>
+<input type="text" name="G" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,10" class="position-71 position-73">
+<div>
+<span id="10row15">59</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-59" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,10" class="position-71 position-74">
+<div>
+<span id="10row16">60</span>
+<input type="text" name="H" maxlength="1" size="1" id="input-60" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,10" class="position-71 position-68">
+<div>
+<span id="10row17"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,10" class="position-71 position-54">
+<div>
+<span id="10row18"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,10" class="position-71 position-55">
+<div>
+<span id="10row19"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,10" class="position-71 position-56">
+<div>
+<span id="10row20"></span>
+<input type="text" name="Y" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="4,11" class="position-75 position-70">
+<div>
+<span id="11row3">61</span>
+<input type="text" name="N" maxlength="1" size="1" id="input-61" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,11" class="position-75 position-64">
+<div>
+<span id="11row4"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,11" class="position-75 position-50">
+<div>
+<span id="11row5"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="9,11" class="position-76 position-77">
+<div>
+<span id="11row8">62</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-62" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,11" class="position-76 position-72">
+<div>
+<span id="11row9"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,11" class="position-76 position-66">
+<div>
+<span id="11row10"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,11" class="position-76 position-60">
+<div>
+<span id="11row11"></span>
+<input type="text" name="U" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,11" class="position-76 position-53">
+<div>
+<span id="11row12"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="16,11" class="position-78 position-73">
+<div>
+<span id="11row15">63</span>
+<input type="text" name="W" maxlength="1" size="1" id="input-63" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,11" class="position-78 position-74">
+<div>
+<span id="11row16"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,11" class="position-78 position-68">
+<div>
+<span id="11row17"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+</tr>
+<tr>
+<td data-coords="1,12" class="position-79 position-80">
+<div>
+<span id="12row0">64</span>
+<input type="text" name="F" maxlength="1" size="1" id="input-64" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,12" class="position-79 position-81">
+<div>
+<span id="12row1">65</span>
+<input type="text" name="R" maxlength="1" size="1" id="input-65" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,12" class="position-79 position-82">
+<div>
+<span id="12row2">66</span>
+<input type="text" name="E" maxlength="1" size="1" id="input-66" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,12" class="position-79 position-70">
+<div>
+<span id="12row3"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,12" class="position-79 position-64">
+<div>
+<span id="12row4"></span>
+<input type="text" name="C" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,12" class="position-79 position-50">
+<div>
+<span id="12row5"></span>
+<input type="text" name="H" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,12" class="position-79 position-83">
+<div>
+<span id="12row6">67</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-67" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,12" class="position-79 position-84">
+<div>
+<span id="12row7">68</span>
+<input type="text" name="C" maxlength="1" size="1" id="input-68" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,12" class="position-79 position-77">
+<div>
+<span id="12row8"></span>
+<input type="text" name="C" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,12" class="position-79 position-72">
+<div>
+<span id="12row9"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,12" class="position-79 position-66">
+<div>
+<span id="12row10"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,12" class="position-79 position-60">
+<div>
+<span id="12row11"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="14,12" class="position-85 position-86">
+<div>
+<span id="12row13">69</span>
+<input type="text" name="F" maxlength="1" size="1" id="input-69" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,12" class="position-85 position-87">
+<div>
+<span id="12row14">70</span>
+<input type="text" name="L" maxlength="1" size="1" id="input-70" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,12" class="position-85 position-73">
+<div>
+<span id="12row15"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,12" class="position-85 position-74">
+<div>
+<span id="12row16"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,12" class="position-85 position-68">
+<div>
+<span id="12row17"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,12" class="position-85 position-88">
+<div>
+<span id="12row18">71</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-71" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,12" class="position-85 position-89">
+<div>
+<span id="12row19">72</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-72" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,12" class="position-85 position-90">
+<div>
+<span id="12row20">73</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-73" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,13" class="position-91 position-80">
+<div>
+<span id="13row0">74</span>
+<input type="text" name="I" maxlength="1" size="1" id="input-74" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,13" class="position-91 position-81">
+<div>
+<span id="13row1"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,13" class="position-91 position-82">
+<div>
+<span id="13row2"></span>
+<input type="text" name="M" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,13" class="position-91 position-70">
+<div>
+<span id="13row3"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="7,13" class="position-92 position-83">
+<div>
+<span id="13row6">75</span>
+<input type="text" name="W" maxlength="1" size="1" id="input-75" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,13" class="position-92 position-84">
+<div>
+<span id="13row7"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,13" class="position-92 position-77">
+<div>
+<span id="13row8"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,13" class="position-92 position-72">
+<div>
+<span id="13row9"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,13" class="position-92 position-66">
+<div>
+<span id="13row10"></span>
+<input type="text" name="Y" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="13,13" class="position-93 position-94">
+<div>
+<span id="13row12">76</span>
+<input type="text" name="D" maxlength="1" size="1" id="input-76" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,13" class="position-93 position-86">
+<div>
+<span id="13row13"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,13" class="position-93 position-87">
+<div>
+<span id="13row14"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,13" class="position-93 position-73">
+<div>
+<span id="13row15"></span>
+<input type="text" name="F" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,13" class="position-93 position-74">
+<div>
+<span id="13row16"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="19,13" class="position-95 position-88">
+<div>
+<span id="13row18">77</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-77" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,13" class="position-95 position-89">
+<div>
+<span id="13row19"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,13" class="position-95 position-90">
+<div>
+<span id="13row20"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,14" class="position-96 position-80">
+<div>
+<span id="14row0">78</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-78" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,14" class="position-96 position-81">
+<div>
+<span id="14row1"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,14" class="position-96 position-82">
+<div>
+<span id="14row2"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="5,14" class="position-97 position-98">
+<div>
+<span id="14row4">79</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-79" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,14" class="position-97 position-99">
+<div>
+<span id="14row5">80</span>
+<input type="text" name="R" maxlength="1" size="1" id="input-80" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,14" class="position-97 position-83">
+<div>
+<span id="14row6"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,14" class="position-97 position-84">
+<div>
+<span id="14row7"></span>
+<input type="text" name="V" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,14" class="position-97 position-77">
+<div>
+<span id="14row8"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,14" class="position-97 position-72">
+<div>
+<span id="14row9"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="12,14" class="position-100 position-101">
+<div>
+<span id="14row11">81</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-81" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,14" class="position-100 position-94">
+<div>
+<span id="14row12"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,14" class="position-100 position-86">
+<div>
+<span id="14row13"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,14" class="position-100 position-87">
+<div>
+<span id="14row14"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,14" class="position-100 position-73">
+<div>
+<span id="14row15"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="18,14" class="position-102 position-103">
+<div>
+<span id="14row17">82</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-82" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,14" class="position-102 position-88">
+<div>
+<span id="14row18"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,14" class="position-102 position-89">
+<div>
+<span id="14row19"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,14" class="position-102 position-90">
+<div>
+<span id="14row20"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,15" class="position-104 position-80">
+<div>
+<span id="15row0">83</span>
+<input type="text" name="H" maxlength="1" size="1" id="input-83" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,15" class="position-104 position-81">
+<div>
+<span id="15row1"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,15" class="position-104 position-82">
+<div>
+<span id="15row2"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,15" class="position-104 position-105">
+<div>
+<span id="15row3">84</span>
+<input type="text" name="F" maxlength="1" size="1" id="input-84" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,15" class="position-104 position-98">
+<div>
+<span id="15row4"></span>
+<input type="text" name="B" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,15" class="position-104 position-99">
+<div>
+<span id="15row5"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,15" class="position-104 position-83">
+<div>
+<span id="15row6"></span>
+<input type="text" name="K" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,15" class="position-104 position-84">
+<div>
+<span id="15row7"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,15" class="position-104 position-77">
+<div>
+<span id="15row8"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="11,15" class="position-106 position-107">
+<div>
+<span id="15row10">85</span>
+<input type="text" name="F" maxlength="1" size="1" id="input-85" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,15" class="position-106 position-101">
+<div>
+<span id="15row11"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,15" class="position-106 position-94">
+<div>
+<span id="15row12"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,15" class="position-106 position-86">
+<div>
+<span id="15row13"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,15" class="position-106 position-87">
+<div>
+<span id="15row14"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,15" class="position-106 position-73">
+<div>
+<span id="15row15"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,15" class="position-106 position-108">
+<div>
+<span id="15row16">86</span>
+<input type="text" name="U" maxlength="1" size="1" id="input-86" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,15" class="position-106 position-103">
+<div>
+<span id="15row17"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,15" class="position-106 position-88">
+<div>
+<span id="15row18"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,15" class="position-106 position-89">
+<div>
+<span id="15row19"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,15" class="position-106 position-90">
+<div>
+<span id="15row20"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="4,16" class="position-109 position-105">
+<div>
+<span id="16row3">87</span>
+<input type="text" name="L" maxlength="1" size="1" id="input-87" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,16" class="position-109 position-98">
+<div>
+<span id="16row4"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,16" class="position-109 position-99">
+<div>
+<span id="16row5"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,16" class="position-109 position-83">
+<div>
+<span id="16row6"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,16" class="position-109 position-84">
+<div>
+<span id="16row7"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="10,16" class="position-110 position-111">
+<div>
+<span id="16row9">88</span>
+<input type="text" name="R" maxlength="1" size="1" id="input-88" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,16" class="position-110 position-107">
+<div>
+<span id="16row10"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,16" class="position-110 position-101">
+<div>
+<span id="16row11"></span>
+<input type="text" name="P" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,16" class="position-110 position-94">
+<div>
+<span id="16row12"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,16" class="position-110 position-86">
+<div>
+<span id="16row13"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="17,16" class="position-112 position-108">
+<div>
+<span id="16row16">89</span>
+<input type="text" name="D" maxlength="1" size="1" id="input-89" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,16" class="position-112 position-103">
+<div>
+<span id="16row17"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,16" class="position-112 position-88">
+<div>
+<span id="16row18"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,16" class="position-112 position-89">
+<div>
+<span id="16row19"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,16" class="position-112 position-90">
+<div>
+<span id="16row20"></span>
+<input type="text" name="Y" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,17" class="position-113 position-114">
+<div>
+<span id="17row0">90</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-90" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,17" class="position-113 position-115">
+<div>
+<span id="17row1">91</span>
+<input type="text" name="B" maxlength="1" size="1" id="input-91" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,17" class="position-113 position-116">
+<div>
+<span id="17row2">92</span>
+<input type="text" name="H" maxlength="1" size="1" id="input-92" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,17" class="position-113 position-105">
+<div>
+<span id="17row3"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,17" class="position-113 position-98">
+<div>
+<span id="17row4"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td data-coords="9,17" class="position-117 position-118">
+<div>
+<span id="17row8">93</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-93" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,17" class="position-117 position-111">
+<div>
+<span id="17row9"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,17" class="position-117 position-107">
+<div>
+<span id="17row10"></span>
+<input type="text" name="W" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,17" class="position-117 position-101">
+<div>
+<span id="17row11"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,17" class="position-117 position-94">
+<div>
+<span id="17row12"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="15,17" class="position-119 position-120">
+<div>
+<span id="17row14">94</span>
+<input type="text" name="T" maxlength="1" size="1" id="input-94" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,17" class="position-119 position-121">
+<div>
+<span id="17row15">95</span>
+<input type="text" name="H" maxlength="1" size="1" id="input-95" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,17" class="position-119 position-108">
+<div>
+<span id="17row16"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,17" class="position-119 position-103">
+<div>
+<span id="17row17"></span>
+<input type="text" name="W" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+<td class="deadCell"></td>
+</tr>
+<tr>
+<td data-coords="1,18" class="position-122 position-114">
+<div>
+<span id="18row0">96</span>
+<input type="text" name="B" maxlength="1" size="1" id="input-96" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,18" class="position-122 position-115">
+<div>
+<span id="18row1"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,18" class="position-122 position-116">
+<div>
+<span id="18row2"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,18" class="position-122 position-105">
+<div>
+<span id="18row3"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="5,18" class="position-122 position-98">
+<div>
+<span id="18row4"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="6,18" class="position-122 position-123">
+<div>
+<span id="18row5">97</span>
+<input type="text" name="J" maxlength="1" size="1" id="input-97" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,18" class="position-122 position-124">
+<div>
+<span id="18row6">98</span>
+<input type="text" name="U" maxlength="1" size="1" id="input-98" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,18" class="position-122 position-125">
+<div>
+<span id="18row7">99</span>
+<input type="text" name="M" maxlength="1" size="1" id="input-99" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,18" class="position-122 position-118">
+<div>
+<span id="18row8"></span>
+<input type="text" name="P" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,18" class="position-122 position-111">
+<div>
+<span id="18row9"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="11,18" class="position-122 position-107">
+<div>
+<span id="18row10"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="12,18" class="position-122 position-101">
+<div>
+<span id="18row11"></span>
+<input type="text" name="G" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="14,18" class="position-126 position-127">
+<div>
+<span id="18row13">100</span>
+<input type="text" name="K" maxlength="1" size="1" id="input-100" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,18" class="position-126 position-120">
+<div>
+<span id="18row14"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,18" class="position-126 position-121">
+<div>
+<span id="18row15"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,18" class="position-126 position-108">
+<div>
+<span id="18row16"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,18" class="position-126 position-103">
+<div>
+<span id="18row17"></span>
+<input type="text" name="B" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,18" class="position-126 position-128">
+<div>
+<span id="18row18">101</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-101" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,18" class="position-126 position-129">
+<div>
+<span id="18row19">102</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-102" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,18" class="position-126 position-130">
+<div>
+<span id="18row20">103</span>
+<input type="text" name="A" maxlength="1" size="1" id="input-103" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,19" class="position-131 position-114">
+<div>
+<span id="19row0">104</span>
+<input type="text" name="B" maxlength="1" size="1" id="input-104" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,19" class="position-131 position-115">
+<div>
+<span id="19row1"></span>
+<input type="text" name="U" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,19" class="position-131 position-116">
+<div>
+<span id="19row2"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,19" class="position-131 position-105">
+<div>
+<span id="19row3"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="6,19" class="position-132 position-123">
+<div>
+<span id="19row5">105</span>
+<input type="text" name="O" maxlength="1" size="1" id="input-105" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,19" class="position-132 position-124">
+<div>
+<span id="19row6"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,19" class="position-132 position-125">
+<div>
+<span id="19row7"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,19" class="position-132 position-118">
+<div>
+<span id="19row8"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,19" class="position-132 position-111">
+<div>
+<span id="19row9"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="12,19" class="position-133 position-101">
+<div>
+<span id="19row11">106</span>
+<input type="text" name="G" maxlength="1" size="1" id="input-106" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,19" class="position-133 position-134">
+<div>
+<span id="19row12">107</span>
+<input type="text" name="R" maxlength="1" size="1" id="input-107" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,19" class="position-133 position-127">
+<div>
+<span id="19row13"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,19" class="position-133 position-120">
+<div>
+<span id="19row14"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,19" class="position-133 position-121">
+<div>
+<span id="19row15"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="17,19" class="position-133 position-108">
+<div>
+<span id="19row16"></span>
+<input type="text" name="L" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="18,19" class="position-133 position-103">
+<div>
+<span id="19row17"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,19" class="position-133 position-128">
+<div>
+<span id="19row18"></span>
+<input type="text" name="G" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,19" class="position-133 position-129">
+<div>
+<span id="19row19"></span>
+<input type="text" name="H" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,19" class="position-133 position-130">
+<div>
+<span id="19row20"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,20" class="position-135 position-114">
+<div>
+<span id="20row0">108</span>
+<input type="text" name="E" maxlength="1" size="1" id="input-108" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,20" class="position-135 position-115">
+<div>
+<span id="20row1"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,20" class="position-135 position-116">
+<div>
+<span id="20row2"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,20" class="position-135 position-105">
+<div>
+<span id="20row3"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="6,20" class="position-136 position-123">
+<div>
+<span id="20row5">109</span>
+<input type="text" name="S" maxlength="1" size="1" id="input-109" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,20" class="position-136 position-124">
+<div>
+<span id="20row6"></span>
+<input type="text" name="T" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,20" class="position-136 position-125">
+<div>
+<span id="20row7"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,20" class="position-136 position-118">
+<div>
+<span id="20row8"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,20" class="position-136 position-111">
+<div>
+<span id="20row9"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="12,20" class="position-137 position-101">
+<div>
+<span id="20row11">110</span>
+<input type="text" name="I" maxlength="1" size="1" id="input-110" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,20" class="position-137 position-134">
+<div>
+<span id="20row12"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,20" class="position-137 position-127">
+<div>
+<span id="20row13"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,20" class="position-137 position-120">
+<div>
+<span id="20row14"></span>
+<input type="text" name="I" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,20" class="position-137 position-121">
+<div>
+<span id="20row15"></span>
+<input type="text" name="C" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="18,20" class="position-138 position-103">
+<div>
+<span id="20row17">111</span>
+<input type="text" name="R" maxlength="1" size="1" id="input-111" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,20" class="position-138 position-128">
+<div>
+<span id="20row18"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,20" class="position-138 position-129">
+<div>
+<span id="20row19"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,20" class="position-138 position-130">
+<div>
+<span id="20row20"></span>
+<input type="text" name="M" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+<tr>
+<td data-coords="1,21" class="position-139 position-114">
+<div>
+<span id="21row0">112</span>
+<input type="text" name="Y" maxlength="1" size="1" id="input-112" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="2,21" class="position-139 position-115">
+<div>
+<span id="21row1"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="3,21" class="position-139 position-116">
+<div>
+<span id="21row2"></span>
+<input type="text" name="A" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="4,21" class="position-139 position-105">
+<div>
+<span id="21row3"></span>
+<input type="text" name="R" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="6,21" class="position-140 position-123">
+<div>
+<span id="21row5">113</span>
+<input type="text" name="H" maxlength="1" size="1" id="input-113" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="7,21" class="position-140 position-124">
+<div>
+<span id="21row6"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="8,21" class="position-140 position-125">
+<div>
+<span id="21row7"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="9,21" class="position-140 position-118">
+<div>
+<span id="21row8"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="10,21" class="position-140 position-111">
+<div>
+<span id="21row9"></span>
+<input type="text" name="D" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="12,21" class="position-141 position-101">
+<div>
+<span id="21row11">114</span>
+<input type="text" name="O" maxlength="1" size="1" id="input-114" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="13,21" class="position-141 position-134">
+<div>
+<span id="21row12"></span>
+<input type="text" name="Z" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="14,21" class="position-141 position-127">
+<div>
+<span id="21row13"></span>
+<input type="text" name="O" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="15,21" class="position-141 position-120">
+<div>
+<span id="21row14"></span>
+<input type="text" name="N" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="16,21" class="position-141 position-121">
+<div>
+<span id="21row15"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td class="deadCell"></td>
+<td data-coords="18,21" class="position-142 position-103">
+<div>
+<span id="21row17">115</span>
+<input type="text" name="D" maxlength="1" size="1" id="input-115" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="19,21" class="position-142 position-128">
+<div>
+<span id="21row18"></span>
+<input type="text" name="E" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="20,21" class="position-142 position-129">
+<div>
+<span id="21row19"></span>
+<input type="text" name="M" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+<td data-coords="21,21" class="position-142 position-130">
+<div>
+<span id="21row20"></span>
+<input type="text" name="S" maxlength="1" size="1" id="input-" tabindex="-1"></input>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="validate">
+<button class="validate bg-button" style="display: inline-block; margin-bottom: 1em;">Show Errors</button>
+</div>
+</div>
+<div class="col bg-col-c">
+<div class="bg-clues" id="puzzle-clues">
+<div class="clues-across">
+<h3>Across</h3>
+<ol id="across">
+<li tabindex="1" data-position="1">
+<label for="input-1">
+<b>1.</b>
+Canadian gas
+</label>
+</li>
+<li tabindex="1" data-position="6">
+<label for="input-5">
+<b>5.</b>
+Reserves
+</label>
+</li>
+<li tabindex="1" data-position="12">
+<label for="input-10">
+<b>10.</b>
+Put on playfully?
+</label>
+</li>
+<li tabindex="1" data-position="18">
+<label for="input-15">
+<b>15.</b>
+Job
+</label>
+</li>
+<li tabindex="1" data-position="23">
+<label for="input-19">
+<b>19.</b>
+Ostracize
+</label>
+</li>
+<li tabindex="1" data-position="24">
+<label for="input-20">
+<b>20.</b>
+Spanish for &quot;sand&quot;
+</label>
+</li>
+<li tabindex="1" data-position="25">
+<label for="input-21">
+<b>21.</b>
+Doha's home
+</label>
+</li>
+<li tabindex="1" data-position="26">
+<label for="input-22">
+<b>22.</b>
+Capital on a fjord
+</label>
+</li>
+<li tabindex="1" data-position="27">
+<label for="input-23">
+<b>23.</b>
+Where beans are kept safely?
+</label>
+</li>
+<li tabindex="1" data-position="29">
+<label for="input-25">
+<b>25.</b>
+Savory taste
+</label>
+</li>
+<li tabindex="1" data-position="30">
+<label for="input-26">
+<b>26.</b>
+Put in a bin
+</label>
+</li>
+<li tabindex="1" data-position="31">
+<label for="input-27">
+<b>27.</b>
+What's said to count
+</label>
+</li>
+<li tabindex="1" data-position="32">
+<label for="input-28">
+<b>28.</b>
+Impulse to eat beans?
+</label>
+</li>
+<li tabindex="1" data-position="35">
+<label for="input-31">
+<b>31.</b>
+1975 Series winner
+</label>
+</li>
+<li tabindex="1" data-position="36">
+<label for="input-32">
+<b>32.</b>
+Clapton classic
+</label>
+</li>
+<li tabindex="1" data-position="38">
+<label for="input-33">
+<b>33.</b>
+Some tides
+</label>
+</li>
+<li tabindex="1" data-position="39">
+<label for="input-34">
+<b>34.</b>
+Ducky insurer?
+</label>
+</li>
+<li tabindex="1" data-position="43">
+<label for="input-37">
+<b>37.</b>
+Scoreboard 0
+</label>
+</li>
+<li tabindex="1" data-position="45">
+<label for="input-38">
+<b>38.</b>
+Glow givers
+</label>
+</li>
+<li tabindex="1" data-position="49">
+<label for="input-41">
+<b>41.</b>
+Where to buy beans?
+</label>
+</li>
+<li tabindex="1" data-position="52">
+<label for="input-44">
+<b>44.</b>
+Displayer of beans?
+</label>
+</li>
+<li tabindex="1" data-position="57">
+<label for="input-48">
+<b>48.</b>
+&quot;Tastes terrible!&quot;
+</label>
+</li>
+<li tabindex="1" data-position="58">
+<label for="input-49">
+<b>49.</b>
+One of 12 houses
+</label>
+</li>
+<li tabindex="1" data-position="59">
+<label for="input-50">
+<b>50.</b>
+USSR part
+</label>
+</li>
+<li tabindex="1" data-position="61">
+<label for="input-51">
+<b>51.</b>
+Old Dixie side
+</label>
+</li>
+<li tabindex="1" data-position="62">
+<label for="input-52">
+<b>52.</b>
+Canonized Mlle.
+</label>
+</li>
+<li tabindex="1" data-position="63">
+<label for="input-53">
+<b>53.</b>
+Marine predators
+</label>
+</li>
+<li tabindex="1" data-position="65">
+<label for="input-54">
+<b>54.</b>
+Mug in a pub
+</label>
+</li>
+<li tabindex="1" data-position="67">
+<label for="input-55">
+<b>55.</b>
+&quot;__ it hit me ...&quot;
+</label>
+</li>
+<li tabindex="1" data-position="69">
+<label for="input-56">
+<b>56.</b>
+Act of treason
+</label>
+</li>
+<li tabindex="1" data-position="71">
+<label for="input-58">
+<b>58.</b>
+Beany conjecture?
+</label>
+</li>
+<li tabindex="1" data-position="75">
+<label for="input-61">
+<b>61.</b>
+Long or Peeples
+</label>
+</li>
+<li tabindex="1" data-position="76">
+<label for="input-62">
+<b>62.</b>
+Moises, Jesus, et al.
+</label>
+</li>
+<li tabindex="1" data-position="78">
+<label for="input-63">
+<b>63.</b>
+Mindless card game
+</label>
+</li>
+<li tabindex="1" data-position="79">
+<label for="input-64">
+<b>64.</b>
+Beany flavor?
+</label>
+</li>
+<li tabindex="1" data-position="85">
+<label for="input-69">
+<b>69.</b>
+Petal pushers?
+</label>
+</li>
+<li tabindex="1" data-position="91">
+<label for="input-74">
+<b>74.</b>
+Pet food brand
+</label>
+</li>
+<li tabindex="1" data-position="92">
+<label for="input-75">
+<b>75.</b>
+Verbose
+</label>
+</li>
+<li tabindex="1" data-position="93">
+<label for="input-76">
+<b>76.</b>
+Selection of new players
+</label>
+</li>
+<li tabindex="1" data-position="95">
+<label for="input-77">
+<b>77.</b>
+Wee one
+</label>
+</li>
+<li tabindex="1" data-position="96">
+<label for="input-78">
+<b>78.</b>
+Mumbai &quot;mister&quot;
+</label>
+</li>
+<li tabindex="1" data-position="97">
+<label for="input-79">
+<b>79.</b>
+Alamo casualty
+</label>
+</li>
+<li tabindex="1" data-position="100">
+<label for="input-81">
+<b>81.</b>
+Sprang up
+</label>
+</li>
+<li tabindex="1" data-position="102">
+<label for="input-82">
+<b>82.</b>
+Missile chamber
+</label>
+</li>
+<li tabindex="1" data-position="104">
+<label for="input-83">
+<b>83.</b>
+Unwise, beanwise?
+</label>
+</li>
+<li tabindex="1" data-position="106">
+<label for="input-85">
+<b>85.</b>
+Leading bean?
+</label>
+</li>
+<li tabindex="1" data-position="109">
+<label for="input-87">
+<b>87.</b>
+Hotel supply
+</label>
+</li>
+<li tabindex="1" data-position="110">
+<label for="input-88">
+<b>88.</b>
+Fast-moving
+</label>
+</li>
+<li tabindex="1" data-position="112">
+<label for="input-89">
+<b>89.</b>
+Rather daft
+</label>
+</li>
+<li tabindex="1" data-position="113">
+<label for="input-90">
+<b>90.</b>
+Have no love for
+</label>
+</li>
+<li tabindex="1" data-position="117">
+<label for="input-93">
+<b>93.</b>
+Disseminated
+</label>
+</li>
+<li tabindex="1" data-position="119">
+<label for="input-94">
+<b>94.</b>
+Sign of spring
+</label>
+</li>
+<li tabindex="1" data-position="122">
+<label for="input-96">
+<b>96.</b>
+Two-bean activity?
+</label>
+</li>
+<li tabindex="1" data-position="126">
+<label for="input-100">
+<b>100.</b>
+Polish sausage
+</label>
+</li>
+<li tabindex="1" data-position="131">
+<label for="input-104">
+<b>104.</b>
+Boom's opposite
+</label>
+</li>
+<li tabindex="1" data-position="132">
+<label for="input-105">
+<b>105.</b>
+Large Shaq
+</label>
+</li>
+<li tabindex="1" data-position="133">
+<label for="input-106">
+<b>106.</b>
+Permission to eat beans?
+</label>
+</li>
+<li tabindex="1" data-position="135">
+<label for="input-108">
+<b>108.</b>
+Cigar's end
+</label>
+</li>
+<li tabindex="1" data-position="136">
+<label for="input-109">
+<b>109.</b>
+Long look
+</label>
+</li>
+<li tabindex="1" data-position="137">
+<label for="input-110">
+<b>110.</b>
+Choice in columns
+</label>
+</li>
+<li tabindex="1" data-position="138">
+<label for="input-111">
+<b>111.</b>
+Lots of sheets
+</label>
+</li>
+<li tabindex="1" data-position="139">
+<label for="input-112">
+<b>112.</b>
+One sun loop
+</label>
+</li>
+<li tabindex="1" data-position="140">
+<label for="input-113">
+<b>113.</b>
+Perfected
+</label>
+</li>
+<li tabindex="1" data-position="141">
+<label for="input-114">
+<b>114.</b>
+Bad kind of hole
+</label>
+</li>
+<li tabindex="1" data-position="142">
+<label for="input-115">
+<b>115.</b>
+GOP counterpart
+</label>
+</li>
+</ol>
+</div>
+<div class="last clues-down">
+<h3>Down</h3>
+<ol id="down">
+<li tabindex="1" data-position="2">
+<label for="input-1">
+<b>1.</b>
+&quot;30 for 30&quot; network
+</label>
+</li>
+<li tabindex="1" data-position="3">
+<label for="input-2">
+<b>2.</b>
+Pump, for example
+</label>
+</li>
+<li tabindex="1" data-position="4">
+<label for="input-3">
+<b>3.</b>
+Toni Morrison novel
+</label>
+</li>
+<li tabindex="1" data-position="5">
+<label for="input-4">
+<b>4.</b>
+Perhaps too focused
+</label>
+</li>
+<li tabindex="1" data-position="7">
+<label for="input-5">
+<b>5.</b>
+Didn't miss a bleat?
+</label>
+</li>
+<li tabindex="1" data-position="8">
+<label for="input-6">
+<b>6.</b>
+Bridge construction
+</label>
+</li>
+<li tabindex="1" data-position="9">
+<label for="input-7">
+<b>7.</b>
+Wet wrigglers
+</label>
+</li>
+<li tabindex="1" data-position="10">
+<label for="input-8">
+<b>8.</b>
+Queen's subject
+</label>
+</li>
+<li tabindex="1" data-position="11">
+<label for="input-9">
+<b>9.</b>
+Some body work
+</label>
+</li>
+<li tabindex="1" data-position="13">
+<label for="input-10">
+<b>10.</b>
+Brief, wild storm
+</label>
+</li>
+<li tabindex="1" data-position="14">
+<label for="input-11">
+<b>11.</b>
+Gulf Coast city
+</label>
+</li>
+<li tabindex="1" data-position="15">
+<label for="input-12">
+<b>12.</b>
+Minimally
+</label>
+</li>
+<li tabindex="1" data-position="16">
+<label for="input-13">
+<b>13.</b>
+Ready and willing
+</label>
+</li>
+<li tabindex="1" data-position="17">
+<label for="input-14">
+<b>14.</b>
+&quot;South Park&quot; kid
+</label>
+</li>
+<li tabindex="1" data-position="19">
+<label for="input-15">
+<b>15.</b>
+Be the owner of
+</label>
+</li>
+<li tabindex="1" data-position="20">
+<label for="input-16">
+<b>16.</b>
+Old Roman port
+</label>
+</li>
+<li tabindex="1" data-position="21">
+<label for="input-17">
+<b>17.</b>
+Small sailboat
+</label>
+</li>
+<li tabindex="1" data-position="22">
+<label for="input-18">
+<b>18.</b>
+Atlas entries
+</label>
+</li>
+<li tabindex="1" data-position="28">
+<label for="input-24">
+<b>24.</b>
+Sweater style
+</label>
+</li>
+<li tabindex="1" data-position="33">
+<label for="input-29">
+<b>29.</b>
+Dmitri's dissent
+</label>
+</li>
+<li tabindex="1" data-position="34">
+<label for="input-30">
+<b>30.</b>
+Two cents' worth
+</label>
+</li>
+<li tabindex="1" data-position="37">
+<label for="input-32">
+<b>32.</b>
+Finger __
+</label>
+</li>
+<li tabindex="1" data-position="40">
+<label for="input-34">
+<b>34.</b>
+Chasm
+</label>
+</li>
+<li tabindex="1" data-position="41">
+<label for="input-35">
+<b>35.</b>
+Champagne glass
+</label>
+</li>
+<li tabindex="1" data-position="42">
+<label for="input-36">
+<b>36.</b>
+Spiked, as punch
+</label>
+</li>
+<li tabindex="1" data-position="44">
+<label for="input-37">
+<b>37.</b>
+Beach Boys first name
+</label>
+</li>
+<li tabindex="1" data-position="46">
+<label for="input-38">
+<b>38.</b>
+Linda of &quot;Alice&quot;
+</label>
+</li>
+<li tabindex="1" data-position="47">
+<label for="input-39">
+<b>39.</b>
+Pink-slipping
+</label>
+</li>
+<li tabindex="1" data-position="48">
+<label for="input-40">
+<b>40.</b>
+Marseilles Mrs.
+</label>
+</li>
+<li tabindex="1" data-position="50">
+<label for="input-42">
+<b>42.</b>
+Carey with Grammys
+</label>
+</li>
+<li tabindex="1" data-position="51">
+<label for="input-43">
+<b>43.</b>
+Town near Italy's Lake Garda
+</label>
+</li>
+<li tabindex="1" data-position="53">
+<label for="input-44">
+<b>44.</b>
+&quot;__ me!&quot;
+</label>
+</li>
+<li tabindex="1" data-position="54">
+<label for="input-45">
+<b>45.</b>
+Canyon effect
+</label>
+</li>
+<li tabindex="1" data-position="55">
+<label for="input-46">
+<b>46.</b>
+__-friendly
+</label>
+</li>
+<li tabindex="1" data-position="56">
+<label for="input-47">
+<b>47.</b>
+Quite a handful
+</label>
+</li>
+<li tabindex="1" data-position="60">
+<label for="input-50">
+<b>50.</b>
+Go gloatingly
+</label>
+</li>
+<li tabindex="1" data-position="64">
+<label for="input-53">
+<b>53.</b>
+Ear-related
+</label>
+</li>
+<li tabindex="1" data-position="66">
+<label for="input-54">
+<b>54.</b>
+Like some streambeds
+</label>
+</li>
+<li tabindex="1" data-position="68">
+<label for="input-55">
+<b>55.</b>
+Garr of &quot;Tootsie&quot;
+</label>
+</li>
+<li tabindex="1" data-position="70">
+<label for="input-57">
+<b>57.</b>
+Resort options
+</label>
+</li>
+<li tabindex="1" data-position="72">
+<label for="input-58">
+<b>58.</b>
+Gliders on slopes
+</label>
+</li>
+<li tabindex="1" data-position="73">
+<label for="input-59">
+<b>59.</b>
+Double deal?
+</label>
+</li>
+<li tabindex="1" data-position="74">
+<label for="input-60">
+<b>60.</b>
+Male deer
+</label>
+</li>
+<li tabindex="1" data-position="77">
+<label for="input-62">
+<b>62.</b>
+Tasting harsh
+</label>
+</li>
+<li tabindex="1" data-position="80">
+<label for="input-64">
+<b>64.</b>
+Do some angling
+</label>
+</li>
+<li tabindex="1" data-position="81">
+<label for="input-65">
+<b>65.</b>
+__ avis
+</label>
+</li>
+<li tabindex="1" data-position="82">
+<label for="input-66">
+<b>66.</b>
+First Oscar winner Jannings
+</label>
+</li>
+<li tabindex="1" data-position="83">
+<label for="input-67">
+<b>67.</b>
+Out of Nod
+</label>
+</li>
+<li tabindex="1" data-position="84">
+<label for="input-68">
+<b>68.</b>
+Witchy club
+</label>
+</li>
+<li tabindex="1" data-position="86">
+<label for="input-69">
+<b>69.</b>
+Palm growth
+</label>
+</li>
+<li tabindex="1" data-position="87">
+<label for="input-70">
+<b>70.</b>
+Omega's place
+</label>
+</li>
+<li tabindex="1" data-position="88">
+<label for="input-71">
+<b>71.</b>
+Be a tightwad
+</label>
+</li>
+<li tabindex="1" data-position="89">
+<label for="input-72">
+<b>72.</b>
+Rental sign
+</label>
+</li>
+<li tabindex="1" data-position="90">
+<label for="input-73">
+<b>73.</b>
+&quot;A likely __!&quot;
+</label>
+</li>
+<li tabindex="1" data-position="94">
+<label for="input-76">
+<b>76.</b>
+Bot in sci-fi tales
+</label>
+</li>
+<li tabindex="1" data-position="98">
+<label for="input-79">
+<b>79.</b>
+&quot;Fun, Fun, Fun&quot; car
+</label>
+</li>
+<li tabindex="1" data-position="99">
+<label for="input-80">
+<b>80.</b>
+Was boss of
+</label>
+</li>
+<li tabindex="1" data-position="101">
+<label for="input-81">
+<b>81.</b>
+Chord played note by note
+</label>
+</li>
+<li tabindex="1" data-position="103">
+<label for="input-82">
+<b>82.</b>
+Address changer in winter
+</label>
+</li>
+<li tabindex="1" data-position="105">
+<label for="input-84">
+<b>84.</b>
+Eye irritation
+</label>
+</li>
+<li tabindex="1" data-position="107">
+<label for="input-85">
+<b>85.</b>
+Court favor
+</label>
+</li>
+<li tabindex="1" data-position="108">
+<label for="input-86">
+<b>86.</b>
+Pol Mo or Tom
+</label>
+</li>
+<li tabindex="1" data-position="111">
+<label for="input-88">
+<b>88.</b>
+Stirred up
+</label>
+</li>
+<li tabindex="1" data-position="114">
+<label for="input-90">
+<b>90.</b>
+__ Road Studios
+</label>
+</li>
+<li tabindex="1" data-position="115">
+<label for="input-91">
+<b>91.</b>
+Beastly sort
+</label>
+</li>
+<li tabindex="1" data-position="116">
+<label for="input-92">
+<b>92.</b>
+Plant for a shady spot
+</label>
+</li>
+<li tabindex="1" data-position="118">
+<label for="input-93">
+<b>93.</b>
+Pretty good frame
+</label>
+</li>
+<li tabindex="1" data-position="120">
+<label for="input-94">
+<b>94.</b>
+Connection
+</label>
+</li>
+<li tabindex="1" data-position="121">
+<label for="input-95">
+<b>95.</b>
+Away from here
+</label>
+</li>
+<li tabindex="1" data-position="123">
+<label for="input-97">
+<b>97.</b>
+Kid around
+</label>
+</li>
+<li tabindex="1" data-position="124">
+<label for="input-98">
+<b>98.</b>
+Golden Rule word
+</label>
+</li>
+<li tabindex="1" data-position="125">
+<label for="input-99">
+<b>99.</b>
+Have in mind
+</label>
+</li>
+<li tabindex="1" data-position="127">
+<label for="input-100">
+<b>100.</b>
+Kin of bingo
+</label>
+</li>
+<li tabindex="1" data-position="128">
+<label for="input-101">
+<b>101.</b>
+Tommie of the Miracle Mets
+</label>
+</li>
+<li tabindex="1" data-position="129">
+<label for="input-102">
+<b>102.</b>
+Bogus
+</label>
+</li>
+<li tabindex="1" data-position="130">
+<label for="input-103">
+<b>103.</b>
+$$ dispensers
+</label>
+</li>
+<li tabindex="1" data-position="134">
+<label for="input-107">
+<b>107.</b>
+Cartoonist Chast
+</label>
+</li>
+</ol>
+</div>
+</div><!--/.bg-clues #puzzle-clues -->
+</div><!-- /.col .bg-col-c -->
+</div><!-- /bg-crossword -->
+</div><!-- /main --><!-- Page footer -->
+<div class="subscription-banner">
+	<a class="subscription-banner__link" href="http://subscribe.bostonglobe.com/B6704/?p1=BGFooter_DigitalSubscription_Banner">
+		<span class="subscription-banner__title">Real journalists. Real journalism. </span>
+		<span class="subscription-banner__cta" >Subscribe to The Boston Globe today.</span>
+	</a>
+</div>
+<footer class="site-footer" role="contentinfo">
+	<div class="site-footer__content">
+		<ul class="site-footer__list">
+			<li class="site-footer__list-item"><h3 class="site-footer__heading">Subscribe Now</h3></li>
+			<li class="site-footer__list-item"><a class="site-footer__link" href="https://subscribe.bostonglobe.com/B5759/?p1=BGFooter">Digital Access</a></li>
+			<li class="site-footer__list-item"><a class="site-footer__link" href="https://subscribe.bostonglobe.com/B3428/?p1=BGFooter">Home Delivery</a></li>
+			<li class="site-footer__list-item"><a class="site-footer__link" href="https://manage.bostonglobe.com/GiftTheGlobe/LandingPage.html">Gift Subscriptions</a></li>
+			<li class="site-footer__list-item"><h3 class="site-footer__heading">My Account</h3></li>
+			<li class="site-footer__list-item"><a href="https://manage.bostonglobe.com/cs/mc/login.aspx?p1=BGFooter" class="site-footer__link">Manage my Account</a></li>
+			<li class="site-footer__list-item"><a href="https://www.bostonglobe.com/bgcs" class="site-footer__link" onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Footer - Download Customer Service App');">Mobile Customer Service</a></li>
+			<li class="site-footer__list-item"><a href="/newsletters?p1=BGFooter_Newsletters" class="site-footer__link">Sign Up For Newsletters</a></li>
+		</ul>
+
+		<ul class="site-footer__list">
+			<li class="site-footer__list-item"><h3 class="site-footer__heading">Contact</h3></li>
+			<li class="site-footer__list-item"><a href="https://customerservice.globe.com/hc/?p1=BGFooter" class="site-footer__link">Help</a></li>
+			<li class="site-footer__list-item"><a href="https://customerservice.globe.com/hc/?p1=BGFooter" class="site-footer__link">FAQs</a></li>
+			<li class="site-footer__list-item"><a href="/tools/help/stafflist?p1=BGFooter" class="site-footer__link">Globe newsroom</a></li>
+			<li class="site-footer__list-item"><a href="https://www.bostonglobemedia.com/" class="site-footer__link" onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Footer - BGM Home Page');">Advertise</a></li>
+			<li class="site-footer__list-item"><a href="https://manage.bostonglobe.com/Order/newspaper/Newspaper.aspx" class="site-footer__link" onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Footer - Order Back Issues');">Order back issues</a></li>
+		</ul>
+
+		<ul class="site-footer__list">
+			<li class="site-footer__list-item"><h3 class="site-footer__heading">Social</h3></li>
+			<li class="site-footer__list-item"><a href="https://www.facebook.com/globe" class="site-footer__link">Facebook</a></li>
+			<li class="site-footer__list-item"><a href="https://twitter.com/#!/BostonGlobe" class="site-footer__link">Twitter</a></li>
+			<li class="site-footer__list-item"><a href="https://plus.google.com/108227564341535363126/about" class="site-footer__link">Google+</a></li>
+		</ul>
+
+		<ul class="site-footer__list">
+			<li class="site-footer__list-item"><h3 class="site-footer__heading">More</h3></li>
+		    <li class="site-footer__list-item"><a href="https://epaper.bostonglobe.com/launch.aspx?pbid=2c60291d-c20c-4780-9829-b3d9a12687cf" class="site-footer__link" onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Footer - EPaper launch');">ePaper</a></li>
+			<li class="site-footer__list-item"><a href="http://nieonline.com/bostonglobe/" class="site-footer__link" onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Footer - News In Education');">News in Education</a></li>
+			<li class="site-footer__list-item"><a href="https://www.bostonglobe.com/eom/SysConfig/WebPortal/BostonGlobe/Framework/regi/archive-login.jsp" class="site-footer__link" onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Footer - Public Archives');">Archives</a></li>
+			<li class="site-footer__list-item"><a href="/tools/help/privacy?p1=BGFooter" class="site-footer__link">Privacy policy</a></li>
+			<li class="site-footer__list-item"><a href="/tools/help/terms-service?p1=BGFooter" class="site-footer__link">Terms of service</a></li>
+			<li class="site-footer__list-item"><a href="/termsofpurchase?p1=BGFooter" class="site-footer__link">Terms of purchase</a></li>
+			<li class="site-footer__list-item"><a href="https://www.bostonglobemedia.com/careers" class="site-footer__link" onclick="var s=s_gi('nytbostonglobecom');s.linkTrackVars='channel,prop1,eVar15';s.linkTrackEvents='none';s.tl(this,'o','BG Footer - BGM Careers');">Work at Boston Globe Media</a></li>
+		</ul>
+		<p class="site-footer__copyright">&copy; 2020 Boston Globe Media Partners, LLC</p>
+	</div>
+</footer>
+
+<script type="text/javascript">
+	var google_conversion_id = 1071256246;
+	var google_custom_params = window.google_tag_params;
+	var google_remarketing_only = true;
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js" ></script>
+<noscript>
+	<div style="display:inline;">
+		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1071256246/?value=0&amp;guid=ON&amp;script=0"/>
+	</div>
+</noscript>
+<div class="ad ad-slot-c" id="EXTRA"></div><!-- Tracking -->
+<!-- stubView3 =  -->
+<!-- sectionpath /lifestyle/crossword -->
+
+
+
+<!-- pageTitle:  -->
+
+<!-- Determine sprop_3 -->
+
+
+
+
+	
+	
+
+<script>
+	var sPageName = (typeof sPageNameOverride != 'undefined') ? sPageNameOverride : 'Lifestyle | Games & comics | Crossword';
+	//if (typeof sPageNameOverride != 'undefined') {
+	//	sPageName = sPageNameOverride;
+	//}
+	var sChannel = (typeof sChannelOverride != 'undefined') ? sChannelOverride : 'Lifestyle';
+	//var sChannel  = 'Lifestyle';
+	var sProp1    = 'Lifestyle | Games & comics';
+	var sProp3    = '';
+	var sProp4    = 'Standard';
+	//var sProp6    = 'SubSection Front';
+	var sProp6    = (typeof sProp6Val != 'undefined') ? sProp6Val : 'SubSection Front';
+	var sProp8	  = '';
+	var sProp16    = '';
+	var sProp67	  = 'de782a4c-d769-11e0-a49e-c0e30fd7fc1d';
+	var sProp68	  = '';
+	var sProp6a = sProp6;
+	var sProp1a = sProp1;
+	var sPageNamea = sPageName;
+	var taxonomies = '';
+	var sChannela = sChannel;
+	  if ( methode.showPaywall ) {
+	    sChannel  = 'Member Center';
+	    sProp1    = 'Member Center | BGC Registration';
+	    if ( $(window).width() <= 768 ) {
+	      // assume mobile
+	      sPageName = 'Member Center | BGC Registration | Fullpage Paywall Challenge';
+	      sProp6    = 'BGC Registration Page - Fullpage';
+	    } else {
+	      // assume desktop
+	      sPageName = 'Member Center | BGC Registration | Modal Paywall Challenge';
+	      sProp6    = 'BGC Registration Page - Modal';
+	    }
+	  }
+	globe.extend(globe.analytics.omniture, {
+	  'pageType' : '',
+	  'pageName' : sPageName,
+	  'channel'  : sChannel,
+	  'prop1'    : sProp1,
+	  'prop3'    : sProp3,
+	  'prop4'    : sProp4,
+	  'prop6'    : sProp6,
+	  'prop8'    : sProp8,
+	  'prop16'    : sProp16,
+	  
+		'prop35' : 'logged out',
+		'eVar20' : 'logged out',
+   		'prop42' : 'Metered',
+   		'eVar42' : 'Metered',
+
+	  'eVar16'   : '',
+	  'eVar41'   : 'BostonGlobe.com',
+	  'eVar41'   : 'BostonGlobe.com',
+	  'eVar67'   : sProp67,
+	  'prop67'    : sProp67,
+	  'prop68'    : sProp68,
+	  'list2'	 : taxonomies,
+	  'WT omnituretracking.tag' : 'dwp_sectionpage'
+	});
+</script>
+
+<noscript>
+	<img src="https://newyorktimes.112.2o7.net/b/ss/nytbostonglobecom/1/H.23.3--NS/0?pageName=News%20%7C%20BGC%20Homepage&amp;ch=News&amp;c1=News%20%7C%20BGC%20Homepage&amp;c6=BGC%20Homepage&amp;c41=BostonGlobe.com&amp;v41=BostonGlobe.com" height="1" width="1" border="0" alt="" />
+</noscript>
+
+
+</div> <!-- end #contain.content -->
+
+<script src="/js/dist/common.js,globe-bgbrandlab-belt.min.js,dist/globe-analytics.js,globe-arcvideo-preroll.js?v=19860I2153"></script>
+<link rel="stylesheet" type="text/css" media="print" href="/css/globe-print.css?v=19860I2153"/>
+<link rel="stylesheet" type="text/css" href="//meter.bostonglobe.com/css/style.css">
+<script src="//meter.bostonglobe.com/js/meter.js"></script>
+<script src="/js/dist/SiteHeaderButtons.js,dist/UserStateChange.js,dist/globe-blueconic.js,dist/chartbeat.js,dist/globe-subscription-banner.js,dist/globe-adinclude.js?v=19860I2153"></script>
+<link rel="stylesheet" type="text/css" media="print" href="/css/globe-print.css?v=19860I2153"/>
+<script type="text/javascript">
+	(function() {
+		if (typeof window.meterObject !== 'undefined') {
+			
+			// Change the meter base URL (this allows all campaign links to be relative) for this particular environment.
+			window.meterObject.updateBaseURL('https://www.bostonglobe.com');
+			
+			window.meterObject.executeMeter({
+				loid:'1.0.3550274692020/08/23',
+				uuid:'de782a4c-d769-11e0-a49e-c0e30fd7fc1d',
+				
+				exemptFromMeter: false
+			});
+			
+		}
+
+	})();
+</script>
+</body>
+</html>
