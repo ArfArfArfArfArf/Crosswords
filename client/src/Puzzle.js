@@ -1183,7 +1183,7 @@ export default class Puzzle extends React.Component {
   }
   
   renderLoad() {
-    return <button onClick={this.puzzleList}>Load</button>;
+    return <button onClick={this.puzzleList}>Puzzles...</button>;
   }
 
   renderRestOfHeader() {
