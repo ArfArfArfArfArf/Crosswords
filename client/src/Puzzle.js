@@ -763,6 +763,11 @@ export default class Puzzle extends React.Component {
   focusLeft(x, y) {
     let xpos = x;
 
+    // reset to the end and work back
+    if (xpos === 0) {
+      xpos = this.state.gridWidth;
+    }
+    
     --xpos;
 
     while (xpos >= 0 && this.state.gridSolution[y][xpos] === ".") {
@@ -781,6 +786,10 @@ export default class Puzzle extends React.Component {
 
     let xpos = x;
 
+    if (xpos === gridWidth - 1) {
+      xpos = -1;
+    }
+    
     ++xpos;
 
     while (xpos < gridWidth && gridSolution[y][xpos] === ".") {
@@ -798,6 +807,10 @@ export default class Puzzle extends React.Component {
     const { gridHeight, gridSolution } = this.state;
     let ypos = y;
 
+    if (ypos === gridHeight - 1) {
+      ypos = -1;
+    }
+    
     ++ypos;
     while (ypos < gridHeight && gridSolution[ypos][x] === ".") {
       ++ypos;
@@ -819,9 +832,13 @@ export default class Puzzle extends React.Component {
   }
 
   focusUp(x, y) {
-    const { gridSolution } = this.state;
+    const { gridHeight, gridSolution } = this.state;
     let ypos = y;
 
+    if (ypos === 0) {
+      ypos = gridHeight;
+    }
+    
     --ypos;
 
     while (ypos >= 0 && gridSolution[ypos][x] === ".") {
