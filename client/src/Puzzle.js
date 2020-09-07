@@ -293,6 +293,8 @@ export default class Puzzle extends React.Component {
     if (puzzleName && puzzleYear && puzzleMonth && puzzleDay) {
       ls.set("lastpuzzle", `${puzzleName}-${puzzleYear}-${puzzleMonth}-${puzzleDay}`);
 
+      console.log("SAVE PUZZLE: " + puzzleName + ":" + puzzleYear + ":" + puzzleMonth + ":" + puzzleDay);
+      
       PuzzleStore.storePuzzle(
 	puzzleName,
 	puzzleYear,
@@ -355,10 +357,10 @@ export default class Puzzle extends React.Component {
       puzzleDay
     );
 
-/*    if (p) {
+    if (p) {
       this.setState({ showPuzzleList: false, isLoading: false, ...p });
       return;
-    }*/
+    }
 
     var puz;
 /*
@@ -1111,6 +1113,7 @@ export default class Puzzle extends React.Component {
   }
 
   puzzleList() {
+    this.savePuzzle();
     this.setState( { showPuzzleList: true } );
   }
   
