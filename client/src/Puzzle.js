@@ -1220,14 +1220,19 @@ export default class Puzzle extends React.Component {
   renderHeader() {
     return (
       <div className="PuzzleHeader">
-        <div className="PreferencesIcon">
-          <GoGear
-            style={{ width: "2rem", height: "2rem" }}
-            aria-label="Preferences"
-            onClick={this.displayPrefs}
-          />
+	<div className="MenuHeader">
+          <div className="PreferencesIcon">
+            <GoGear
+              style={{ width: "2rem", height: "2rem" }}
+              aria-label="Preferences"
+              onClick={this.displayPrefs}
+            />
+          </div>
+          {this.renderRestOfHeader()}
         </div>
-        {this.renderRestOfHeader()}
+	<div>
+	  {this.renderGridClues()}
+        </div>
       </div>
     );
   }
@@ -1316,7 +1321,6 @@ export default class Puzzle extends React.Component {
 
       return (
         <div className="PuzzleBody">
-          {this.renderGridClues(acrossNumber, downNumber)}
           <div className="PuzzleGrid">
             <PuzzleGrid
               selectedX={this.state.selectedX}
