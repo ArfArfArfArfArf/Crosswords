@@ -1240,6 +1240,10 @@ export default class Puzzle extends React.Component {
   renderGridClues(acrossNumber, downNumber) {
     const { acrossNumbers, acrossClues, downNumbers, downClues, puzzleComplete } = this.state;
 
+    if (this.state.showPrefs || this.state.showPuzzleList) {
+      return null;
+    }
+
     if (puzzleComplete) {
       return (
 	<div>
