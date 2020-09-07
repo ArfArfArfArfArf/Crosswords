@@ -168,7 +168,6 @@ export default class Puzzle extends React.Component {
 
     var d = this.parseDate(date);
     const url = `http://${host}:3001/puzzle/${puzzle.ID}/${d.year}/${d.month}/${d.day}`;
-    console.log("URL: " + url);
     this.loadPuzzle(puzzle.name, url, puzzle.type, d.year - 2000, d.month, d.day);
   }
   
@@ -293,8 +292,6 @@ export default class Puzzle extends React.Component {
     if (puzzleName && puzzleYear && puzzleMonth && puzzleDay) {
       ls.set("lastpuzzle", `${puzzleName}-${puzzleYear}-${puzzleMonth}-${puzzleDay}`);
 
-      console.log("SAVE PUZZLE: " + puzzleName + ":" + puzzleYear + ":" + puzzleMonth + ":" + puzzleDay);
-      
       PuzzleStore.storePuzzle(
 	puzzleName,
 	puzzleYear,
@@ -329,16 +326,9 @@ export default class Puzzle extends React.Component {
     puzzleMonth,
     puzzleDay
   ) {
-    const defaultPrefs = {
-      endOfWord: "next",
-      spaceBar: "change",
-      enterKey: "next",
-      skipExisting: false,
-      showWrongAnswers: false,
-      timePuzzle: true,
-    };
-    const prefs = ls.get("preferences") || JSON.stringify(defaultPrefs);
 
+    const prefs = this.loadPrefs();
+    
     this.setState({
       isLoading: true,
       preferences: JSON.parse(prefs),
@@ -432,6 +422,19 @@ export default class Puzzle extends React.Component {
     });
   }
 
+  loadPrefs() {
+    const defaultPrefs = {
+      endOfWord: "next",
+      spaceBar: "change",
+      enterKey: "next",
+      skipExisting: false,
+      showWrongAnswers: false,
+      timePuzzle: true,
+    };
+
+    return ls.get("preferences") || JSON.stringify(defaultPrefs);
+  }
+
   componentDidMount() {
     const lastPuzzle = ls.get("lastpuzzle");
 
@@ -439,7 +442,8 @@ export default class Puzzle extends React.Component {
       const vals = lastPuzzle.split('-');
       const p = PuzzleStore.getPuzzle(vals[0], vals[1], vals[2], vals[3]);
       if (p) {
-	this.setState( { isLoading: false, ...p });
+	const prefs = this.loadPrefs();
+	this.setState( { preferences: JSON.parse(prefs), isLoading: false, ...p });
 	return;
       }
     } 
