@@ -79,6 +79,7 @@ export default class Puzzle extends React.Component {
     this.setPreferences = this.setPreferences.bind(this);
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     this.reveal = this.reveal.bind(this);
+    this.check = this.check.bind(this);
     this.checkPuzzle = this.checkPuzzle.bind(this);
     this.puzzleList = this.puzzleList.bind(this);
     this.resumePuzzle = this.resumePuzzle.bind(this);
@@ -313,6 +314,7 @@ export default class Puzzle extends React.Component {
 	  selectedY: this.state.selectedY,
 	  incorrectAnswers: this.state.incorrectAnswers,
 	  puzzleComplete: this.state.puzzleComplete,
+	  gridDirection: this.state.gridDirection,
 	}
       );
     }
@@ -1089,10 +1091,59 @@ export default class Puzzle extends React.Component {
         <Dropdown
           options={options}
           onChange={this.reveal}
-          placeholder={"Reveal"}
+          placeholder={"Reveal..."}
         />
       </div>
     );
+  }
+
+  check(option) {
+    const { userInput, gridSolution, selectedX, selectedY } = this.state;
+    
+    if (option.value === "Puzzle") {
+      this.checkPuzzle();
+    } else if (option.value === "Letter") {
+      if (userInput[selectedY][selectedX] !== gridSolution[selectedY][selectedX]) {
+	userInput[selectedY][selectedX] = '';
+	this.setState({userInput});
+      }
+    } else {
+      this.checkWord();
+    }
+  }
+
+  checkWord() {
+    const { gridWidth, gridHeight, gridDirection, userInput, gridSolution, selectedX, selectedY } = this.state;
+
+    if (gridDirection === direction.ACROSS) {
+      let x = selectedX;
+
+      while (x > 0 && gridSolution[selectedY][x - 1] !== '.') {
+	x--;
+      }
+
+      while (x < gridWidth && gridSolution[selectedY][x] !== '.') {
+	if (userInput[selectedY][x] !== gridSolution[selectedY][x]) {
+	  userInput[selectedY][x] = '';
+	}
+	++x;
+      }
+    } else {
+      let y = selectedY;
+
+      while (y > 0 && gridSolution[y - 1][selectedX] !== '.') {
+	y--;
+      }
+
+      while (y < gridHeight && gridSolution[y][selectedX] !== '.') {
+	if (userInput[y][selectedX] !== gridSolution[y][selectedX]) {
+	  userInput[y][selectedX] = '';
+	}
+	++y;
+      }
+    }
+
+    this.setState({userInput});
   }
 
   checkPuzzle() {
@@ -1113,7 +1164,17 @@ export default class Puzzle extends React.Component {
   }
 
   renderCheck() {
-    return <button onClick={this.checkPuzzle}>Check</button>;
+    const options = ["Letter", "Word", "Puzzle"];
+
+    return (
+      <div className="CheckDropdown">
+        <Dropdown
+          options={options}
+          onChange={this.check}
+          placeholder={"Check..."}
+        />
+      </div>
+    );
   }
 
   puzzleList() {

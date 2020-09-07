@@ -64,6 +64,11 @@
   flex-direction: row;
   align-items: center;
 }
+.Puzzle .PuzzleHeader .CheckDropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .Puzzle .PuzzleBody {
   display: flex;
   flex-direction: column;
@@ -236,6 +241,7 @@ input:focus {
   display: flex;
   flex-direction: row;
 }
+
 .PuzzleList {
   margin: 0.5rem;
   display: flex;
