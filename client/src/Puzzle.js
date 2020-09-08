@@ -1237,8 +1237,11 @@ export default class Puzzle extends React.Component {
     );
   }
 
-  renderGridClues(acrossNumber, downNumber) {
+  renderGridClues() {
     const { acrossNumbers, acrossClues, downNumbers, downClues, puzzleComplete } = this.state;
+
+    const acrossNumber = this.findSelectedClue(direction.ACROSS);
+    const downNumber = this.findSelectedClue(direction.DOWN);
 
     if (this.state.showPrefs || this.state.showPuzzleList) {
       return null;
