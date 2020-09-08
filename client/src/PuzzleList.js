@@ -3,6 +3,7 @@ import PuzzleStore from './stores/PuzzleStore';
 import { daysOfTheWeek } from "./Constants";
 import PuzzleInfo from './PuzzleInfo';
 import PropTypes from 'prop-types';
+import { GoCheck } from "react-icons/go";
 
 export default class PuzzleList extends React.Component {
   static defaultProps = {
@@ -40,13 +41,69 @@ export default class PuzzleList extends React.Component {
   puzzleClick(id, date) {
     this.props.puzzleSelected(id, date);
   }
-  
+
+  renderPuzzleData(puzzleInfo) {
+    if (puzzleInfo.puzzleComplete) {
+      return (
+	  <div className="PuzzleData">
+            <GoCheck
+              style={{ color: "green", width: "2rem", height: "2rem" }}
+              aria-label="Completed"
+            />
+	    Completed
+	</div>
+      );
+    } else {
+      const { gridWidth, gridHeight, gridSolution } = puzzleInfo;
+
+      var i,j, count;
+
+      count = 0;
+      
+      for (i = 0; i < gridHeight; i++) {
+	for (j = 0; j < gridWidth; j++) {
+	  if (gridSolution[i][j] !== '.') {
+	    ++count;
+	  }
+	}
+      }
+      return (
+	  <div className="PuzzleData">
+	  {Math.floor(100 * (count - puzzleInfo.incorrectAnswers)/count)}% complete
+	  </div>
+      );
+    }
+  }
+
+  renderPuzzleInfo(index, puzzle, date) {
+    const year = date.getFullYear() - 2000;
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const puzzleInfo = PuzzleStore.getPuzzle(puzzle.name, year, month, day);
+
+    if (!puzzleInfo) {
+      return (
+	  <div className="PuzzleInfo NoData">
+	    <span className="PuzzleName" onClick={this.puzzleClick.bind(this, index, date.toString())}>{puzzle.name}</span>
+	  </div>
+      );
+    } else {
+      console.log(puzzleInfo);
+      return (
+	  <div className="PuzzleInfo">
+	    <span className="PuzzleName" onClick={this.puzzleClick.bind(this, index, date.toString())}>{puzzle.name}</span>
+	    {this.renderPuzzleData(puzzleInfo)}
+	  </div>
+      );
+    }
+  }
+
   renderDay(date) {
     return this.props.puzzles.map((p, i) => {
       if (p.frequency & this.getDay(date)) {
 	return(
 	    <div key={`${p.ID}-${date}`} className="PuzzleLink">
-	    <span className="PuzzleName" onClick={this.puzzleClick.bind(this, i, date.toString())}>{p.name}</span>
+	    {this.renderPuzzleInfo(i, p, date)}
 	    </div>
 	);
       } else {
@@ -76,7 +133,7 @@ export default class PuzzleList extends React.Component {
   render() {
     return (
 	<div className="PuzzleList">
-	{this.renderPuzzles()}
+	  {this.renderPuzzles()}
 	</div>
     );
   }

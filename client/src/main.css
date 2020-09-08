@@ -269,6 +269,23 @@ input:focus {
   flex-direction: column;
   padding-top: 5rem;
 }
+.PuzzleList .PuzzleInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.PuzzleList .PuzzleData {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.PuzzleList .NoData {
+  height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
 .PuzzleDate {
   display: inline-block;
