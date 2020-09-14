@@ -9,7 +9,6 @@ export default class BrainsOnlyParser {
 
   parse(text) {
     const lines = text.split("\n");
-    console.log(lines);
 
     if (lines[0] !== "ARCHIVE") {
       throw new Error("Invalid Puzzle");

@@ -88,7 +88,6 @@ export default class PuzzleList extends React.Component {
 	  </div>
       );
     } else {
-      console.log(puzzleInfo);
       return (
 	  <div className="PuzzleInfo">
 	    <span className="PuzzleName" onClick={this.puzzleClick.bind(this, index, date.toString())}>{puzzle.name}</span>
