@@ -917,7 +917,7 @@ export default class Puzzle extends React.Component {
           while (
             wordX < gridWidth &&
             userInput[y][wordX] !== "" &&
-            userInput[y][wordX] === "."
+            userInput[y][wordX] !== "."
           ) {
             ++wordX;
           }
@@ -925,7 +925,9 @@ export default class Puzzle extends React.Component {
           /* no blank space in word - just move to the next */
           if (wordX === gridWidth || userInput[y][wordX] === ".") {
             nextX = x - 1;
-          }
+          } else {
+	    x = wordX;
+	  }
         }
 
         if (x < gridWidth && gridSolution[y][x] !== ".") {
@@ -959,7 +961,9 @@ export default class Puzzle extends React.Component {
 
           if (wordY === gridHeight || userInput[wordY][x] === ".") {
             nextY = y - 1;
-          }
+          } else {
+	    y = wordY;
+	  }
         }
 
         if (y < gridHeight && gridSolution[y][x] !== ".") {
