@@ -709,6 +709,41 @@ export default class Puzzle extends React.Component {
     }
   }
 
+  focusOnEmptySpace(x, y) {
+    const { gridHeight, gridWidth, gridDirection, userInput } = this.state;
+
+    if (userInput[y][x] === ' ') {
+      this.setFocus(x, y);
+      return;
+    }
+    
+    if (gridDirection === direction.ACROSS) {
+      var newX = x;
+
+      while (newX < gridWidth && userInput[y][newX] !== '' && userInput[y][newX] !== '.') {
+	++newX;
+      }
+
+      if (newX < gridWidth && userInput[y][newX] === '') {
+	this.setFocus(newX, y);
+	return;
+      }
+    } else {
+      var newY = y;
+
+      while (newY < gridHeight && userInput[newY][x] !== '' && userInput[newY][x] !== '.') {
+	++newY;
+      }
+
+      if (newY < gridHeight && userInput[newY][x] === '') {
+	this.setFocus(x, newY);
+	return;
+      }
+    }
+
+    this.setFocus(x, y);
+  }
+  
   /* TODO - move to empty spon in newly focused word */
   focusClue(num) {
     const { gridWidth, gridHeight, clueNumbers } = this.state;
@@ -717,7 +752,11 @@ export default class Puzzle extends React.Component {
     for (i = 0; i < gridHeight; i++) {
       for (j = 0; j < gridWidth; j++) {
         if (clueNumbers[i][j] === num) {
-          this.setFocus(j, i);
+	  if (this.state.preferences.skipExisting) {
+	    this.focusOnEmptySpace(j, i);
+	  } else {
+            this.setFocus(j, i);
+	  }
           return;
         }
       }
