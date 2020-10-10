@@ -65,8 +65,6 @@ func findNYTUrl(name, date string) (string, error) {
 
 	match := re.FindAllStringSubmatch(string(body), -1)
 
-	log.Println("Matches: ")
-	log.Println(match)
 	
 	resp.Body.Close()
 	
@@ -127,7 +125,7 @@ func findWSJUrl(date string) (string, error) {
 		return url, nil
 	}
 
-	resp, err := http.Get("http://blogs.wsj.com/puzzle/")
+	resp, err := http.Get("http://blogs.wsj.com/puzzle/category/crossword")
 
 	if err != nil {
 		return "", err
@@ -164,13 +162,16 @@ func findWSJUrl(date string) (string, error) {
 
 		resp.Body.Close()
 		
-		reg := `a href="//blogs.wsj.com/puzzle/crossword/(\d+)/(\d+)/index.html" target="_blank" .* class="puzzle-link"`
+		reg := `href="https://www.wsj.com/puzzles/crossword/(\d+)/(\d+)/index.html"`
 		re := regexp.MustCompile(reg)
 
 		match := re.FindStringSubmatch(string(body))
 		
+	log.Println("Matches: ")
+	log.Println(match)
+
 		if (len(match) == 3) {
-			url := "https://blogs.wsj.com/puzzle/crossword/" + match[1] + "/" + match[2] + "/data.json";
+			url := "https://www.wsj.com/puzzles/crossword/" + match[1] + "/" + match[2] + "/data.json";
 			
 			/* save the url to a temp file */
 			putInCache("WSJ", date, url);
