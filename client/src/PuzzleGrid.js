@@ -21,7 +21,7 @@ export default class PuzzleGrid extends React.Component {
       .isRequired,
     circledClues: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
       .isRequired,
-    showWrongAnswers: PropTypes.bool.isRequired,
+    incorrectAnswersArray: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
   };
 
   constructor(props) {
@@ -115,21 +115,9 @@ export default class PuzzleGrid extends React.Component {
   }
 
   isIncorrect(i, j) {
-    const { userInput, gridSolution } = this.props;
+    const { incorrectAnswersArray } = this.props;
 
-    if (this.props.showWrongAnswers === false) {
-      return false;
-    }
-
-    if (gridSolution[i][j] === "." || userInput[i][j] === "") {
-      return false;
-    }
-
-    if (userInput[i][j].toUpperCase() !== gridSolution[i][j].toUpperCase()) {
-      return true;
-    }
-
-    return false;
+    return incorrectAnswersArray[i][j] === 1;
   }
 
   renderGridRow(i) {

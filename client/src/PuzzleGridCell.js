@@ -177,7 +177,8 @@ export default class PuzzleGridCell extends React.Component {
     }
 
     if (this.props.isIncorrect) {
-      valueClassName += " incorrect";
+      className += " incorrect";
+      valueClassName += " red";
     }
 
     if (this.props.isSelectedInput) {
