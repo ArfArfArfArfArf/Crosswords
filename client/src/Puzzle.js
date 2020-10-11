@@ -394,6 +394,12 @@ export default class Puzzle extends React.Component {
         return entities.decode(c);
       });
 
+      var incorrectAnswersArray = [];
+
+      for (i = 0; i < data.height; i++) {
+	incorrectAnswersArray[i] = Array(data.widht).fill(0);
+      }
+
       PuzzleStore.storePuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay, {
         acrossNumbers: this.state.acrossNumbers,
         downNumbers: this.state.downNumbers,
@@ -408,6 +414,7 @@ export default class Puzzle extends React.Component {
         meta: data.meta,
 	selectedX: this.state.selectedX,
 	selectedY: this.state.selectedY,
+	incorrectAnswersArray: incorrectAnswersArray,
       });
 
       this.setState({
@@ -420,6 +427,7 @@ export default class Puzzle extends React.Component {
         gridWidth: data.width,
         gridHeight: data.height,
         meta: data.meta,
+	incorrectAnswersArray: incorrectAnswersArray,
       });
     }).catch((error) => {
       alert("Unable to load puzzle: " + error);
