@@ -2,6 +2,27 @@
   margin: 0.5rem;
   display: flex;
   flex-direction: column;
+  padding-top: 5rem;
+
+  .PuzzleInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .PuzzleData {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .NoData {
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .PuzzleDate {

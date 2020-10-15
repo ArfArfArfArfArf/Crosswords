@@ -39,11 +39,13 @@ export default class Puzzle extends React.Component {
     let solution = [];
     let userInput = [];
     let clueNumbers = [];
-
+    let incorrectAnswersArray = [];
+    
     for (i = 0; i < 30; i++) {
       solution[i] = Array(30).fill(" ");
       userInput[i] = Array(30).fill(" ");
       clueNumbers[i] = Array(30).fill(0);
+      incorrectAnswersArray[i] = Array(30).fill(0);
     }
 
     this.state = {
@@ -62,6 +64,7 @@ export default class Puzzle extends React.Component {
       gridSolution: solution,
       userInput: userInput,
       clueNumbers: clueNumbers,
+      incorrectAnswersArray: incorrectAnswersArray,
       acrossNumbers: [],
       downNumbers: [],
 
@@ -79,6 +82,7 @@ export default class Puzzle extends React.Component {
     this.setPreferences = this.setPreferences.bind(this);
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     this.reveal = this.reveal.bind(this);
+    this.check = this.check.bind(this);
     this.checkPuzzle = this.checkPuzzle.bind(this);
     this.puzzleList = this.puzzleList.bind(this);
     this.resumePuzzle = this.resumePuzzle.bind(this);
@@ -168,7 +172,6 @@ export default class Puzzle extends React.Component {
 
     var d = this.parseDate(date);
     const url = `http://${host}:3001/puzzle/${puzzle.ID}/${d.year}/${d.month}/${d.day}`;
-    console.log("URL: " + url);
     this.loadPuzzle(puzzle.name, url, puzzle.type, d.year - 2000, d.month, d.day);
   }
   
@@ -312,6 +315,9 @@ export default class Puzzle extends React.Component {
           meta: this.state.meta,
 	  selectedX: this.state.selectedX,
 	  selectedY: this.state.selectedY,
+	  incorrectAnswers: this.state.incorrectAnswers,
+	  puzzleComplete: this.state.puzzleComplete,
+	  gridDirection: this.state.gridDirection,
 	}
       );
     }
@@ -365,10 +371,10 @@ export default class Puzzle extends React.Component {
       puzzleDay
     );
 
-/*    if (p) {
+    if (p) {
       this.setState({ showPuzzleList: false, isLoading: false, ...p });
       return;
-    }*/
+    }
 
     var puz;
 /*
@@ -407,6 +413,12 @@ export default class Puzzle extends React.Component {
         return entities.decode(c);
       });
 
+      var incorrectAnswersArray = [];
+
+      for (i = 0; i < data.height; i++) {
+	incorrectAnswersArray[i] = Array(data.widht).fill(0);
+      }
+
       PuzzleStore.storePuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay, {
         acrossNumbers: this.state.acrossNumbers,
         downNumbers: this.state.downNumbers,
@@ -421,6 +433,7 @@ export default class Puzzle extends React.Component {
         meta: data.meta,
 	selectedX: this.state.selectedX,
 	selectedY: this.state.selectedY,
+	incorrectAnswersArray: incorrectAnswersArray,
       });
 
       this.setState({
@@ -433,11 +446,25 @@ export default class Puzzle extends React.Component {
         gridWidth: data.width,
         gridHeight: data.height,
         meta: data.meta,
+	incorrectAnswersArray: incorrectAnswersArray,
       });
     }).catch((error) => {
       alert("Unable to load puzzle: " + error);
       this.setState({ showPuzzleList: false, isLoading: false, ...p });
     });
+  }
+
+  loadPrefs() {
+    const defaultPrefs = {
+      endOfWord: "next",
+      spaceBar: "change",
+      enterKey: "next",
+      skipExisting: false,
+      showWrongAnswers: false,
+      timePuzzle: true,
+    };
+
+    return ls.get("preferences") || JSON.stringify(defaultPrefs);
   }
 
   componentDidMount() {
@@ -531,6 +558,7 @@ export default class Puzzle extends React.Component {
       selectedY,
       gridDirection,
       gridSolution,
+      incorrectAnswersArray,
     } = this.state;
 
     if (
@@ -547,8 +575,9 @@ export default class Puzzle extends React.Component {
       }
 
       userInput[selectedY][selectedX] = "";
-
-      this.setState({ userInput, incorrectAnswers });
+      incorrectAnswersArray[selectedY][selectedX] = 0;
+      
+      this.setState({ userInput, incorrectAnswers, incorrectAnswersArray });
       this.focusPreviousInput(selectedX, selectedY);
 
       return;
@@ -628,7 +657,7 @@ export default class Puzzle extends React.Component {
         (data >= "A" && data <= "Z") ||
         (data >= "0" && data <= "9"))
     ) {
-      let { incorrectAnswers } = this.state;
+      let { incorrectAnswers, incorrectAnswersArray } = this.state;
 
       if (
         !this.state.puzzleComplete &&
@@ -651,9 +680,14 @@ export default class Puzzle extends React.Component {
         userInput[selectedY][selectedX] === gridSolution[selectedY][selectedX]
       ) {
         --incorrectAnswers;
+	incorrectAnswersArray[selectedY][selectedX] = 0;
+      } else {
+	if (this.state.preferences.showWrongAnswers) {
+	  incorrectAnswersArray[selectedY][selectedX] = 1;
+	}
       }
 
-      this.setState({ userInput, incorrectAnswers });
+      this.setState({ incorrectAnswersArray, userInput, incorrectAnswers });
 
       if (incorrectAnswers === 0) {
         this.savePuzzle();
@@ -712,6 +746,41 @@ export default class Puzzle extends React.Component {
     }
   }
 
+  focusOnEmptySpace(x, y) {
+    const { gridHeight, gridWidth, gridDirection, userInput } = this.state;
+
+    if (userInput[y][x] === ' ') {
+      this.setFocus(x, y);
+      return;
+    }
+    
+    if (gridDirection === direction.ACROSS) {
+      var newX = x;
+
+      while (newX < gridWidth && userInput[y][newX] !== '' && userInput[y][newX] !== '.') {
+	++newX;
+      }
+
+      if (newX < gridWidth && userInput[y][newX] === '') {
+	this.setFocus(newX, y);
+	return;
+      }
+    } else {
+      var newY = y;
+
+      while (newY < gridHeight && userInput[newY][x] !== '' && userInput[newY][x] !== '.') {
+	++newY;
+      }
+
+      if (newY < gridHeight && userInput[newY][x] === '') {
+	this.setFocus(x, newY);
+	return;
+      }
+    }
+
+    this.setFocus(x, y);
+  }
+  
   /* TODO - move to empty spon in newly focused word */
   focusClue(num) {
     const { gridWidth, gridHeight, clueNumbers } = this.state;
@@ -720,7 +789,11 @@ export default class Puzzle extends React.Component {
     for (i = 0; i < gridHeight; i++) {
       for (j = 0; j < gridWidth; j++) {
         if (clueNumbers[i][j] === num) {
-          this.setFocus(j, i);
+	  if (this.state.preferences.skipExisting) {
+	    this.focusOnEmptySpace(j, i);
+	  } else {
+            this.setFocus(j, i);
+	  }
           return;
         }
       }
@@ -766,6 +839,11 @@ export default class Puzzle extends React.Component {
   focusLeft(x, y) {
     let xpos = x;
 
+    // reset to the end and work back
+    if (xpos === 0) {
+      xpos = this.state.gridWidth;
+    }
+    
     --xpos;
 
     while (xpos >= 0 && this.state.gridSolution[y][xpos] === ".") {
@@ -784,6 +862,10 @@ export default class Puzzle extends React.Component {
 
     let xpos = x;
 
+    if (xpos === gridWidth - 1) {
+      xpos = -1;
+    }
+    
     ++xpos;
 
     while (xpos < gridWidth && gridSolution[y][xpos] === ".") {
@@ -801,6 +883,10 @@ export default class Puzzle extends React.Component {
     const { gridHeight, gridSolution } = this.state;
     let ypos = y;
 
+    if (ypos === gridHeight - 1) {
+      ypos = -1;
+    }
+    
     ++ypos;
     while (ypos < gridHeight && gridSolution[ypos][x] === ".") {
       ++ypos;
@@ -822,9 +908,13 @@ export default class Puzzle extends React.Component {
   }
 
   focusUp(x, y) {
-    const { gridSolution } = this.state;
+    const { gridHeight, gridSolution } = this.state;
     let ypos = y;
 
+    if (ypos === 0) {
+      ypos = gridHeight;
+    }
+    
     --ypos;
 
     while (ypos >= 0 && gridSolution[ypos][x] === ".") {
@@ -903,7 +993,7 @@ export default class Puzzle extends React.Component {
           while (
             wordX < gridWidth &&
             userInput[y][wordX] !== "" &&
-            userInput[y][wordX] === "."
+            userInput[y][wordX] !== "."
           ) {
             ++wordX;
           }
@@ -911,7 +1001,9 @@ export default class Puzzle extends React.Component {
           /* no blank space in word - just move to the next */
           if (wordX === gridWidth || userInput[y][wordX] === ".") {
             nextX = x - 1;
-          }
+          } else {
+	    x = wordX;
+	  }
         }
 
         if (x < gridWidth && gridSolution[y][x] !== ".") {
@@ -945,7 +1037,9 @@ export default class Puzzle extends React.Component {
 
           if (wordY === gridHeight || userInput[wordY][x] === ".") {
             nextY = y - 1;
-          }
+          } else {
+	    y = wordY;
+	  }
         }
 
         if (y < gridHeight && gridSolution[y][x] !== ".") {
@@ -1094,39 +1188,99 @@ export default class Puzzle extends React.Component {
         <Dropdown
           options={options}
           onChange={this.reveal}
-          placeholder={"Reveal"}
+          placeholder={"Reveal..."}
         />
       </div>
     );
   }
 
+  check(option) {
+    const { userInput, gridSolution, incorrectAnswersArray, selectedX, selectedY } = this.state;
+    
+    if (option.value === "Puzzle") {
+      this.checkPuzzle();
+    } else if (option.value === "Letter") {
+      if (userInput[selectedY][selectedX] !== gridSolution[selectedY][selectedX]) {
+	incorrectAnswersArray[selectedY][selectedX] = 1;
+	this.setState({ incorrectAnswersArray });
+      }
+    } else {
+      this.checkWord();
+    }
+  }
+
+  checkWord() {
+    const { incorrectAnswersArray, gridWidth, gridHeight, gridDirection, userInput, gridSolution, selectedX, selectedY } = this.state;
+
+    if (gridDirection === direction.ACROSS) {
+      let x = selectedX;
+
+      while (x > 0 && gridSolution[selectedY][x - 1] !== '.') {
+	x--;
+      }
+
+      while (x < gridWidth && gridSolution[selectedY][x] !== '.') {
+	if (userInput[selectedY][x] !== gridSolution[selectedY][x]) {
+	  incorrectAnswersArray[selectedY][x] = 1;
+	}
+	++x;
+      }
+    } else {
+      let y = selectedY;
+
+      while (y > 0 && gridSolution[y - 1][selectedX] !== '.') {
+	y--;
+      }
+
+      while (y < gridHeight && gridSolution[y][selectedX] !== '.') {
+	if (userInput[y][selectedX] !== gridSolution[y][selectedX]) {
+	  incorrectAnswersArray[y][selectedX] = 1;
+	}
+	++y;
+      }
+    }
+
+    this.setState({ incorrectAnswersArray });
+  }
+
   checkPuzzle() {
     var i, j;
-    const { gridHeight, gridWidth, userInput, gridSolution } = this.state;
+    const { incorrectAnswersArray, gridHeight, gridWidth, userInput, gridSolution } = this.state;
 
     for (i = 0; i < gridHeight; i++) {
       for (j = 0; j < gridWidth; j++) {
-        if (
+        if (userInput[i][j] !== '' && 
           userInput[i][j] !== gridSolution[i][j]
         ) {
-          userInput[i][j] = "";
+	  incorrectAnswersArray[i][j] = 1;
         }
       }
     }
 
-    this.setState({ userInput });
+    this.setState({ incorrectAnswersArray });
   }
 
   renderCheck() {
-    return <button onClick={this.checkPuzzle}>Check</button>;
+    const options = ["Letter", "Word", "Puzzle"];
+
+    return (
+      <div className="CheckDropdown">
+        <Dropdown
+          options={options}
+          onChange={this.check}
+          placeholder={"Check..."}
+        />
+      </div>
+    );
   }
 
   puzzleList() {
+    this.savePuzzle();
     this.setState( { showPuzzleList: true } );
   }
   
   renderLoad() {
-    return <button onClick={this.puzzleList}>Load</button>;
+    return <button onClick={this.puzzleList}>Puzzles...</button>;
   }
 
   renderRestOfHeader() {
@@ -1146,20 +1300,41 @@ export default class Puzzle extends React.Component {
   renderHeader() {
     return (
       <div className="PuzzleHeader">
-        <div className="PreferencesIcon">
-          <GoGear
-            style={{ width: "2rem", height: "2rem" }}
-            aria-label="Preferences"
-            onClick={this.displayPrefs}
-          />
+	<div className="MenuHeader">
+          <div className="PreferencesIcon">
+            <GoGear
+              style={{ width: "2rem", height: "2rem" }}
+              aria-label="Preferences"
+              onClick={this.displayPrefs}
+            />
+          </div>
+          {this.renderRestOfHeader()}
         </div>
-        {this.renderRestOfHeader()}
+	<div>
+	  {this.renderGridClues()}
+        </div>
       </div>
     );
   }
 
-  renderGridClues(acrossNumber, downNumber) {
-    const { acrossNumbers, acrossClues, downNumbers, downClues } = this.state;
+  renderGridClues() {
+    const { acrossNumbers, acrossClues, downNumbers, downClues, puzzleComplete } = this.state;
+
+    const acrossNumber = this.findSelectedClue(direction.ACROSS);
+    const downNumber = this.findSelectedClue(direction.DOWN);
+
+    if (this.state.showPrefs || this.state.showPuzzleList) {
+      return null;
+    }
+
+    if (puzzleComplete) {
+      return (
+	<div>
+	  <span className="Complete">Puzzle Complete!</span>
+	</div>
+      );
+    }
+    
     let acrossIndex = 0,
       downIndex = 0;
     let i;
@@ -1233,7 +1408,6 @@ export default class Puzzle extends React.Component {
 
       return (
         <div className="PuzzleBody">
-          {this.renderGridClues(acrossNumber, downNumber)}
           <div className="PuzzleGrid">
             <PuzzleGrid
               selectedX={this.state.selectedX}
@@ -1248,7 +1422,7 @@ export default class Puzzle extends React.Component {
               gridClickCallback={this.gridClick}
               clueNumbers={this.state.clueNumbers}
               circledClues={this.state.circledClues}
-              showWrongAnswers={this.state.preferences.showWrongAnswers}
+	      incorrectAnswersArray={this.state.incorrectAnswersArray}
             />
           <ClueList
             obscured={this.state.showModal}
@@ -1297,9 +1471,6 @@ export default class Puzzle extends React.Component {
         <span className="Title">{this.state.meta.title}</span> <br />
         <span className="Author">{this.state.meta.author}</span> <br />
         <span className="Published">{this.state.meta.publisher}</span> <br />
-	{this.state.puzzleComplete &&  (
-	  <span className="Complete">Puzzle Complete!</span>
-	)}
         {this.state.preferences.timePuzzle && this.renderTime()}
       </div>
     );

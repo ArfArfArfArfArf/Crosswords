@@ -22,8 +22,8 @@ export default class LATimesParser {
     var i, j;
 
     for (i = 0; i < puzInfo.height; i++) {
-      puzInfo.solution[i] = Array(puzInfo.height).fill("");
-      puzInfo.circledClues[i] = Array(puzInfo.height).fill(".");
+      puzInfo.solution[i] = Array(puzInfo.width).fill("");
+      puzInfo.circledClues[i] = Array(puzInfo.width).fill(".");
     }
 
     const cells = data.getElementsByTagName("cell");

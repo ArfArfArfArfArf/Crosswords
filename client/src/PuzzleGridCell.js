@@ -67,7 +67,7 @@ export default class PuzzleGridCell extends React.Component {
     var inputType = "";
     var navigationType = "";
     var data = "";
-
+    
     if (event instanceof KeyboardEvent) {
       if (event.key === "Backspace") {
         inputType = "deleteContentBackward";
@@ -89,7 +89,7 @@ export default class PuzzleGridCell extends React.Component {
       }
     }
 
-    return { inputType, navigationType, data };
+    return { inputType, navigationType, data, shiftKey: event.shiftKey };
   }
 
   inputCallback(e) {
@@ -177,7 +177,8 @@ export default class PuzzleGridCell extends React.Component {
     }
 
     if (this.props.isIncorrect) {
-      valueClassName += " incorrect";
+      className += " incorrect";
+      valueClassName += " red";
     }
 
     if (this.props.isSelectedInput) {

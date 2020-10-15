@@ -34,13 +34,14 @@ export default class ClueList extends React.Component {
     const dir = this.getDirString();
 
     const li = document.getElementById(`${dir}-${this.props.selectedClue}`);
+
     const div = document.getElementById(`${dir}-cluelist`);
 
     const libox = li.getBoundingClientRect();
     const divbox = div.getBoundingClientRect();
 
     if (libox.top < divbox.top || libox.bottom > divbox.bottom) {
-      li.scrollIntoView();
+      li.scrollIntoView(false);
     }
   }
 

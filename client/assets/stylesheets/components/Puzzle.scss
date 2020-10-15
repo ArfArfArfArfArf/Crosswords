@@ -4,8 +4,32 @@
   flex-direction: column;
 
   .PuzzleHeader {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 5rem;
+    
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background: white;
+    
+    .MenuHeader {
+      display: flex;
+      flex-direction: row;
+      background: white;
+      width: 100%;
+      
+      .RightHeader {
+	  width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+      }
+    }
 
     .PreferencesIcon {
     }
@@ -15,9 +39,16 @@
       flex-direction: row;
       align-items: center;
     }
+
+    .CheckDropdown {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
   }
 
   .PuzzleBody {
+    padding-top: 5rem;
     display: flex;
     flex-direction: column;
   }
@@ -62,6 +93,10 @@
     display: flex;
     flex-direction: column;
     margin: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .Complete {
     font-size: 2rem;
   }
 }
