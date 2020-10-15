@@ -14,6 +14,7 @@
     "lodash": "^4.17.15",
     "puzjs": "^1.0.2",
     "react": "^16.12.0",
+    "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.12.0",
     "react-dropdown": "^1.7.0",
     "react-icons": "^3.10.0",

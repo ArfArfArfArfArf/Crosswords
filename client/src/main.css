@@ -49,6 +49,18 @@
 .Preferences .PuzzlePrefs {
   margin: 0 0 0 2rem;
 }
+.Preferences .PuzzleListContainer {
+  margin: 0.5rem;
+  border: 1px solid lightgrey;
+}
+.Preferences .PuzzleListContainer .PuzzleList {
+  margin: 0.5rem;
+}
+.Preferences .PuzzleListContainer .PuzzleList .PuzzlePrefInfo {
+  border: 1px solid lightgrey;
+  background-color: white;
+  margin: 0.2rem;
+}
 
 .Puzzle {
   position: relative;

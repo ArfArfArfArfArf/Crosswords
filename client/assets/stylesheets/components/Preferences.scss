@@ -11,4 +11,19 @@
   .PuzzlePrefs {
     margin: 0 0 0 2rem;
   }
+
+  .PuzzleListContainer {
+    margin: 0.5rem;
+    border: 1px solid lightgrey;
+      
+    .PuzzleList {
+      margin: 0.5rem;
+  
+      .PuzzlePrefInfo {
+        border: 1px solid lightgrey;
+        background-color: white;
+	margin: 0.2rem;
+      }
+    }
+  }
 }

@@ -127,32 +127,32 @@ export default class Puzzle extends React.Component {
     
 
     this.puzzles = [
-      new PuzzleInfo(WEEKLY, puzzleNames.NYT_DAILY, puzzleIDs.NYT_DAILY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
-      new PuzzleInfo(WEEKLY, puzzleNames.LA_TIMES, puzzleIDs.LA_TIMES, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
-      new PuzzleInfo(WEEKLY, puzzleNames.BRAINS_ONLY, puzzleIDs.BRAINS_ONLY, puzzleTypes.BRAINSONLY_COM, FLAG_NO_FLAGS),
-      new PuzzleInfo(WEEKLY, puzzleNames.UNIVERSAL, puzzleIDs.UNIVERSAL, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_FLAGS),
-      new PuzzleInfo(WEEKLY, puzzleNames.USA_TODAY, puzzleIDs.USA_TODAY, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_FLAGS),
-      new PuzzleInfo(WEEKLY, puzzleNames.DAILY_AMERICAN, puzzleIDs.DAILY_AMERICAN, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
-      new PuzzleInfo(WEEKLY, puzzleNames.OCP_1, puzzleIDs.OCP_1, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
-      new PuzzleInfo(WEEKLY, puzzleNames.OCP_2, puzzleIDs.OCP_2, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
-      new PuzzleInfo(WEEKLY, puzzleNames.OCP_3, puzzleIDs.OCP_3, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
-      new PuzzleInfo(WEEKLY, puzzleNames.OCP_4, puzzleIDs.OCP_4, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
-      new PuzzleInfo(WEEKLY, puzzleNames.OCP_5, puzzleIDs.OCP_5, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
-      new PuzzleInfo(WEEKLY, puzzleNames.OCP_6, puzzleIDs.OCP_6, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
-      new PuzzleInfo(WEEKLY, puzzleNames.OCP_7, puzzleIDs.OCP_7, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE),
-      new PuzzleInfo(WEEKLY, puzzleNames.ARKADIUM, puzzleIDs.ARKADIUM, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
-      new PuzzleInfo(WEEKLY, puzzleNames.PENNYDELL, puzzleIDs.PENNYDELL, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
-      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSSHEFFER, puzzleIDs.KFSSHEFFER, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
-      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSJOSEPH, puzzleIDs.KFSJOSEPH, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
-      new PuzzleInfo(MON_TO_THU_SAT, puzzleNames.WSJ, puzzleIDs.WSJ, puzzleTypes.WSJ, FLAG_NO_FLAGS),
-      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC, puzzleIDs.NYTCLASSIC, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
-      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC2, puzzleIDs.NYTCLASSIC2, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
-      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC3, puzzleIDs.NYTCLASSIC3, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
-      new PuzzleInfo(TUESDAY, puzzleNames.BEQ_TUESDAY, puzzleIDs.BEQ_TUESDAY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
-      new PuzzleInfo(THURSDAY, puzzleNames.JONESIN, puzzleIDs.JONESIN, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
-      new PuzzleInfo(FRIDAY, puzzleNames.BEQ_FRIDAY, puzzleIDs.BEQ_FRIDAY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS),
-      new PuzzleInfo(SUNDAY, puzzleNames.KFSPREMIER, puzzleIDs.KFSPREMIER, puzzleTypes.UCLICK, FLAG_NO_FLAGS),
-      new PuzzleInfo(SUNDAY, puzzleNames.BOSTON_GLOBE, puzzleIDs.BOSTON_GLOBE, puzzleTypes.WSJ, FLAG_NO_ARCHIVE),
+      new PuzzleInfo(WEEKLY, puzzleNames.NYT_DAILY, puzzleIDs.NYT_DAILY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.LA_TIMES, puzzleIDs.LA_TIMES, puzzleTypes.UCLICK, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.BRAINS_ONLY, puzzleIDs.BRAINS_ONLY, puzzleTypes.BRAINSONLY_COM, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.UNIVERSAL, puzzleIDs.UNIVERSAL, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.USA_TODAY, puzzleIDs.USA_TODAY, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.DAILY_AMERICAN, puzzleIDs.DAILY_AMERICAN, puzzleTypes.UCLICK, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_1, puzzleIDs.OCP_1, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_2, puzzleIDs.OCP_2, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_3, puzzleIDs.OCP_3, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_4, puzzleIDs.OCP_4, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_5, puzzleIDs.OCP_5, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_6, puzzleIDs.OCP_6, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.OCP_7, puzzleIDs.OCP_7, puzzleTypes.ONLINE_CROSSWORDS, FLAG_NO_ARCHIVE, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.ARKADIUM, puzzleIDs.ARKADIUM, puzzleTypes.UCLICK, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(WEEKLY, puzzleNames.PENNYDELL, puzzleIDs.PENNYDELL, puzzleTypes.UCLICK, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSSHEFFER, puzzleIDs.KFSSHEFFER, puzzleTypes.UCLICK, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(MON_TO_SAT, puzzleNames.KFSJOSEPH, puzzleIDs.KFSJOSEPH, puzzleTypes.UCLICK, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(MON_TO_THU_SAT, puzzleNames.WSJ, puzzleIDs.WSJ, puzzleTypes.WSJ, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC, puzzleIDs.NYTCLASSIC, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC2, puzzleIDs.NYTCLASSIC2, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(MONDAY, puzzleNames.NYTCLASSIC3, puzzleIDs.NYTCLASSIC3, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(TUESDAY, puzzleNames.BEQ_TUESDAY, puzzleIDs.BEQ_TUESDAY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(THURSDAY, puzzleNames.JONESIN, puzzleIDs.JONESIN, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(FRIDAY, puzzleNames.BEQ_FRIDAY, puzzleIDs.BEQ_FRIDAY, puzzleTypes.ACROSS_LITE, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(SUNDAY, puzzleNames.KFSPREMIER, puzzleIDs.KFSPREMIER, puzzleTypes.UCLICK, FLAG_NO_FLAGS, true),
+      new PuzzleInfo(SUNDAY, puzzleNames.BOSTON_GLOBE, puzzleIDs.BOSTON_GLOBE, puzzleTypes.WSJ, FLAG_NO_ARCHIVE, true),
     ];
   }
 
@@ -317,6 +317,26 @@ export default class Puzzle extends React.Component {
     }
   }
 
+  loadPreferences() {
+    const defaultPrefs = {
+      endOfWord: "next",
+      spaceBar: "change",
+      enterKey: "next",
+      skipExisting: false,
+      showWrongAnswers: false,
+      timePuzzle: true,
+      puzzles: this.puzzles,
+    };
+
+    var prefs = JSON.parse(ls.get("preferences")) || defaultPrefs;
+
+    if (!prefs.puzzles) {
+      prefs.puzzles = this.puzzles;
+    }
+
+    return prefs;
+  }
+
   loadPuzzle(
     puzzleName,
     puzzle,
@@ -325,19 +345,11 @@ export default class Puzzle extends React.Component {
     puzzleMonth,
     puzzleDay
   ) {
-    const defaultPrefs = {
-      endOfWord: "next",
-      spaceBar: "change",
-      enterKey: "next",
-      skipExisting: false,
-      showWrongAnswers: false,
-      timePuzzle: true,
-    };
-    const prefs = ls.get("preferences") || JSON.stringify(defaultPrefs);
-
+    const prefs = this.loadPreferences();
+    
     this.setState({
       isLoading: true,
-      preferences: JSON.parse(prefs),
+      preferences: prefs,
       puzzleComplete: false,
       puzzleName: puzzleName,
       puzzleType: puzzleType,
@@ -430,17 +442,18 @@ export default class Puzzle extends React.Component {
 
   componentDidMount() {
     const lastPuzzle = ls.get("lastpuzzle");
-
+    const prefs = this.loadPreferences();
+    
     if (lastPuzzle) {
       const vals = lastPuzzle.split('-');
       const p = PuzzleStore.getPuzzle(vals[0], vals[1], vals[2], vals[3]);
       if (p) {
-	this.setState( { isLoading: false, ...p });
+	this.setState( { preferences: prefs, isLoading: false, ...p });
 	return;
       }
     } 
 
-    this.setState( { isLoading: false, showPuzzleList: true } );
+    this.setState( { isLoading: false, preferences: prefs, showPuzzleList: true } );
   }
 
   findCurrentWord() {
@@ -1269,7 +1282,7 @@ export default class Puzzle extends React.Component {
     const time = (Date.now() - this.state.puzzleStartTime) / 1000;
 
     const mins = Math.floor(time/60);
-    const secs = time % 60;
+    const secs = Math.floor(time % 60);
     
     return (<span className="Time">Time: {mins}:{secs}</span>);
   }
