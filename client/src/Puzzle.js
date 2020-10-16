@@ -3,7 +3,7 @@ import PuzzleGrid from "./PuzzleGrid";
 import PuzParser from "./parsers/PuzParser";
 import ClueList from "./ClueList";
 import Preferences from "./Preferences";
-import { GoGear } from "react-icons/go";
+import { GoGear, GoX } from "react-icons/go";
 import { merge } from "lodash";
 import ls from "local-storage";
 import { AllHtmlEntities } from "html-entities";
@@ -87,6 +87,7 @@ export default class Puzzle extends React.Component {
     this.puzzleList = this.puzzleList.bind(this);
     this.resumePuzzle = this.resumePuzzle.bind(this);
     this.puzzleSelected = this.puzzleSelected.bind(this);
+    this.showMain = this.showMain.bind(this);
     
     if (typeof document.hidden !== "undefined") {
       // Opera 12.10 and Firefox 18 and later support
@@ -1283,9 +1284,21 @@ export default class Puzzle extends React.Component {
     return <button onClick={this.puzzleList}>Puzzles...</button>;
   }
 
+  showMain() {
+    this.setState( {showPrefs: false, showPuzzleList: false } );
+  }
+
   renderRestOfHeader() {
     if (this.state.showPrefs || this.state.showPuzzleList) {
-      return null;
+      return (
+	<div className="RightHeader">
+	  <GoX
+            style={{ cursor: "hand", width: "2rem", height: "2rem", right: 0 }}
+            aria-label="Close Preferences"
+            onClick={this.showMain}
+          />
+	</div>
+      );
     }
 
     return (
@@ -1303,7 +1316,7 @@ export default class Puzzle extends React.Component {
 	<div className="MenuHeader">
           <div className="PreferencesIcon">
             <GoGear
-              style={{ width: "2rem", height: "2rem" }}
+              style={{ cursor: "hand", width: "2rem", height: "2rem" }}
               aria-label="Preferences"
               onClick={this.displayPrefs}
             />
