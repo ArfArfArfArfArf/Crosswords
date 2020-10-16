@@ -24,6 +24,7 @@ class PuzzlePrefInfo extends React.Component {
   render() {
     const { puzzle, index } = this.props;
     
+    console.log(puzzle);
     return(
 	<Draggable draggableId={puzzle.ID} index={index}>
 	  {(provided) => (
@@ -33,7 +34,7 @@ class PuzzlePrefInfo extends React.Component {
 	      ref={provided.innerRef}
 	    >
 	      <input type='checkbox' id={puzzle.ID} defaultChecked={puzzle.enabled} value={puzzle.enabled} onChange={this.onChange} />
-	      {this.props.puzzle.name}
+	      {puzzle.name} ({puzzle.description})
             </div>
 	  )}
 	</Draggable>
@@ -55,7 +56,7 @@ class PuzzleColumn extends React.Component {
 	<Droppable droppableId="puzzles">
 	{ (provided) => (
 	    <div
-	      className="PuzzleList"
+	      className="PuzzlePrefList"
 	      {...provided.droppableProps}
 	      ref={provided.innerRef}
 	    >
@@ -251,7 +252,7 @@ export default class Preferences extends React.Component {
   }
 
   dragEnd(result) {
-    const { destination, source, draggableId } = result;
+    const { destination, source } = result;
     const { puzzles } = this.state;
     
     if (!destination) {
@@ -264,6 +265,7 @@ export default class Preferences extends React.Component {
 
     puzzles.splice(destination.index, 0, puzzles.splice(source.index, 1)[0]);
 
+    this.props.setPreferences( { puzzles } );
     this.setState(puzzles);
   }
 

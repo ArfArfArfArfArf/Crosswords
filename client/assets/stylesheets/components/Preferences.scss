@@ -17,10 +17,11 @@
   .PuzzleListContainer {
     margin: 0.5rem;
     border: 1px solid lightgrey;
-      
-    .PuzzleList {
+    padding: 0.5rem;
+    
+    .PuzzlePrefList {
       margin: 0.5rem;
-  
+	
       .PuzzlePrefInfo {
         border: 1px solid lightgrey;
         background-color: white;

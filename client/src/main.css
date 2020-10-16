@@ -55,11 +55,12 @@
 .Preferences .PuzzleListContainer {
   margin: 0.5rem;
   border: 1px solid lightgrey;
+  padding: 0.5rem;
 }
-.Preferences .PuzzleListContainer .PuzzleList {
+.Preferences .PuzzleListContainer .PuzzlePrefList {
   margin: 0.5rem;
 }
-.Preferences .PuzzleListContainer .PuzzleList .PuzzlePrefInfo {
+.Preferences .PuzzleListContainer .PuzzlePrefList .PuzzlePrefInfo {
   border: 1px solid lightgrey;
   background-color: white;
   margin: 0.2rem;

@@ -99,7 +99,7 @@ export default class PuzzleList extends React.Component {
 
   renderDay(date) {
     return this.props.puzzles.map((p, i) => {
-      if (p.frequency & this.getDay(date)) {
+      if (p.enabled && p.frequency & this.getDay(date)) {
 	return(
 	    <div key={`${p.ID}-${date}`} className="PuzzleLink">
 	    {this.renderPuzzleInfo(i, p, date)}
