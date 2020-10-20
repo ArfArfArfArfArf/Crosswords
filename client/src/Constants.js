@@ -80,3 +80,8 @@ export const puzzleTypes = {
   WSJ: 5,
   NYT: 6,
 };
+
+export const puzzleFlags = {
+  NO_FLAGS: 0,
+  NO_ARCHIVE: 1,
+};

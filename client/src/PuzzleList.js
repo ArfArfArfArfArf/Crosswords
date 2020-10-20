@@ -4,6 +4,7 @@ import { daysOfTheWeek } from "./Constants";
 import PuzzleInfo from './PuzzleInfo';
 import PropTypes from 'prop-types';
 import { GoCheck } from "react-icons/go";
+import { puzzleFlags } from './Constants';
 
 export default class PuzzleList extends React.Component {
   static defaultProps = {
@@ -75,12 +76,7 @@ export default class PuzzleList extends React.Component {
     }
   }
 
-  renderPuzzleInfo(index, puzzle, date) {
-    const year = date.getFullYear() - 2000;
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const puzzleInfo = PuzzleStore.getPuzzle(puzzle.name, year, month, day);
-
+  renderPuzzleInfo(index, puzzle, date, puzzleInfo) {
     if (!puzzleInfo) {
       return (
 	  <div className="PuzzleInfo NoData">
@@ -97,12 +93,18 @@ export default class PuzzleList extends React.Component {
     }
   }
 
-  renderDay(date) {
+  renderDay(date, archived) {
+    console.log("Date: " + date + ", archived: " + archived);
     return this.props.puzzles.map((p, i) => {
-      if (p.enabled && p.frequency & this.getDay(date)) {
+      const year = date.getFullYear() - 2000;
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const puzzleInfo = PuzzleStore.getPuzzle(p.name, year, month, day);
+
+      if (puzzleInfo || (p.enabled && p.frequency & this.getDay(date) && !(archived && p.flags & puzzleFlags.NO_ARCHIVE))) {
 	return(
 	    <div key={`${p.ID}-${date}`} className="PuzzleLink">
-	    {this.renderPuzzleInfo(i, p, date)}
+	    {this.renderPuzzleInfo(i, p, date, puzzleInfo)}
 	    </div>
 	);
       } else {
@@ -119,11 +121,12 @@ export default class PuzzleList extends React.Component {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     return [...Array(14).keys()].map((i) => {
+      console.log("I: " + i);
       date.setDate(date.getDate() - 1);
       return (
 	  <div key={date} className="PuzzleDate">
 	    <span className="PuzzleDateString"> { date.toLocaleDateString(undefined, options) } </span>
-	    { this.renderDay(date) } 
+	    { this.renderDay(date, !(i === 0)) } 
 	  </div>
       );
     });
