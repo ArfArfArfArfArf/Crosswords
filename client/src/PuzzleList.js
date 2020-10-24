@@ -94,7 +94,6 @@ export default class PuzzleList extends React.Component {
   }
 
   renderDay(date, archived) {
-    console.log("Date: " + date + ", archived: " + archived);
     return this.props.puzzles.map((p, i) => {
       const year = date.getFullYear() - 2000;
       const month = date.getMonth() + 1;
@@ -121,7 +120,6 @@ export default class PuzzleList extends React.Component {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     return [...Array(14).keys()].map((i) => {
-      console.log("I: " + i);
       date.setDate(date.getDate() - 1);
       return (
 	  <div key={date} className="PuzzleDate">
