@@ -692,7 +692,7 @@ export default class Puzzle extends React.Component {
       userInput[selectedY][selectedX] = data.toUpperCase();
 
       if (
-        userInput[selectedY][selectedX] === gridSolution[selectedY][selectedX]
+        userInput[selectedY][selectedX].toUpperCase() === gridSolution[selectedY][selectedX].toUpperCase()
       ) {
         --incorrectAnswers;
 	incorrectAnswersArray[selectedY][selectedX] = 0;
