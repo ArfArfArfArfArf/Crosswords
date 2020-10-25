@@ -19,6 +19,7 @@ import PuzzleStore from "./stores/PuzzleStore";
 import PuzzleList from "./PuzzleList";
 import PuzzleInfo from "./PuzzleInfo";
 import { direction, daysOfTheWeek, puzzleNames, puzzleTypes, puzzleIDs, puzzleFlags } from './Constants';
+import Stopwatch from './Stopwatch';
 
 const Loader = ({ message }) => {
   return (
@@ -88,6 +89,7 @@ export default class Puzzle extends React.Component {
     this.resumePuzzle = this.resumePuzzle.bind(this);
     this.puzzleSelected = this.puzzleSelected.bind(this);
     this.showMain = this.showMain.bind(this);
+    this.pauseTimer = this.pauseTimer.bind(this);
     
     if (typeof document.hidden !== "undefined") {
       // Opera 12.10 and Firefox 18 and later support
@@ -178,9 +180,10 @@ export default class Puzzle extends React.Component {
     if (
       !this.state.puzzleComplete &&
       this.state.preferences.timePuzzle &&
+      this.state.puzzleStartTime &&
       document[this.hidden]
     ) {
-      this.setState({ showModal: true, puzzleTime: Date.now() - this.state.puzzleStartTime });
+      this.setState({ timerOn: false, showModal: true, puzzleTime: Date.now() - this.state.puzzleStartTime });
     }
   }
 
@@ -317,6 +320,8 @@ export default class Puzzle extends React.Component {
 	  incorrectAnswers: this.state.incorrectAnswers,
 	  puzzleComplete: this.state.puzzleComplete,
 	  gridDirection: this.state.gridDirection,
+	  puzzleTime: Date.now() - this.state.puzzleStartTime,
+	  timerOn: this.state.timerOn,
 	}
       );
     }
@@ -371,7 +376,9 @@ export default class Puzzle extends React.Component {
     );
 
     if (p) {
-      this.setState({ showPuzzleList: false, isLoading: false, ...p });
+      console.log("TimerOn: " + p.timerOn);
+      console.log("PuzzleTimer: " + p.puzzleTime);
+      this.setState({ showPuzzleList: false, isLoading: false, ...p, puzzleStartTime: Date.now() - p.puzzleTime });
       return;
     }
 
@@ -402,7 +409,11 @@ export default class Puzzle extends React.Component {
       let gridSolution = [];
 
       for (i = 0; i < len; i++) {
-        gridSolution[i] = data.solution[i];
+        gridSolution[i] = [];
+	var j;
+	for (j = 0; j < data.solution[i].length; j++) {
+	  gridSolution[i][j] = data.solution[i][j].toUpperCase();
+	}
       }
 
       const acrossClues = data.clues[0].map((c) => {
@@ -446,6 +457,9 @@ export default class Puzzle extends React.Component {
         gridHeight: data.height,
         meta: data.meta,
 	incorrectAnswersArray: incorrectAnswersArray,
+	puzzleStartTime: 0,
+	puzzleTime: 0,
+	timerOn: false,
       });
     }).catch((error) => {
       alert("Unable to load puzzle: " + error);
@@ -474,7 +488,9 @@ export default class Puzzle extends React.Component {
       const vals = lastPuzzle.split('-');
       const p = PuzzleStore.getPuzzle(vals[0], vals[1], vals[2], vals[3]);
       if (p) {
-	this.setState( { preferences: prefs, isLoading: false, ...p });
+	console.log("PuzzleTime: " + p.puzzleTime);
+	console.log("TimerOn: " + p.timerOn);
+	this.setState( { preferences: prefs, isLoading: false, ...p, puzzleStartTime: Date.now() - p.puzzleTime });
 	return;
       }
     } 
@@ -663,7 +679,7 @@ export default class Puzzle extends React.Component {
           this.state.preferences.timePuzzle &&
 	  this.state.puzzleStartTime === 0
       ) {
-	this.setState({ puzzleStartTime: Date.now() });
+	this.setState({ timerOn: true, puzzleStartTime: Date.now() });
       }
 
       /* answer was correct - now it might not be ... */
@@ -690,7 +706,7 @@ export default class Puzzle extends React.Component {
 
       if (incorrectAnswers === 0) {
         this.savePuzzle();
-        this.setState({ puzzleComplete: true });
+        this.setState({ timerOn: false, puzzleComplete: true });
       }
 
       this.focusNextInput(selectedX, selectedY);
@@ -1089,7 +1105,7 @@ export default class Puzzle extends React.Component {
   }
 
   resumePuzzle() {
-    this.setState((curState) => { return { showModal: false, puzzleStartTime: Date.now() - curState.puzzleTime }; });
+    this.setState((curState) => { return { timerOn: true, showModal: false, puzzleStartTime: Date.now() - curState.puzzleTime }; });
   }
   
   displayPrefs() {
@@ -1196,7 +1212,7 @@ export default class Puzzle extends React.Component {
   check(option) {
     const { userInput, gridSolution, incorrectAnswersArray, selectedX, selectedY } = this.state;
     
-    if (option.value === "Puzzle") {
+    if (option.value === "Grid") {
       this.checkPuzzle();
     } else if (option.value === "Letter") {
       if (userInput[selectedY][selectedX] !== gridSolution[selectedY][selectedX]) {
@@ -1260,7 +1276,7 @@ export default class Puzzle extends React.Component {
   }
 
   renderCheck() {
-    const options = ["Letter", "Word", "Puzzle"];
+    const options = ["Letter", "Word", "Grid"];
 
     return (
       <div className="CheckDropdown">
@@ -1286,6 +1302,25 @@ export default class Puzzle extends React.Component {
     this.setState( {showPrefs: false, showPuzzleList: false } );
   }
 
+  pauseTimer() {
+    this.setState((prevState) => { return( { timerOn: false , showModal: true, puzzleTime: Date.now() - prevState.puzzleStartTime  } ); } );
+  }
+  
+  renderStopwatch() {
+    if (!this.state.preferences.timePuzzle) {
+      return null;
+    }
+
+    return (
+	<Stopwatch
+          timerOn={this.state.timerOn}
+          timerStart={this.state.puzzleStartTime}
+          timerTime={this.state.puzzleTime}
+          onPause={this.pauseTimer}
+	/>
+    );
+  }
+  
   renderRestOfHeader() {
     if (this.state.showPrefs || this.state.showPuzzleList) {
       return (
@@ -1301,6 +1336,7 @@ export default class Puzzle extends React.Component {
 
     return (
       <div className="RightHeader">
+	{this.renderStopwatch()}
         {this.renderLoad()}
         {this.renderCheck()}
         {this.renderRevealDropdown()}
@@ -1463,15 +1499,6 @@ export default class Puzzle extends React.Component {
     }
   }
 
-  renderTime() {
-    const time = (Date.now() - this.state.puzzleStartTime) / 1000;
-
-    const mins = Math.floor(time/60);
-    const secs = Math.floor(time % 60);
-    
-    return (<span className="Time">Time: {mins}:{secs}</span>);
-  }
-  
   renderFooter() {
     if (this.state.showPrefs || this.state.showPuzzleList) {
       return null;
@@ -1482,7 +1509,6 @@ export default class Puzzle extends React.Component {
         <span className="Title">{this.state.meta.title}</span> <br />
         <span className="Author">{this.state.meta.author}</span> <br />
         <span className="Published">{this.state.meta.publisher}</span> <br />
-        {this.state.preferences.timePuzzle && this.renderTime()}
       </div>
     );
   }
