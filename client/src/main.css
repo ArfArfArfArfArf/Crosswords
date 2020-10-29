@@ -95,6 +95,31 @@
   flex-direction: row;
   justify-content: flex-end;
 }
+.Puzzle .PuzzleHeader .MenuHeader .RightHeader button {
+  background-color: #3e68ff;
+  color: #fff;
+  border-radius: 0.5rem;
+  border-width: 0;
+  text-align: center;
+  line-height: 1.1;
+  padding: 0.25rem 0.75rem;
+  min-width: 10ch;
+  transition: 220ms all ease-in-out;
+}
+.Puzzle .PuzzleHeader .MenuHeader .RightHeader button:hover, .Puzzle .PuzzleHeader .MenuHeader .RightHeader button:active {
+  background-color: #0037fe;
+}
+.Puzzle .PuzzleHeader .MenuHeader .RightHeader button:focus {
+  outline-style: solid;
+  outline-color: transparent;
+  box-shadow: 0 0 0 4px #0029be;
+}
+.Puzzle .PuzzleHeader .MenuHeader .RightHeader .CheckDropdown {
+  margin-left: 0.25rem;
+}
+.Puzzle .PuzzleHeader .MenuHeader .RightHeader .RevealDropdown {
+  margin-left: 0.25rem;
+}
 .Puzzle .PuzzleHeader .RevealDropdown {
   display: flex;
   flex-direction: row;
@@ -190,6 +215,69 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.is-open .Dropdown-control {
+  background-color: #0037fe;
+  color: #fff;
+}
+
+.Dropdown-control {
+  background-color: #3e68ff;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+}
+.Dropdown-control:hover, .Dropdown-control:active {
+  background-color: #0037fe;
+}
+.Dropdown-control .Dropdown-arrow-closed {
+  border-color: #fff transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-top: -ceil(2.5);
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 0;
+}
+.Dropdown-control .Dropdown-arrow-open {
+  border-color: transparent transparent #fff;
+  border-style: solid;
+  border-width: 0 5px 5px;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-top: -ceil(2.5);
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 0;
+}
+.Dropdown-control:focus {
+  outline-style: solid;
+  outline-color: transparent;
+  box-shadow: 0 0 0 4px #0029be;
+}
+
+.Dropdown-menu {
+  background-color: #3e68ff;
+  color: #fff;
+}
+
+.Dropdown-option {
+  background-color: #3e68ff;
+  color: #fff;
+}
+.Dropdown-option:hover, .Dropdown-option:active {
+  background-color: #0037fe;
+}
+
+.Dropdown-option:hover {
+  color: #fff;
 }
 
 .PuzzleGrid {

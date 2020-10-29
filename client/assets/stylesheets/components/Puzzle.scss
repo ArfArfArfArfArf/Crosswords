@@ -1,3 +1,6 @@
+$btnColor: #3e68ff;
+
+
 .Puzzle {
   position: relative;
   display: flex;
@@ -24,10 +27,43 @@
       width: 100%;
       
       .RightHeader {
-	  width: 100%;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
+
+	button {
+	  background-color: $btnColor;
+	  color: #fff;
+	  border-radius: 0.5rem;
+	  border-width: 0;
+	  
+	  text-align: center;
+	  line-height: 1.1;
+	  padding: 0.25rem 0.75rem;
+	  min-width: 10ch;
+
+	  &:hover,
+	  &:active {
+	    background-color: scale-color($btnColor, $lightness: -20%);
+	  }
+
+	  transition: 220ms all ease-in-out;
+
+	  &:focus {
+	    outline-style: solid;
+	    outline-color: transparent;
+	    box-shadow: 0 0 0 4px scale-color($btnColor, $lightness: -40%);
+	  }
+	}
+
+	.CheckDropdown {
+	  margin-left: 0.25rem;
+	}
+
+	.RevealDropdown {
+	  margin-left: 0.25rem;
+	}
       }
     }
 
@@ -142,3 +178,75 @@
   justify-content: center;
   align-items: center;
 }
+
+.is-open .Dropdown-control {
+  background-color: scale-color($btnColor, $lightness: -20%);
+  color: #fff;
+}
+  
+.Dropdown-control {
+  background-color: $btnColor;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+  &:hover,
+  &:active {
+    background-color: scale-color($btnColor, $lightness: -20%);
+  }
+  
+  .Dropdown-arrow-closed {
+      border-color: #fff transparent transparent;
+      border-style: solid;
+      border-width: 5px 5px 0;
+      content: ' ';
+      display: block;
+      height: 0;
+      margin-top: -ceil(2.5);
+      position: absolute;
+      right: 10px;
+      top: 14px;
+      width: 0
+  }
+  
+  .Dropdown-arrow-open {
+      border-color: transparent transparent #fff;
+      border-style: solid;
+      border-width: 0 5px 5px;
+      content: ' ';
+      display: block;
+      height: 0;
+      margin-top: -ceil(2.5);
+      position: absolute;
+      right: 10px;
+      top: 14px;
+      width: 0
+  }
+  
+  &:focus {
+      outline-style: solid;
+      outline-color: transparent;
+      box-shadow: 0 0 0 4px scale-color($btnColor, $lightness: -40%);
+  }
+}
+
+.Dropdown-menu {
+    background-color: $btnColor;
+    color: #fff;
+}
+
+.Dropdown-option {
+    background-color: $btnColor;
+    color: #fff;
+    
+    &:hover,
+    &:active {
+	background-color: scale-color($btnColor, $lightness: -20%);
+    }
+}
+
+.Dropdown-option:hover {
+  color: #fff;
+}
+
+

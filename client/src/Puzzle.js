@@ -376,8 +376,6 @@ export default class Puzzle extends React.Component {
     );
 
     if (p) {
-      console.log("TimerOn: " + p.timerOn);
-      console.log("PuzzleTimer: " + p.puzzleTime);
       this.setState({ showPuzzleList: false, isLoading: false, ...p, puzzleStartTime: Date.now() - p.puzzleTime });
       return;
     }
@@ -488,8 +486,6 @@ export default class Puzzle extends React.Component {
       const vals = lastPuzzle.split('-');
       const p = PuzzleStore.getPuzzle(vals[0], vals[1], vals[2], vals[3]);
       if (p) {
-	console.log("PuzzleTime: " + p.puzzleTime);
-	console.log("TimerOn: " + p.timerOn);
 	this.setState( { preferences: prefs, isLoading: false, ...p, puzzleStartTime: Date.now() - p.puzzleTime });
 	return;
       }
@@ -566,7 +562,7 @@ export default class Puzzle extends React.Component {
   }
 
   gridInput(event) {
-    const { data, inputType, navigationType } = event;
+    const { data, inputType, navigationType, shiftKey } = event;
     const {
       userInput,
       selectedX,
@@ -632,6 +628,22 @@ export default class Puzzle extends React.Component {
       }
     }
 
+    if (data === "Tab") {
+      if (gridDirection === direction.ACROSS) {
+	if (shiftKey) {
+	  this.focusLeft(selectedX, selectedY);
+	} else {
+	  this.focusRight(selectedX, selectedY);
+	}
+      } else {
+	if (shiftKey) {
+	  this.focusUp(selectedX, selectedY);
+	} else {
+	  this.focusDown(selectedX, selectedY);
+	}
+      }
+    }
+    
     if (data === "Enter") {
       if (this.state.preferences.enterKey === "change") {
         this.reverseDirection();
@@ -1138,7 +1150,8 @@ export default class Puzzle extends React.Component {
     } = this.state;
 
     let ia = incorrectAnswers;
-
+    let puzzleComplete = false;
+    
     if (option.value === "Letter") {
       if (
         userInput[selectedY][selectedX] !== gridSolution[selectedY][selectedX]
@@ -1192,7 +1205,11 @@ export default class Puzzle extends React.Component {
       }
     }
 
-    this.setState({ userInput, incorrectAnswers: ia });
+    if (ia === 0) {
+      puzzleComplete = true;
+    }
+    
+    this.setState({ userInput, incorrectAnswers: ia, puzzleComplete });
   }
 
   renderRevealDropdown() {
@@ -1201,6 +1218,9 @@ export default class Puzzle extends React.Component {
     return (
       <div className="RevealDropdown">
         <Dropdown
+          tabindex="0"
+          arrowOpen=<span className="Dropdown-arrow-open" />
+	  arrowClosed=<span className="Dropdown-arrow-closed" />
           options={options}
           onChange={this.reveal}
           placeholder={"Reveal..."}
@@ -1215,7 +1235,7 @@ export default class Puzzle extends React.Component {
     if (option.value === "Grid") {
       this.checkPuzzle();
     } else if (option.value === "Letter") {
-      if (userInput[selectedY][selectedX] !== gridSolution[selectedY][selectedX]) {
+      if (userInput[selectedY][selectedX] !== '' && userInput[selectedY][selectedX].toUpperCase() !== gridSolution[selectedY][selectedX].toUpperCase()) {
 	incorrectAnswersArray[selectedY][selectedX] = 1;
 	this.setState({ incorrectAnswersArray });
       }
@@ -1235,7 +1255,7 @@ export default class Puzzle extends React.Component {
       }
 
       while (x < gridWidth && gridSolution[selectedY][x] !== '.') {
-	if (userInput[selectedY][x] !== gridSolution[selectedY][x]) {
+	if (userInput[selectedY][x] !== '' && userInput[selectedY][x].toUpperCase() !== gridSolution[selectedY][x].toUpperCase()) {
 	  incorrectAnswersArray[selectedY][x] = 1;
 	}
 	++x;
@@ -1248,7 +1268,7 @@ export default class Puzzle extends React.Component {
       }
 
       while (y < gridHeight && gridSolution[y][selectedX] !== '.') {
-	if (userInput[y][selectedX] !== gridSolution[y][selectedX]) {
+	if (userInput[y][selectedX] !== '' && userInput[y][selectedX].toUpperCase() !== gridSolution[y][selectedX].toUpperCase()) {
 	  incorrectAnswersArray[y][selectedX] = 1;
 	}
 	++y;
@@ -1265,7 +1285,7 @@ export default class Puzzle extends React.Component {
     for (i = 0; i < gridHeight; i++) {
       for (j = 0; j < gridWidth; j++) {
         if (userInput[i][j] !== '' && 
-          userInput[i][j] !== gridSolution[i][j]
+            userInput[i][j].toUpperCase() !== gridSolution[i][j].toUpperCase()
         ) {
 	  incorrectAnswersArray[i][j] = 1;
         }
@@ -1281,6 +1301,9 @@ export default class Puzzle extends React.Component {
     return (
       <div className="CheckDropdown">
         <Dropdown
+          tabindex="0"
+          arrowOpen=<span className="Dropdown-arrow-open" />
+	  arrowClosed=<span className="Dropdown-arrow-closed" />
           options={options}
           onChange={this.check}
           placeholder={"Check..."}
