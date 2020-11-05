@@ -196,7 +196,6 @@ func findPuzzle(puzzle, year, month, day string) (string, error) {
 
 	/*  NYT_DAILY: "NYTD",
   WSJ: "WSJ",
-  BOSTON_GLOBE: "BG",
 */
 	switch puzzle {
 	case "PD":
@@ -204,7 +203,7 @@ func findPuzzle(puzzle, year, month, day string) (string, error) {
 	case "ARK":
 		return "http://cdn.arenaconnect.arkadiumhosted.com/clients/Boatload/puzzle_" + date + ".xml", nil
 	case "BG":
-		return "", nil
+		return "https://www.bostonglobe.com/games-comics/crossword/", nil
 	case "KFS":
 		newDate := fmt.Sprintf("%04d%02d%02d", y + 2000, m, d)
 		return "http://puzzles.kingdigital.com/jpz/Premier/" + newDate + ".jpz", nil
@@ -287,6 +286,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	
 	transport := http.Transport{}
 
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36")
+	req.Header.Set("Accept", "*")
+	
 	var resp *http.Response
 	
 	for resp == nil {

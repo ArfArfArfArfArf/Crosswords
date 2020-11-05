@@ -15,6 +15,7 @@ import WSJParser from "./parsers/WSJParser";
 import LATimesParser from "./parsers/LATimesParser";
 import BrainsOnlyParser from "./parsers/BrainsOnlyParser";
 import OnlineCrosswordsParser from "./parsers/OnlineCrosswordsParser";
+import BostonGlobeParser from "./parsers/BostonGlobeParser";
 import PuzzleStore from "./stores/PuzzleStore";
 import PuzzleList from "./PuzzleList";
 import PuzzleInfo from "./PuzzleInfo";
@@ -129,8 +130,6 @@ export default class Puzzle extends React.Component {
     const MON_TO_SAT = MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY;
     const MON_TO_THU_SAT = MONDAY | TUESDAY | WEDNESDAY | THURSDAY | SATURDAY;
 
-    
-
     this.puzzles = [
       new PuzzleInfo(WEEKLY, puzzleNames.NYT_DAILY, puzzleIDs.NYT_DAILY, puzzleTypes.ACROSS_LITE, puzzleFlags.NO_FLAG, true, "Daily, subscription required"),
       new PuzzleInfo(WEEKLY, puzzleNames.LA_TIMES, puzzleIDs.LA_TIMES, puzzleTypes.UCLICK, puzzleFlags.NO_FLAG, true, "Daily"),
@@ -157,7 +156,7 @@ export default class Puzzle extends React.Component {
       new PuzzleInfo(THURSDAY, puzzleNames.JONESIN, puzzleIDs.JONESIN, puzzleTypes.ACROSS_LITE, puzzleFlags.NO_FLAG, true, "Thursday"),
       new PuzzleInfo(FRIDAY, puzzleNames.BEQ_FRIDAY, puzzleIDs.BEQ_FRIDAY, puzzleTypes.ACROSS_LITE, puzzleFlags.NO_FLAG, true, "Friday"),
       new PuzzleInfo(SUNDAY, puzzleNames.KFSPREMIER, puzzleIDs.KFSPREMIER, puzzleTypes.UCLICK, puzzleFlags.NO_FLAG, true, "Sunday"),
-      new PuzzleInfo(SUNDAY, puzzleNames.BOSTON_GLOBE, puzzleIDs.BOSTON_GLOBE, puzzleTypes.WSJ, puzzleFlags.NO_ARCHIVE, true, "Sunday, no archive"),
+      new PuzzleInfo(SUNDAY, puzzleNames.BOSTON_GLOBE, puzzleIDs.BOSTON_GLOBE, puzzleTypes.BOSTON_GLOBE, puzzleFlags.NO_ARCHIVE, true, "Sunday, no archive"),
     ];
   }
 
@@ -375,11 +374,11 @@ export default class Puzzle extends React.Component {
       puzzleDay
     );
 
-    if (p) {
+/*    if (p) {
       this.setState({ showPuzzleList: false, isLoading: false, ...p, puzzleStartTime: Date.now() - p.puzzleTime });
       return;
     }
-
+*/
     var puz;
 /*
   KFS: 4,
@@ -395,6 +394,8 @@ export default class Puzzle extends React.Component {
       puz = new BrainsOnlyParser();
     } else if (puzzleType === puzzleTypes.ONLINE_CROSSWORDS) {
       puz = new OnlineCrosswordsParser();
+    } else if (puzzleType === puzzleTypes.BOSTON_GLOBE) {
+      puz = new BostonGlobeParser();
     }
 
     puz.setUrl(puzzle).then((data) => {
@@ -410,7 +411,11 @@ export default class Puzzle extends React.Component {
         gridSolution[i] = [];
 	var j;
 	for (j = 0; j < data.solution[i].length; j++) {
-	  gridSolution[i][j] = data.solution[i][j].toUpperCase();
+	  if (typeof data.solution[i][j] === "string") {
+	    gridSolution[i][j] = data.solution[i][j].toUpperCase();
+	  } else if (typeof data.solution[i][j] === "object") {
+	    gridSolution[i][j] = data.solution[i][j]['0'].toUpperCase();
+	  }
 	}
       }
 
@@ -424,7 +429,7 @@ export default class Puzzle extends React.Component {
       var incorrectAnswersArray = [];
 
       for (i = 0; i < data.height; i++) {
-	incorrectAnswersArray[i] = Array(data.widht).fill(0);
+	incorrectAnswersArray[i] = Array(data.width).fill(0);
       }
 
       PuzzleStore.storePuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay, {

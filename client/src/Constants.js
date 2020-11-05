@@ -79,6 +79,7 @@ export const puzzleTypes = {
   KFS: 4,
   WSJ: 5,
   NYT: 6,
+  BOSTON_GLOBE: 7,
 };
 
 export const puzzleFlags = {

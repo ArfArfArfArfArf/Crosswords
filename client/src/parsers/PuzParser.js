@@ -40,7 +40,12 @@ export default class PuzParser {
 
     puzInfo.clues[0] = acrossClues;
     puzInfo.clues[1] = downClues;
-    puzInfo.circledClues = json.circles;
+
+    if (json.circles.length === puzInfo.height) {
+      puzInfo.circledClues = json.circles;
+    } else {
+      puzInfo.circledClues = [];
+    }
 
     puzInfo.meta = {};
     puzInfo.meta.title = json.meta.title;
