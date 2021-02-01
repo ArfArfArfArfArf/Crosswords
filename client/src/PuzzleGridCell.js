@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { inputStates } from "./Constants";
 
 const IS_INPUT_SUPPORTED = (function () {
   try {
@@ -39,7 +40,8 @@ export default class PuzzleGridCell extends React.Component {
     inCurrentWord: PropTypes.bool.isRequired,
     isSelectedInput: PropTypes.bool.isRequired,
     circled: PropTypes.bool.isRequired,
-    isIncorrect: PropTypes.bool.isRequired,
+    inputState: PropTypes.number.isRequired,
+    showWrongAnswers: PropTypes.bool.isRequired,
   };
 
   constructor(props) {
@@ -159,7 +161,7 @@ export default class PuzzleGridCell extends React.Component {
   }
 
   render() {
-    const { userValue, clueNumber } = this.props;
+    const { userValue, clueNumber, inputState, showWrongAnswers } = this.props;
 
     let className = "GridCell";
     let valueClassName = "clueValue";
@@ -176,7 +178,7 @@ export default class PuzzleGridCell extends React.Component {
       valueClassName += " black";
     }
 
-    if (this.props.isIncorrect) {
+    if ((inputState === inputStates.INCORRECT && showWrongAnswers) || inputState === inputStates.CHECKED_INCORRECT) {
       className += " incorrect";
       valueClassName += " red";
     }

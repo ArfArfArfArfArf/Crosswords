@@ -305,7 +305,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		} else if (loopR.StatusCode == 200) {
 			resp = loopR;
 		} else {
-			http.Error(w, err.Error(), http.StatusNotFound)
+			http.Error(w, "Unknown error", http.StatusNotFound)
 			return;
 		}
 	}

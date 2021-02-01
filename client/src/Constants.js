@@ -86,3 +86,10 @@ export const puzzleFlags = {
   NO_FLAGS: 0,
   NO_ARCHIVE: 1,
 };
+
+export const inputStates = {
+  NO_INPUT: 0,
+  CORRECT: 1,
+  INCORRECT: 2,
+  CHECKED_INCORRECT: 3,
+};
