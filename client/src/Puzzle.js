@@ -360,11 +360,6 @@ export default class Puzzle extends React.Component {
       isLoading: true,
       preferences: prefs,
       puzzleComplete: false,
-      puzzleName: puzzleName,
-      puzzleType: puzzleType,
-      puzzleYear: puzzleYear,
-      puzzleMonth: puzzleMonth,
-      puzzleDay: puzzleDay,
     });
 
     const p = PuzzleStore.getPuzzle(
@@ -374,16 +369,13 @@ export default class Puzzle extends React.Component {
       puzzleDay
     );
 
-/*    if (p) {
+    if (p) {
       this.setState({ showPuzzleList: false, isLoading: false, ...p, puzzleStartTime: Date.now() - p.puzzleTime });
       return;
     }
-*/
+
     var puz;
-/*
-  KFS: 4,
-  NYT: 6,
-*/
+
     if (puzzleType === puzzleTypes.ACROSS_LITE) {
       puz = new PuzParser();
     } else if (puzzleType === puzzleTypes.WSJ) {
@@ -450,6 +442,11 @@ export default class Puzzle extends React.Component {
       });
 
       this.setState({
+	puzzleName: puzzleName,
+	puzzleType: puzzleType,
+	puzzleYear: puzzleYear,
+	puzzleMonth: puzzleMonth,
+	puzzleDay: puzzleDay,
 	showPuzzleList: false,
         isLoading: false,
         acrossClues: acrossClues,
