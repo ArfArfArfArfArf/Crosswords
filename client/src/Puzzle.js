@@ -212,7 +212,7 @@ export default class Puzzle extends React.Component {
     let acrossNumbers = [];
     let incrementClueNumber = true;
     let incorrectAnswers = 0;
-
+    
     for (i = 0; i < solution.length; i++) {
       for (j = 0; j < solution[i].length; j++) {
         if (i === 0) {

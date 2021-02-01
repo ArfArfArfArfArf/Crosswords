@@ -52,7 +52,7 @@ class PuzzleColumn extends React.Component {
     return(
       <div className="PuzzleListContainer">
         <h3>Available Puzzles</h3>
-	Drang and drop to re-order the puzzles, click on the checkbox to enable/disable puzzle
+	Drag and drop to re-order the puzzles, click on the checkbox to enable/disable puzzle
 	<Droppable droppableId="puzzles">
 	{ (provided) => (
 	    <div
