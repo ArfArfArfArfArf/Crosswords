@@ -1544,7 +1544,7 @@ export default class Puzzle extends React.Component {
   }
 
   renderModal() {
-    if (this.state.puzzleComplete) {
+    if (this.state.puzzleComplete || this.state.showPuzzleList || this.state.showPrefs) {
       return null;
     }
 
