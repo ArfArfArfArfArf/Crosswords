@@ -17,6 +17,10 @@ class PuzzleStore {
     });
   }
 
+  deletePuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay) {
+    delete ls.remove(`${puzzleName}-${puzzleYear}:${puzzleMonth}:${puzzleDay}`);
+  }
+  
   storePuzzle(puzzleName, puzzleYear, puzzleMonth, puzzleDay, puzzleData) {
     ls.set(
       `${puzzleName}-${puzzleYear}:${puzzleMonth}:${puzzleDay}`,

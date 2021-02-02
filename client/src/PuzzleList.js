@@ -3,7 +3,7 @@ import PuzzleStore from './stores/PuzzleStore';
 import { daysOfTheWeek } from "./Constants";
 import PuzzleInfo from './PuzzleInfo';
 import PropTypes from 'prop-types';
-import { GoCheck } from "react-icons/go";
+import { GoX, GoCheck } from "react-icons/go";
 import { puzzleFlags } from './Constants';
 
 export default class PuzzleList extends React.Component {
@@ -43,54 +43,71 @@ export default class PuzzleList extends React.Component {
     this.props.puzzleSelected(id, date);
   }
 
-  renderPuzzleData(puzzleInfo) {
-    if (puzzleInfo.puzzleComplete) {
-      return (
-	  <div className="PuzzleData">
-            <GoCheck
-              style={{ color: "green", width: "2rem", height: "2rem" }}
-              aria-label="Completed"
-            />
-	    Completed
-	</div>
-      );
-    } else {
-      const { gridWidth, gridHeight, gridSolution } = puzzleInfo;
+  renderDelete(date, name) {
+    const year = date.getFullYear() - 2000;
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
 
-      var i,j, count;
+    return (
+	<GoX
+          style={{ cursor: "hand", width: "1rem", height: "1rem", right: 0 }}
+          aria-label="Close Preferences"
+          onClick={this.deletePuzzle.bind(this, name, year, month, day)}
+        />
 
-      count = 0;
+    );
+  }
+
+  deletePuzzle(name, year, month, day) {
+    PuzzleStore.deletePuzzle(name, year, month, day);
+    this.forceUpdate();
+  }
+  
+  renderPuzzleData(date, name, puzzleInfo) {
+    if (puzzleInfo) {
+      if (puzzleInfo.puzzleComplete) {
+	return (
+	    <div className="PuzzleData">
+              <GoCheck
+                style={{ color: "green", width: "2rem", height: "2rem" }}
+                aria-label="Completed"
+              />
+	      Completed
+	      {this.renderDelete(date, name)}
+	    </div>
+	);
+      } else {
+	const { gridWidth, gridHeight, gridSolution } = puzzleInfo;
+
+	var i,j, count;
+
+	count = 0;
       
-      for (i = 0; i < gridHeight; i++) {
-	for (j = 0; j < gridWidth; j++) {
-	  if (gridSolution[i][j] !== '.') {
-	    ++count;
+	for (i = 0; i < gridHeight; i++) {
+	  for (j = 0; j < gridWidth; j++) {
+	    if (gridSolution[i][j] !== '.') {
+	      ++count;
+	    }
 	  }
 	}
+	return (
+	    <div className="PuzzleData">
+	      {Math.floor(100 * (count - puzzleInfo.incorrectAnswers)/count)}% complete
+	      {this.renderDelete(date, name)}
+	    </div>
+	);
       }
-      return (
-	  <div className="PuzzleData">
-	  {Math.floor(100 * (count - puzzleInfo.incorrectAnswers)/count)}% complete
-	  </div>
-      );
     }
+    return null;
   }
 
   renderPuzzleInfo(index, puzzle, date, puzzleInfo) {
-    if (!puzzleInfo) {
-      return (
-	  <div className="PuzzleInfo NoData">
-	    <span className="PuzzleName" onClick={this.puzzleClick.bind(this, index, date.toString())}>{puzzle.name}</span>
-	  </div>
-      );
-    } else {
-      return (
-	  <div className="PuzzleInfo">
-	    <span className="PuzzleName" onClick={this.puzzleClick.bind(this, index, date.toString())}>{puzzle.name}</span>
-	    {this.renderPuzzleData(puzzleInfo)}
-	  </div>
-      );
-    }
+    return (
+	<div className="PuzzleInfo">
+	  <span className="PuzzleName" onClick={this.puzzleClick.bind(this, index, date.toString())}>{puzzle.name}</span>
+	  {this.renderPuzzleData(date, puzzle.name, puzzleInfo)}
+        </div>
+    );
   }
 
   renderDay(date, archived) {
