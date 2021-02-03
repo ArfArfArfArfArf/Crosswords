@@ -125,7 +125,14 @@ func findWSJUrl(date string) (string, error) {
 		return url, nil
 	}
 
-	resp, err := http.Get("https://www.wsj.com/news/puzzle")
+	req, err := http.NewRequest("GET", "https://www.wsj.com/news/puzzle", nil)
+	
+	transport := http.Transport{}
+
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36")
+	req.Header.Set("Accept", "*")
+	
+	resp, err := transport.RoundTrip(req)
 
 	if err != nil {
 		return "", err
@@ -152,7 +159,16 @@ func findWSJUrl(date string) (string, error) {
 	
 	if (len(match) == 2) {
 		log.Println("Fetching: " + match[1])
-		resp, err := http.Get(match[1])
+		req, err := http.NewRequest("GET", match[1], nil)
+	
+		if err != nil {
+			return "", err
+		}
+
+		req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36")
+		req.Header.Set("Accept", "*")
+
+		resp, err := transport.RoundTrip(req)
 
 		if err != nil {
 			return "", err
@@ -171,9 +187,6 @@ func findWSJUrl(date string) (string, error) {
 
 		match := re.FindStringSubmatch(string(body))
 		
-	log.Println("Matches: ")
-	log.Println(match)
-
 		if (len(match) == 3) {
 			url := "https://s3.amazonaws.com/djcs-prod/public/blogs/puzzles/crossword/" + match[1] + "/" + match[2] + "/data.json";
 			
