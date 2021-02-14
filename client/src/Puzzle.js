@@ -74,6 +74,8 @@ export default class Puzzle extends React.Component {
       downClues: [],
       circledClues: [],
       meta: [],
+      showIncorrectTotal: false,
+      incorrectTotalShown: false,
     };
 
     this.gridClick = this.gridClick.bind(this);
@@ -91,6 +93,7 @@ export default class Puzzle extends React.Component {
     this.puzzleSelected = this.puzzleSelected.bind(this);
     this.showMain = this.showMain.bind(this);
     this.pauseTimer = this.pauseTimer.bind(this);
+    this.closeAlmost = this.closeAlmost.bind(this);
     
     if (typeof document.hidden !== "undefined") {
       // Opera 12.10 and Firefox 18 and later support
@@ -274,6 +277,7 @@ export default class Puzzle extends React.Component {
       selectedX: x,
       selectedY: y,
       incorrectAnswers: incorrectAnswers,
+      totalAnswers: incorrectAnswers,
     });
   }
 
@@ -317,6 +321,7 @@ export default class Puzzle extends React.Component {
 	  selectedX: this.state.selectedX,
 	  selectedY: this.state.selectedY,
 	  incorrectAnswers: this.state.incorrectAnswers,
+	  totalAnswers: this.state.totalAnswers,
 	  puzzleComplete: this.state.puzzleComplete,
 	  gridDirection: this.state.gridDirection,
 	  puzzleTime: Date.now() - this.state.puzzleStartTime,
@@ -461,6 +466,8 @@ export default class Puzzle extends React.Component {
 	puzzleStartTime: 0,
 	puzzleTime: 0,
 	timerOn: false,
+	showIncorrectTotal: false,
+	incorrectTotalShown: false,
       });
     }).catch((error) => {
       alert("Unable to load puzzle: " + error);
@@ -579,19 +586,20 @@ export default class Puzzle extends React.Component {
       inputType === "deleteContentBackward" ||
       inputType === "deleteContentForward"
     ) {
-      let incorrectAnswers = this.state.incorrectAnswers;
+      let { incorrectAnswers, totalAnswers }  = this.state;
 
-      if (
-        userInput[selectedY][selectedX] !== "" &&
-        userInput[selectedY][selectedX] === gridSolution[selectedY][selectedX]
-      ) {
-        ++incorrectAnswers;
+      if (userInput[selectedY][selectedX] !== "") {
+	++totalAnswers;
+	
+	if (userInput[selectedY][selectedX] === gridSolution[selectedY][selectedX]) {
+          ++incorrectAnswers;
+	}
       }
 
       userInput[selectedY][selectedX] = "";
       inputState[selectedY][selectedX] = inputStates.NO_INPUT;
       
-      this.setState({ userInput, incorrectAnswers, inputState });
+      this.setState({ userInput, totalAnswers, incorrectAnswers, inputState });
       this.focusPreviousInput(selectedX, selectedY);
 
       return;
@@ -687,7 +695,7 @@ export default class Puzzle extends React.Component {
         (data >= "A" && data <= "Z") ||
         (data >= "0" && data <= "9"))
     ) {
-      let { incorrectAnswers, inputState } = this.state;
+      let { totalAnswers, incorrectAnswers, inputState } = this.state;
 
       if (
         !this.state.puzzleComplete &&
@@ -697,6 +705,10 @@ export default class Puzzle extends React.Component {
 	this.setState({ timerOn: true, puzzleStartTime: Date.now() });
       }
 
+      if (userInput[selectedY][selectedX] === '') {
+	--totalAnswers;
+      }
+      
       /* answer was correct - now it might not be ... */
       if (
         userInput[selectedY][selectedX] ===  gridSolution[selectedY][selectedX]
@@ -715,8 +727,12 @@ export default class Puzzle extends React.Component {
 	inputState[selectedY][selectedX] = inputStates.INCORRECT;
       }
 
-      this.setState({ inputState, userInput, incorrectAnswers });
+      this.setState({ totalAnswers, inputState, userInput, incorrectAnswers });
 
+      if (totalAnswers === 0 && incorrectAnswers !== 0) {
+	this.setState( { showIncorrectTotal: true } );
+      }
+      
       if (incorrectAnswers === 0) {
         this.savePuzzle();
         this.setState({ timerOn: false, puzzleComplete: true });
@@ -1475,7 +1491,7 @@ export default class Puzzle extends React.Component {
       return (
         <Preferences
           setPreferences={this.setPreferences}
-          { ...this.state.preferences }
+          {...this.state.preferences }
         />
       );
     } else {
@@ -1543,9 +1559,35 @@ export default class Puzzle extends React.Component {
     );
   }
 
+  closeAlmost() {
+    this.setState({ showIncorrectTotal: false, incorrectTotalShown: true });
+  }
+    
   renderModal() {
     if (this.state.puzzleComplete || this.state.showPuzzleList || this.state.showPrefs) {
       return null;
+    }
+
+    if (this.state.showIncorrectTotal) {
+      if (this.state.incorrectTotalShow) {
+	return null;
+      }
+
+      return (
+	  <ReactModal
+	    isOpen={this.state.showIncorrectTotal}
+	    contentLable="Almost there ..."
+	    onRequestClose={this.closeAlmost}
+	    shouldCloseOnOverlayClick={false}
+	    className="Modal"
+	  >
+ 	    <div className="PuzzleModalContent">
+	      <h2> Almost there ...</h2>
+	      <p>You have {this.state.incorrectAnswers} incorrect answers in the puzzle.</p>
+              <button onClick={this.closeAlmost}>Resume</button>
+	    </div>
+	  </ReactModal>
+      );
     }
 
     return (
