@@ -182,10 +182,13 @@ export default class Puzzle extends React.Component {
     if (
       !this.state.puzzleComplete &&
       this.state.preferences.timePuzzle &&
-      this.state.puzzleStartTime &&
-      document[this.hidden]
+      this.state.puzzleStartTime
     ) {
-      this.setState({ timerOn: false, showModal: true, puzzleTime: Date.now() - this.state.puzzleStartTime });
+      if (document[this.hidden]) {
+	this.setState((curState) => { return ({ timerOn: false, showModal: false, puzzleTime: Date.now() - curState.puzzleStartTime }); });
+      } else {
+	this.setState((curState) => { return ({ timerOn: true, showModal: false, puzzleStartTime: Date.now() - curState.puzzleTime }); });
+      }
     }
   }
 

@@ -300,7 +300,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	transport := http.Transport{}
 
 	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36")
-	req.Header.Set("Accept", "*")
+	req.Header.Set("Accept", "application/xml, *")
+	req.Header.Set("Accept-Encoding", "*")
+	req.Header.Set("Accept-Charset", "*")
+	req.Header.Set("Accept-Language", "*")
 	
 	var resp *http.Response
 	
@@ -308,16 +311,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		loopR, err := transport.RoundTrip(req)
 
 		if err != nil {
+			log.Println("Error: " + err.Error())
 			http.Error(w, err.Error(), http.StatusNotFound)
 			return;
 		}
 
 		if (loopR.StatusCode == 301) {
 			url = loopR.Header.Get("Location")
+			log.Println("Redirect: " + url)
 			req, err = http.NewRequest("GET", url, nil)
 		} else if (loopR.StatusCode == 200) {
 			resp = loopR;
 		} else {
+			log.Println("Unknown Error: " + strconv.Itoa(loopR.StatusCode))
 			http.Error(w, "Unknown error", http.StatusNotFound)
 			return;
 		}
