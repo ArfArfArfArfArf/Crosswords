@@ -1234,7 +1234,7 @@ export default class Puzzle extends React.Component {
       puzzleComplete = true;
     }
     
-    this.setState({ userInput, incorrectAnswers: ia, puzzleComplete, inputState });
+    this.setState({ timerOn: !puzzleComplete, userInput, incorrectAnswers: ia, puzzleComplete, inputState });
   }
 
   renderRevealDropdown() {
