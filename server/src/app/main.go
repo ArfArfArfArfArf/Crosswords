@@ -130,7 +130,7 @@ func findWSJUrl(date string) (string, error) {
 	transport := http.Transport{}
 
 	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36")
-	req.Header.Set("Accept", "*")
+	req.Header.Set("Accept", "*/*")
 	
 	resp, err := transport.RoundTrip(req)
 
@@ -166,7 +166,7 @@ func findWSJUrl(date string) (string, error) {
 		}
 
 		req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36")
-		req.Header.Set("Accept", "*")
+		req.Header.Set("Accept", "*/*")
 
 		resp, err := transport.RoundTrip(req)
 
@@ -300,7 +300,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	transport := http.Transport{}
 
 	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36")
-	req.Header.Set("Accept", "application/xml, *")
+	req.Header.Set("Accept", "*/*")
 	req.Header.Set("Accept-Encoding", "*")
 	req.Header.Set("Accept-Charset", "*")
 	req.Header.Set("Accept-Language", "*")
