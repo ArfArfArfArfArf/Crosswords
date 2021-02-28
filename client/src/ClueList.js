@@ -14,6 +14,7 @@ export default class ClueList extends React.Component {
     onClueClicked: PropTypes.func.isRequired,
     gridHeight: PropTypes.number.isRequired,
     obscured: PropTypes.bool.isRequired,
+    alternates: PropTypes.arrayOf(PropTypes.string),
   };
 
   constructor(props) {
@@ -73,7 +74,8 @@ export default class ClueList extends React.Component {
                   onClick={this.onClick}
                   className={classnames({
                     Clue: true,
-                    highlighted:
+		    secondary: -1 !== this.props.alternates.findIndex(i => i === v.toString()),
+                    offclue:
                       v === this.props.selectedClue && !this.props.primary,
                     primary:
                       v === this.props.selectedClue && this.props.primary,

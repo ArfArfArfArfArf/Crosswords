@@ -1481,7 +1481,64 @@ export default class Puzzle extends React.Component {
     }
   }
 
+  findMatches(clue) {
+    let matches = [];
+    matches.across = [];
+    matches.down = [];
 
+    var acrossReg = new RegExp(/-Across/i);
+    var downReg = new RegExp(/-Down/i);
+
+    let am = acrossReg.exec(clue);
+    let dm = downReg.exec(clue);
+
+    // both clues match -Across && -Down ...
+    if (am && dm) {
+      let acrStr = "";
+      let dwnStr = "";
+      
+      if (am.index < dm.index) {
+	acrStr = clue.substring(am.index);
+	dwnStr = clue.substring(am.index + 6, dm.index);
+      } else {
+	acrStr = clue.substring(dm.index + 4, am.index);
+	dwnStr = clue.substring(dm.index);
+      }
+
+      var numReg = new RegExp(/(\d+)-/g);
+
+      let acm = numReg.exec(acrStr);
+
+      while (acm) {
+	matches.across = matches.across.concat(acm[1]);
+	acm = numReg.exec(acrStr);
+      }
+
+      let dwm = numReg.exec(dwnStr);
+
+      while (dwm) {
+	matches.down = matches.downconcat(dwm[1]);
+
+	dwm = numReg.exec(dwnStr);
+      }
+
+    } else {
+      var reg = new RegExp(/(\d+)-/g);
+      let m = reg.exec(clue);
+
+      while (m) {
+	if (am) {
+	  matches.across = matches.across.concat(m[1]);
+	} else {
+	  matches.down = matches.down.concat(m[1]);
+	}
+	m = reg.exec(clue);
+      }
+    }
+
+    return matches;
+  }
+  
   renderBody() {
     if (this.state.showPuzzleList) {
       return (
@@ -1501,6 +1558,16 @@ export default class Puzzle extends React.Component {
       const acrossNumber = this.findSelectedClue(direction.ACROSS);
       const downNumber = this.findSelectedClue(direction.DOWN);
 
+      const acrossClue = this.state.acrossClues[this.state.acrossNumbers.indexOf(acrossNumber)];
+      const downClue = this.state.downClues[this.state.downNumbers.indexOf(downNumber)];
+
+      let matches = [];
+      if (this.state.gridDirection === direction.ACROSS) {
+	matches = this.findMatches(acrossClue);
+      } else {
+	matches = this.findMatches(downClue);
+      }	
+
       return (
         <div className="PuzzleBody">
           <div className="PuzzleGrid">
@@ -1519,6 +1586,8 @@ export default class Puzzle extends React.Component {
               circledClues={this.state.circledClues}
 	      inputState={this.state.inputState}
 	      showWrongAnswers={this.state.preferences.showWrongAnswers}
+	      downAlternates={matches.down}
+	      acrossAlternates={matches.across}
             />
           <ClueList
             obscured={this.state.showModal}
@@ -1530,6 +1599,7 @@ export default class Puzzle extends React.Component {
             primary={this.state.gridDirection === direction.ACROSS}
             onClueClicked={this.onClueClicked}
             gridHeight={this.state.gridHeight}
+   	    alternates={matches.across}
           />
           <ClueList
             obscured={this.state.showModal}
@@ -1541,6 +1611,7 @@ export default class Puzzle extends React.Component {
             primary={this.state.gridDirection === direction.DOWN}
             onClueClicked={this.onClueClicked}
             gridHeight={this.state.gridHeight}
+   	    alternates={matches.down}
           />
           </div>
         </div>

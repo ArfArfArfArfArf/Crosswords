@@ -25,8 +25,14 @@
 .ClueList .primary {
   background-color: lightblue;
 }
+.ClueList .secondary {
+  background-color: lightgrey;
+}
+.ClueList .offclue {
+  border-left: 2px solid blue;
+}
 .ClueList .selected {
-  background-color: #add8e6;
+  border-left: 2px solid blue;
 }
 .ClueList .obscured {
   color: transparent;
@@ -436,11 +442,18 @@ input:focus {
 }
 
 .highlighted {
-  background-color: lightgrey;
+  background-color: lightblue;
+  color: black;
 }
 
 .selected {
-  background-color: #add8e6;
+  background-color: blue;
+  color: white;
+}
+
+.alternate {
+  background-color: lightgrey;
+  color: black;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -23,6 +23,8 @@ export default class PuzzleGrid extends React.Component {
       .isRequired,
     inputState: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
     showWrongAnswers: PropTypes.bool.isRequired,
+    downAlternates: PropTypes.arrayOf(PropTypes.string),
+    acrossAlternates: PropTypes.arrayOf(PropTypes.string),
   };
 
   constructor(props) {
@@ -33,6 +35,45 @@ export default class PuzzleGrid extends React.Component {
 
   isSelectedInput(x, y) {
     return this.props.selectedY === y && this.props.selectedX === x;
+  }
+
+  isInAlternateWord(x,y) {
+    const { acrossAlternates, downAlternates, gridSolution, clueNumbers } = this.props;
+
+    if (gridSolution[y][x] === '.') {
+      return false;
+    }
+    
+    if (acrossAlternates) {
+      let nx = x;
+
+      while (nx > -1 && gridSolution[y][nx] !== '.') {
+	--nx;
+      }
+
+      ++nx;
+
+      if (-1 !== acrossAlternates.findIndex(i => i === clueNumbers[y][nx].toString())) {
+	return true;
+      }
+    }
+
+    if (downAlternates) {
+      let ny = y;
+
+      while (ny > -1 && gridSolution[ny][x] !== '.') {
+	ny--;
+      }
+
+      ++ny;
+      console.log("NY: " + ny + ", x: " + x);
+      console.log(clueNumbers[ny][x]);
+      if (-1 !== downAlternates.findIndex(i => i === clueNumbers[ny][x].toString())) {
+	return true;
+      }
+    }
+    
+    return false;
   }
 
   isInCurrentWord(x, y) {
@@ -124,6 +165,7 @@ export default class PuzzleGrid extends React.Component {
         <PuzzleGridCell
           inCurrentWord={this.isInCurrentWord(j, i)}
           isSelectedInput={this.isSelectedInput(j, i)}
+	  inAlternateWord={this.isInAlternateWord(j,i)}
           userValue={this.props.userInput[i][j]}
           correctValue={this.props.gridSolution[i][j]}
           clueNumber={this.props.clueNumbers[i][j].toString()}

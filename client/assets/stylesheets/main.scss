@@ -14,9 +14,16 @@
 }
 
 .highlighted {
-  background-color: lightgrey;
+  background-color: lightblue;
+  color: black;
 }
 
 .selected {
-  background-color: #add8e6;
+  background-color: blue;
+  color: white;
+}
+
+.alternate {
+  background-color: lightgrey;
+  color: black;
 }

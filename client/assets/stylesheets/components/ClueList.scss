@@ -28,8 +28,16 @@
     background-color: lightblue;
   }
 
+  .secondary {
+    background-color: lightgrey;
+  }
+
+  .offclue {
+    border-left: 2px solid blue;
+  }
+
   .selected {
-    background-color: #add8e6;
+      border-left: 2px solid blue;
   }
 
   .obscured {

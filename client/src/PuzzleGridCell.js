@@ -172,6 +172,11 @@ export default class PuzzleGridCell extends React.Component {
       valueClassName += " highlighted";
     }
 
+    if (this.props.inAlternateWord) {
+      className += " alternate";
+      valueClassName += " alternate";
+    }
+    
     if (userValue === ".") {
       className += " black";
       cellValue = "";
