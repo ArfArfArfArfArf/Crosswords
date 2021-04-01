@@ -9,6 +9,10 @@
   color: transparent;
   text-shadow: 0 0 0 black;
 
+  input {
+      padding: 0;
+  }
+  
   .circled {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -43,6 +47,7 @@ input:focus {
   color: transparent;
   text-shadow: 0 0 0 red;
 }
+
 .incorrect {
   background: linear-gradient(to top left,
              rgba(255,0,0,0) 0%,

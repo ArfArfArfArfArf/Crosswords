@@ -333,6 +333,9 @@
   color: transparent;
   text-shadow: 0 0 0 black;
 }
+.GridCell input {
+  padding: 0;
+}
 .GridCell .circled {
   grid-column-start: 1;
   grid-column-end: 2;

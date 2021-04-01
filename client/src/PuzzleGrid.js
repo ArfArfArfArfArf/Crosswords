@@ -66,8 +66,6 @@ export default class PuzzleGrid extends React.Component {
       }
 
       ++ny;
-      console.log("NY: " + ny + ", x: " + x);
-      console.log(clueNumbers[ny][x]);
       if (-1 !== downAlternates.findIndex(i => i === clueNumbers[ny][x].toString())) {
 	return true;
       }
