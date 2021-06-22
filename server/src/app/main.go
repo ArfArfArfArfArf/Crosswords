@@ -147,7 +147,7 @@ func findWSJUrl(date string) (string, error) {
 	
 	t := time.Date(year, time.Month(month), monthDay, 12, 0, 0, 0, time.UTC)
 
-	reg := `a.*href="(.*)">.*` + t.Weekday().String() + `.*Crossword.*` + strconv.Itoa(monthDay) + `\)`
+	reg := `a.*href="(.*)"><span.*` + t.Weekday().String() + `.*Crossword.*` + strconv.Itoa(monthDay) + `\)`
 
 	log.Println("REG: " + reg)
 	
@@ -301,9 +301,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36")
 	req.Header.Set("Accept", "*/*")
-	req.Header.Set("Accept-Encoding", "*")
-	req.Header.Set("Accept-Charset", "*")
-	req.Header.Set("Accept-Language", "*")
+
+	req.Close = true
 	
 	var resp *http.Response
 	
@@ -313,7 +312,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Println("Error: " + err.Error())
 			http.Error(w, err.Error(), http.StatusNotFound)
-			return;
+			return
 		}
 
 		if (loopR.StatusCode == 301) {
@@ -321,11 +320,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			log.Println("Redirect: " + url)
 			req, err = http.NewRequest("GET", url, nil)
 		} else if (loopR.StatusCode == 200) {
-			resp = loopR;
+			resp = loopR
 		} else {
 			log.Println("Unknown Error: " + strconv.Itoa(loopR.StatusCode))
 			http.Error(w, "Unknown error", http.StatusNotFound)
-			return;
+			return
 		}
 	}
 
